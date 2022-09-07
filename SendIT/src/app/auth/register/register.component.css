@@ -1,0 +1,100 @@
+
+.register{
+
+    display: flex;
+}
+
+
+.register-form{
+
+    background-color: #F9E57C;
+
+    height: 100vh;
+
+    margin: 10px;
+
+    width: 500px;
+}
+
+.header{
+
+    height: 130px;
+
+    width: 400px;
+
+    background-color:#82D78A ;
+
+    margin: 30px;
+}
+
+.header span{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    font-size: 18px;
+
+    width: 70%;
+    color: #fff;
+}
+
+form{
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin:0px 70px;
+
+    
+}
+
+label{
+
+    margin: 10px;
+
+    color: #82D78A;
+}
+
+form input{
+
+    padding: 5px;
+
+    border: none;
+
+    border-radius: 5px;
+}
+
+.btn-register{
+
+    margin-top: 20px;
+
+    border: none;
+
+    padding: 10px;
+
+    background-color: #D78287;
+
+    color: #fff;
+}
+
+.already-have-account{
+
+    margin-left: 50px;
+
+    color: #82D78A;
+
+    cursor: pointer;
+}
+
+a{
+
+    color: inherit;
+
+    text-decoration: none;
+}

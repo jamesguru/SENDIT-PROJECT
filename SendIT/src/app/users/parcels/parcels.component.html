@@ -1,0 +1,279 @@
+<div class="parcels">
+
+    <div class="parcels-quote-list">
+
+        <fa-icon [icon]="faHambuger" class="hambuger-icon" (click)="ShowMenuBar('open')" ></fa-icon>
+
+
+        <div class="parcel-header">
+
+            <h2>YOUR ORDERS</h2>
+
+
+
+            <div class="convert">
+
+                <div class="convert-head">
+
+                    <span>Weight(kg)</span>
+
+                    <span>To</span>
+
+                    <span>Cost(ksh)</span>
+                </div>
+
+                <div class="convert-body">
+
+                    <input type="number" [(ngModel)] = "weight" name="weight">
+
+                    <input type="number" [(ngModel)] = "cost" name="cost">
+                </div>
+
+                <button class="btn-convert" (click)="convert()">
+                    Convert
+                </button>
+
+
+            </div>
+        </div>
+
+
+       <div class="orders-table">
+
+
+        <div class="orders-head">
+
+            <span>PARCEL ID</span>
+
+            <span>LOCATION</span>
+
+            <span>DESTINATION</span>
+
+            <span>COST</span>
+
+            <span>WEIGHT</span>
+
+            <span>STATUS</span>
+
+            <span>TRACK</span>
+        </div>
+
+
+        <div class="select">
+
+
+            <select name="" id="">
+
+                <option value="">select</option>
+                <option value="">From me</option>
+                <option value="">To me</option>
+            </select>
+        </div>
+
+
+        <div class="orders-body">
+
+            <div class="orders-item">
+            <span>4571818181</span>
+
+            <span>Nairobi</span>
+
+            <span>Kisumu</span>
+
+            <span>ksh 200</span>
+
+            <span>2kg</span>
+
+           <button class="orders-item-btn">pending</button>
+
+           <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
+            </div>
+
+
+            <div class="orders-item" >
+                <span>4571818181</span>
+    
+                <span>Nairobi</span>
+    
+                <span>Kisumu</span>
+    
+                <span>ksh 200</span>
+    
+                <span>2kg</span>
+    
+               <button  class="orders-item-delivered"> DELIVERED</button>
+
+
+               <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
+                </div>
+        </div>
+
+
+        
+
+
+       </div>
+
+
+    </div>
+
+
+    <div class="notification-map">
+
+
+        <div class="notification-header">
+
+           
+
+
+            <div class="notify">
+
+                <fa-icon [icon]="faBell"  ></fa-icon>
+
+                <span class="notify-number">3</span>
+
+
+            </div>
+                
+
+                
+
+                <span>Notifications</span>
+
+
+           
+
+
+        </div>
+
+
+        <div class="notifications">
+
+
+            <div class="notifications-body">
+            <div class="notifications-card">
+                    <span>Your order 34526227772 has been delivered.</span>
+                
+
+                <fa-icon [icon]="faCancel" class="delete-notification"></fa-icon>
+            </div>
+
+            <div class="notifications-card">
+
+                <span>Your order 34526227772 has been delivered.</span>
+
+                <fa-icon [icon]="faCancel"  class="delete-notification" ></fa-icon>
+            </div>
+
+            <div class="notifications-card">
+
+                <span>Your order 34526227772 has been delivered.</span>
+
+                <fa-icon [icon]="faCancel"  class="delete-notification"></fa-icon>
+            </div>    
+
+
+        </div>
+
+
+
+
+
+    </div>
+        <div class="map">
+
+
+
+           <img src="../../../assets/maps-broadcom.png" alt="">
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<div class="menu-bar" *ngIf="showMenuBar">
+
+    <fa-icon [icon]="faCancel" class="close" (click)="ShowMenuBar('close')"></fa-icon>
+
+
+
+    <div class="profile">
+
+
+        <fa-icon [icon]="faUser" class="user-icon" (click)="ShowMenuBar('close')"></fa-icon>
+
+        <span class="name">Name: James Kagunga</span>
+
+        <span>Orders</span>
+
+        <span>Settings</span>
+
+        <span>Track orders</span>
+
+        <span>My Parcels</span>
+
+
+        <span>Logout</span>
+
+
+    </div>
+    
+
+
+</div>
+
+
+
+<div class="show-map" *ngIf="openMap">
+
+
+    <div class="map-item" >
+
+
+
+        <div class="close-map">
+
+            <fa-icon [icon]="faCancel" (click) = "showMap('close')"></fa-icon>
+
+        </div>
+
+
+        <div class="map-details">
+
+            <div class="details">
+
+                <ul>
+
+                    <li>Location :Nakuru</li>
+
+                    <li>Destination:Mombasa</li>
+
+                    <li>Track ID :67272728282</li>
+
+                    <li>Status:pending</li>
+
+                    <li>Dispute :None</li>
+
+                    
+                </ul>
+
+            </div>
+
+
+            <div class="track-map">
+
+
+                <img src="../../../assets/maps-broadcom.png" alt="">
+            </div>
+        </div>
+        
+
+
+
+    </div>
+
+
+
+</div>
