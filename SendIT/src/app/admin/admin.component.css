@@ -1,0 +1,468 @@
+.admin{
+
+    display: flex;
+
+    position: relative;
+}
+
+.menubar{
+
+    flex: 1;
+
+    background-color: #F9E57C;
+
+    height: 100vh;
+}
+
+
+.notifications{
+
+    
+
+    background-color: #82D78A;
+
+    margin: 10px;
+
+    height: 30%;
+
+    width: 80%;
+
+    color: #fff;
+}
+
+.notifications span{
+
+    margin: 10px;
+}
+.notify{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 30px;
+
+    color: #fff;
+
+    
+    font-size: 18px;
+    
+}
+.notify-icon{
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+
+.menubar-btn{
+
+
+    display: flex;
+
+    flex-direction: column;
+
+
+    width: 200px;
+
+    margin: 20px;
+}
+
+
+.menubar-btn button{
+
+margin: 9%;
+
+background-color: #82D78A;
+
+padding: 10px;
+
+border: none;
+
+color: #fff;
+
+cursor: pointer;
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+}
+
+
+.menubar-btn button:last-child{
+
+    background-color: #D78287;
+}
+
+
+.main-body{
+
+    flex: 4;
+
+    
+}
+
+.header{
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #82D78A;
+}
+
+.stat{
+
+    display: flex;
+
+    align-items: center;
+
+    
+}
+
+.stat-card{
+
+    height: 150px;
+
+    width: 300px;
+
+    background-color: #82D78A;
+
+    border-radius: 10px;
+
+    margin: 10px;
+
+    color: #fff;
+}
+
+.body{
+
+    display: flex;
+    font-size: 20px;
+
+    flex-direction: column;
+
+    margin: 10%;
+
+    
+}
+
+
+.body span{
+
+    font-size: 25px;
+}
+
+.stat-users{
+
+    color: #fff;
+
+    background-color: #D78287;
+
+    height: 150px;
+
+    width: 250px;
+}
+
+.parcel-header{
+
+
+    height: 120px;
+
+    width: 85%;
+
+    margin: 20px;
+
+    border-radius: 10px;
+
+    background-color: #F9E57C;
+}
+
+.head{
+
+    display: flex;
+
+    justify-content: space-evenly;
+
+    padding: 10px;
+
+    font-size: 16px;
+
+    
+}
+
+.head span{
+
+    color: #82D78A;
+}
+
+.head span:nth-child(1){
+
+    color: #D78287;
+}
+
+.head span:nth-child(3){
+
+    color: #D78287;
+}
+
+.head span:nth-child(5){
+
+    color: #D78287;
+}
+
+.head span:last-child{
+
+
+    background-color: #D78287;
+
+    padding: 5px;
+
+    color: #fff;
+}
+
+.search{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    
+}
+
+.search input{
+
+    width: 60%;
+
+    border: none;
+
+    padding: 10px;
+
+    border-radius: 10px;
+}
+
+
+.parcels{
+
+    margin-top: 50px;
+}
+
+.parcel-item{
+
+    display: flex;
+
+    justify-content: space-evenly;
+
+    color: #4B4242;
+
+    margin: 10px;
+}
+
+.btn-update{
+
+    border: none;
+
+    padding: 5px;
+    background-color: #D78287;
+
+    color: #fff;
+
+}
+
+.btn-delivered{
+
+    border: none;
+}
+
+
+.add-parcel{
+
+    background-color: rgba(0,0,0,0.4);
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    height: 100%;
+
+    width: 100%;
+}
+
+.add-parcel-body{
+
+    
+
+    height: 85%;
+
+    width: 80%;
+
+    background-color: #fff;
+
+    margin: 5% auto;
+
+
+}
+
+.close{
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    color: red;
+
+    font-size: 30px;
+
+    margin: 20px;
+
+}
+.space{
+
+    padding: 0.5px;
+}
+
+.parcel-item{
+
+
+    display: flex;
+
+    align-items: center;
+
+    
+}
+
+.add-parcel-item{
+
+
+    height: 80%;
+
+    width: 50%;
+
+    background-color: #82D78A;
+
+    margin: 5px;
+
+    border-radius: 10px;
+}
+
+.add-parcel-item-head{
+
+    width: 80%;
+
+    height: 5%;
+
+    margin: 5px auto;
+
+   display: flex;
+
+   align-items: center;
+
+   justify-content: center;
+
+    background-color: #F9E57C;
+}
+
+.add-parcel-item-head-title{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #D78287;
+
+    margin: 10px;
+}
+
+
+form{
+
+    display: flex;
+
+    flex-direction: column;
+
+    color: #fff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.input-item{
+
+    width: 60%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 9px;
+
+
+}
+
+.input-item input{
+
+    border: none;
+}
+
+form button{
+
+    background-color: #D78287;
+
+    margin: 20px;
+
+    border: none;
+
+    padding: 10px;
+
+    width: 250px;
+
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.location-head{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+}
+
+.location-input{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.location-input input{
+
+    width: 100px;
+
+    margin: 10px;
+
+    border: none;
+}

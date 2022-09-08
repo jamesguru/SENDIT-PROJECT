@@ -1,0 +1,368 @@
+<div class="admin">
+
+
+    <div class="menubar">
+
+
+        <div class="notifications">
+
+
+
+            <div class="notify">
+
+
+                <fa-icon [icon] ="faBell" class="notify-icon" ></fa-icon>
+
+                <span>Notifications</span>
+
+                
+
+
+            </div>
+
+            <span>Daniel raised dispute the order 67862524256.</span>
+
+
+        </div>
+
+        <div class="menubar-btn">
+
+
+
+        <button class="create-orders" (click) = "showAddParcel('open')">Create orders  <fa-icon [icon] ="faArrowRight" class="notify-icon" ></fa-icon></button>
+
+
+        <button class="notify-btn"><fa-icon [icon] ="faBell" class="notify-icon" ></fa-icon> Notifications</button>
+
+        <button class="orders" >Orders</button>
+
+        <button class="cancelled-orders">Cancelled orders <fa-icon [icon] ="faCancel" class="notify-icon" ></fa-icon></button>
+
+        <button class="logout-btn">Logout</button>
+
+
+
+
+
+        </div>
+
+        
+
+
+
+    </div>
+
+    <div class="main-body">
+
+
+        <div class="header">
+
+            <h1>ADMIN DASHBOARD</h1>
+        </div>
+
+
+        <div class="stat">
+
+
+
+            <div class="stat-card">
+
+                <div class="body">
+
+                    <span>DELIVERED PARCELS</span>
+
+                    <span>205</span>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="body">
+
+                    <span>PENDING PARCELS</span>
+
+                    <span>100</span>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="stat-users">
+
+                <div class="body">
+
+                    <span>USERS</span>
+
+                    <span>1500</span>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="parcel-header">
+
+
+            <div class="head">
+
+                <span>Name</span>
+
+                <span>Parcel ID</span>
+
+                <span>Location</span>
+
+                <span>Destination</span>
+
+                <span>Status</span>
+
+                <span>Update</span>
+            </div>
+
+
+            <div class="search">
+
+
+                <input type="text" placeholder="search">
+            </div>
+
+            <div class="parcels">
+
+                <div class="parcel-item">
+        
+        
+                    
+        
+                        <span>James</span>
+        
+                        <span>56717178</span>
+        
+                        <span>Nairobi</span>
+        
+                        <span>Kisumu</span>
+
+                        <span class="pending">pending</span>
+        
+                        <button class="btn-update">Update</button>
+        
+                </div>
+        
+                <div class="parcel-item">
+        
+        
+                    <span>Judy</span>
+        
+                        <span>98276262</span>
+        
+                        <span>Nyeri</span>
+        
+                        <span>Nakuru</span>
+        
+                        <span class="delivered">delivered</span>
+        
+                        <button class="btn-delivered">Delivered</button>
+        
+                </div>
+
+
+                <div class="parcel-item">
+        
+        
+                    
+        
+                    <span>James</span>
+    
+                    <span>56717178</span>
+    
+                    <span>Nairobi</span>
+    
+                    <span>Kisumu</span>
+
+                    <span class="pending">pending</span>
+    
+                    <button class="btn-update">Update</button>
+    
+            </div>
+
+            <div class="parcel-item">
+        
+        
+                <span>Judy</span>
+    
+                    <span>98276262</span>
+    
+                    <span>Nyeri</span>
+    
+                    <span>Nakuru</span>
+    
+                    <span class="delivered">delivered</span>
+    
+                    <button class="btn-delivered">Delivered</button>
+    
+            </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    
+</div>
+
+
+
+<div class="add-parcel" *ngIf="openAddModal">
+
+
+    <div class="add-parcel-body">
+
+
+        <div class="close">
+
+            <fa-icon [icon] ="faCancel" class="notify-icon" (click) = "showAddParcel('close')"></fa-icon>
+        </div>
+
+
+        <div class="parcel-item">
+
+       
+        
+
+        <div class="add-parcel-item">
+
+
+            <div class="space">
+
+
+            </div>
+
+
+           
+
+
+            <div class="add-parcel-item-head">
+
+
+
+                <div class="add-parcel-item-head-title">
+
+                    <h3>Create Order</h3>
+                </div>
+
+           
+            
+
+        </div>
+
+            <form action="">
+
+
+                    <div class="input-item">
+
+                        <label for="">Name</label>
+
+                        <input type="text">
+                    </div>
+
+                    <div class="input-item">
+
+                        <label for="">Email</label>
+
+                        <input type="text">
+                    </div>
+
+                    <div class="input-item">
+
+                        <label for="">Parcel Name</label>
+
+                        <input type="text">
+                    </div>
+
+                    <div class="input-item">
+
+                        <label for="">Weight</label>
+
+                        <input type="text">
+                    </div>
+
+
+
+
+                    <div class="input-item">
+
+
+                        <label for="">Location</label>
+
+                        <div class="location">
+
+                            <div class="location-head">
+                                <span>From</span>
+    
+                                <span>To</span>
+                            </div>
+    
+    
+                            <div class="location-input">
+    
+    
+                                <input type="text">
+    
+                                <input type="text">
+    
+                            </div>
+                        </div>
+
+
+                    </div>
+                    
+
+                    <div class="input-item">
+
+                        <label for="">Date</label>
+
+                        <input type="date">
+                    </div>
+
+
+                    <button class="add-btn">Submit</button>
+
+            </form>
+
+
+
+        </div>
+
+
+        <div class="image">
+
+
+
+            <img src="../../assets/maps-broadcom.png" alt="" height="400px" width="400px">
+        </div>
+        
+
+     </div>
+
+        
+
+    </div>
+
+
+    
+
+
+</div>
