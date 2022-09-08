@@ -6,7 +6,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { ParcelsComponent } from './parcels/parcels.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     UsersRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule
   ]
 })
 export class UsersModule { }

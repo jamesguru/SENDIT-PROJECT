@@ -57,7 +57,7 @@
 
         <div class="header">
 
-            <h1>ADMIN DASHBOARD</h1>
+            <h2>ADMIN DASHBOARD</h2>
         </div>
 
 
@@ -211,6 +211,26 @@
                     <button class="btn-delivered">Delivered</button>
     
             </div>
+
+
+            <div class="parcel-item">
+        
+        
+                    
+        
+                <span>James</span>
+
+                <span>56717178</span>
+
+                <span>Nairobi</span>
+
+                <span>Kisumu</span>
+
+                <span class="pending">pending</span>
+
+                <button class="btn-update">Update</button>
+
+        </div>
             </div>
 
 
@@ -334,7 +354,7 @@
 
                         <label for="">Date</label>
 
-                        <input type="date">
+                        <input type="date" class="date">
                     </div>
 
 
@@ -347,14 +367,29 @@
         </div>
 
 
-        <div class="image">
+        <div class="my-google-map">
 
 
+            
 
-            <img src="../../assets/maps-broadcom.png" alt="" height="400px" width="400px">
+
+            <google-map  width="600px" height="450px"
+            
+            [center]="center"
+            [zoom]="zoom"
+        
+        
+            (mapClick)="addMarker($event)"
+            
+            >
+        
+            <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"[options]="markerOptions"></map-marker>
+        
+        
+        
+        </google-map>
         </div>
         
-
      </div>
 
         
@@ -366,3 +401,5 @@
 
 
 </div>
+
+

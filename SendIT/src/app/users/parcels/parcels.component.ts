@@ -9,12 +9,46 @@ import {faBarChart, faBars, faClose,faUser,faBell, faLocationPin} from '@fortawe
 export class ParcelsComponent implements OnInit {
 
 
-  faHambuger = faBars;
-  faCancel=faClose;
+  center: google.maps.LatLngLiteral = {lat: -0.32984428475063204, lng: 36.097950790026374};
+  zoom = 4;
+  markerOptions: google.maps.MarkerOptions = {draggable: false};
+  markerPositions: google.maps.LatLngLiteral[] = [
+    
+    
+    {
 
-  weight:number=0;
 
-  cost:number=0;
+    lat:-0.32984428475063204,
+  
+    lng: 36.097950790026374,
+  
+  
+   },
+
+
+   {
+
+
+    lat: -0.3803804260223133,
+
+    lng: 35.945515487292
+  
+  
+   }
+  
+  
+  
+  
+  
+  ];
+  
+
+faHambuger = faBars;
+faCancel=faClose;
+
+weight:number=0;
+
+cost:number=0;
 
 faUser = faUser;
 
@@ -59,6 +93,9 @@ showMenuBar:boolean = false;
   }
 
 
+  
+
+
   showMap(condition:string){
 
     if(condition === "close"){
@@ -69,6 +106,19 @@ showMenuBar:boolean = false;
     }else{
 
       this.openMap=true;
+    }
+  }
+
+
+  addMarker(event: google.maps.MapMouseEvent | any) {
+    this.markerPositions.push(event.latLng.toJSON());
+
+
+    for(let i=0; i<this.markerPositions.length;i++){
+
+      console.log( JSON.stringify(this.markerPositions[i]))
+
+     
     }
   }
 

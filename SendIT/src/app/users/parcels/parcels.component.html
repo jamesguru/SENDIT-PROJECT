@@ -180,12 +180,28 @@
 
 
     </div>
-        <div class="map">
+    <div class="my-google-map">
 
 
+            
 
-           <img src="../../../assets/maps-broadcom.png" alt="">
-        </div>
+
+        <google-map  width="300px" height="320px"
+        
+        [center]="center"
+        [zoom]="zoom"
+    
+    
+        (mapClick)="addMarker($event)"
+        
+        >
+    
+        <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"[options]="markerOptions"></map-marker>
+    
+    
+    
+    </google-map>
+    </div>
 
 
     </div>
@@ -265,7 +281,28 @@
             <div class="track-map">
 
 
-                <img src="../../../assets/maps-broadcom.png" alt="">
+                <div class="my-google-map">
+
+
+            
+
+
+                    <google-map  width="600px" height="430px"
+                    
+                    [center]="center"
+                    [zoom]="zoom"
+                
+                
+                    (mapClick)="addMarker($event)"
+                    
+                    >
+                
+                    <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"[options]="markerOptions"></map-marker>
+                
+                
+                
+                </google-map>
+                </div>
             </div>
         </div>
         
