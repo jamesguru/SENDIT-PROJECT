@@ -1,0 +1,57 @@
+.error{
+
+    width: 100vw;
+
+    height: 100vh;
+
+   background-color: rgba(0, 0, 0, 0.4);
+
+
+   position: absolute;
+
+   top: 0;
+
+   left: 0;
+}
+
+.message{
+
+  
+    margin: 20% auto;
+
+    height: 200px;
+
+    width: 400px;
+
+    font-size: 15px;
+
+    background-color: #fff;
+
+    color: green;
+}
+
+.message-item{
+
+  height: 100%;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  
+}
+
+.cancel{
+
+    display: flex;
+    justify-content: flex-end;
+
+    color: red;
+    font-size: 25px;
+    margin-top: 1px;
+}
+

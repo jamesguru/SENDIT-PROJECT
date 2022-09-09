@@ -13,32 +13,12 @@ export class AdminComponent implements OnInit {
 
   
   center: google.maps.LatLngLiteral = {lat: 1, lng: 38};
-  zoom = 4;
+  zoom = 8;
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: google.maps.LatLngLiteral[] = [
     
     
-    {
-
-
-    lat:-0.32984428475063204,
-  
-    lng: 36.097950790026374,
-  
-  
-   },
-
-
-   {
-
-
-    lat: -0.3803804260223133,
-
-    lng: 35.945515487292
-  
-  
-   }
-  
+    
   
   
   
@@ -100,7 +80,7 @@ export class AdminComponent implements OnInit {
 
     for(let i=0; i<this.markerPositions.length;i++){
 
-      console.log( JSON.stringify(this.markerPositions[i]))
+      console.log( JSON.stringify(this.markerPositions))
 
      
     }
