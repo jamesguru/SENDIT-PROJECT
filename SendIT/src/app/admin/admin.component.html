@@ -230,16 +230,48 @@
 
                 <button class="btn-update">Update</button>
 
-        </div>
+            </div>
+
+            <div class="parcel-item">
+        
+        
+                    
+        
+                <span>James</span>
+
+                <span>56717178</span>
+
+                <span>Nairobi</span>
+
+                <span>Kisumu</span>
+
+                <span class="pending">pending</span>
+
+                <button class="btn-update">Update</button>
+
+            </div>
+
+            
+
+
+            <div class="list">
+                <ul >
+                    <li *ngFor="let item of collection | paginate: { itemsPerPage: 5, currentPage: p }"></li>
+                </ul>
+        
+                <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+            </div>
             </div>
 
 
 
         </div>
 
+        
+
     </div>
 
-
+    
     
 </div>
 
@@ -401,5 +433,7 @@
 
 
 </div>
+
+
 
 

@@ -7,7 +7,7 @@ import { ParcelsComponent } from './parcels/parcels.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     
@@ -18,7 +18,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     UsersRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    NgxPaginationModule
   ]
 })
 export class UsersModule { }

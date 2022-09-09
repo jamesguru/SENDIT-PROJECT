@@ -62,6 +62,9 @@ faMapLocation= faLocationPin;
 
 showMenuBar:boolean = false;
 
+p: number = 1;
+  collection: any[] = []; 
+
 
   constructor() { }
 

@@ -105,10 +105,52 @@
 
 
                <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
-                </div>
+         </div>
+
+         <div class="orders-item" >
+            <span>4571818181</span>
+
+            <span>Nairobi</span>
+
+            <span>Kisumu</span>
+
+            <span>ksh 200</span>
+
+            <span>2kg</span>
+
+           <button  class="orders-item-delivered"> DELIVERED</button>
+
+
+           <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
+     </div>
+
+     <div class="orders-item" >
+        <span>4571818181</span>
+
+        <span>Nairobi</span>
+
+        <span>Kisumu</span>
+
+        <span>ksh 200</span>
+
+        <span>2kg</span>
+
+       <button  class="orders-item-delivered"> DELIVERED</button>
+
+
+       <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
+ </div>
+
+ 
         </div>
 
-
+        <div class="list">
+            <ul >
+                <li *ngFor="let item of collection | paginate: { itemsPerPage: 5, currentPage: p }"></li>
+            </ul>
+    
+            <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+        </div>
         
 
 
@@ -287,7 +329,7 @@
             
 
 
-                    <google-map  width="600px" height="430px"
+                    <google-map  width="800px" height="430px"
                     
                     [center]="center"
                     [zoom]="zoom"

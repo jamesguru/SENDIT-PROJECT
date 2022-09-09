@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {faBell,faArrowRight,faCancel,faClose} from '@fortawesome/free-solid-svg-icons'
+import {NgxPaginationModule} from 'ngx-pagination'; 
+
 
 @Component({
   selector: 'app-admin',
@@ -10,7 +12,7 @@ export class AdminComponent implements OnInit {
 
 
   
-  center: google.maps.LatLngLiteral = {lat: -0.32984428475063204, lng: 36.097950790026374};
+  center: google.maps.LatLngLiteral = {lat: 1, lng: 38};
   zoom = 4;
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: google.maps.LatLngLiteral[] = [
@@ -44,14 +46,21 @@ export class AdminComponent implements OnInit {
   ];
   
  
-
+  p: number = 1;
+  collection: any[] = []; 
   
   faBell=faBell;
   faArrowRight=faArrowRight;
   faCancel=faClose;
   openAddModal:boolean = false;
 
-  constructor() { }
+  constructor() {
+
+
+    
+
+
+   }
 
   ngOnInit(): void {
   }

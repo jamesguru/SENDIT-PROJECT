@@ -397,9 +397,9 @@ fa-icon{
 
 .map-item{
 
-    height: 550px;
+    height: 530px;
 
-    width: 70%;
+    width: 90%;
 
     
 
@@ -468,6 +468,31 @@ fa-icon{
 
     object-fit: cover;
 }
+
+.list {
+    max-width: 100%;
+    display: flex;
+
+    margin: 10px;
+
+    align-items: center;
+
+    justify-content: center;
+
+   
+    
+  }
+
+  .my-pagination ::ng-deep{
+    background: red;
+  }
+  .list-item{
+
+    color: #4B4242;
+  }
+  li {
+    margin-bottom: 5px;
+  }
 
 
 
