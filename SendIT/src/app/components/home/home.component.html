@@ -7,10 +7,10 @@
     <div class="image">
 
 
-        <img src="../../assets/Delivery-Service-Business-in-Dubai.jpg" alt="">
+        <img src="../../../assets/89626-order-delivery.gif" alt="">
 
 
-        <button>CALL US  <fa-icon [icon]="faPhone"></fa-icon></button>
+        <button>{{showNumber ? phone : 'CALL US'}} <fa-icon [icon]="faPhone" (click) ="showPhone()"></fa-icon></button>
 
     </div>
 
@@ -27,6 +27,6 @@
     </div>
 </div>
 
-<app-footer></app-footer>
 
-<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+

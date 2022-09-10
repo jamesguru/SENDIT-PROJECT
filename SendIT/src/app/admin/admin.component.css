@@ -304,13 +304,13 @@ justify-content: space-between;
 
     
 
-    height: 85%;
+    height: 100%;
 
     width: 80%;
 
     background-color: #fff;
 
-    margin: 5% auto;
+    margin: 0px auto;
 
 
 }
@@ -353,13 +353,11 @@ justify-content: space-between;
 .add-parcel-item{
 
 
-    height: 90%;
+    height: 100%;
 
-    width: 50%;
+    width: 60%;
 
     background-color: #82D78A;
-
-    margin: 5px;
 
     border-radius: 10px;
 
@@ -370,6 +368,8 @@ justify-content: space-between;
 .my-google-map{
 
     flex: 1.5;
+
+    margin: 10px;
 
 }
 
@@ -400,7 +400,7 @@ justify-content: space-between;
 
     color: #D78287;
 
-    margin: 10px;
+    
 }
 
 
@@ -478,7 +478,7 @@ form button{
 
     width: 100px;
 
-    margin: 10px;
+    margin: 5px;
 
     border: none;
 }

@@ -134,17 +134,15 @@
             <div class="search">
 
 
-                <input type="text" placeholder="search">
+                <input type="text" placeholder="search" [(ngModel)] ="filteredText">
             </div>
 
-            <div class="parcels">
+            <div class="parcels" *ngIf="parcels$ | async as parcels ">
 
-                <div class="parcel-item">
+
+                <div class="parcel-item" *ngFor="let parcel of parcels | paginate: { itemsPerPage: 4, currentPage: p } | search:filteredText ">
         
-        
-                    
-        
-                        <span>James</span>
+                     <span>James</span>
         
                         <span>56717178</span>
         
@@ -158,92 +156,9 @@
         
                 </div>
         
-                <div class="parcel-item">
-        
-        
-                    <span>Judy</span>
-        
-                        <span>98276262</span>
-        
-                        <span>Nyeri</span>
-        
-                        <span>Nakuru</span>
-        
-                        <span class="delivered">delivered</span>
-        
-                        <button class="btn-delivered">Delivered</button>
-        
-                </div>
-
-
-                <div class="parcel-item">
-        
-        
-                    
-        
-                    <span>James</span>
-    
-                    <span>56717178</span>
-    
-                    <span>Nairobi</span>
-    
-                    <span>Kisumu</span>
-
-                    <span class="pending">pending</span>
-    
-                    <button class="btn-update">Update</button>
-    
-            </div>
-
-            <div class="parcel-item">
-        
-        
-                <span>Judy</span>
-    
-                    <span>98276262</span>
-    
-                    <span>Nyeri</span>
-    
-                    <span>Nakuru</span>
-    
-                    <span class="delivered">delivered</span>
-    
-                    <button class="btn-delivered">Delivered</button>
-    
-            </div>
-
-
-            <div class="parcel-item">
-        
-        
-                    
-        
-                <span>James</span>
-
-                <span>56717178</span>
-
-                <span>Nairobi</span>
-
-                <span>Kisumu</span>
-
-                <span class="pending">pending</span>
-
-                <button class="btn-update">Update</button>
-
-            </div>
-
+                 <pagination-controls (pageChange)="p = $event" class="list"></pagination-controls>
             
-
             
-
-
-            <div class="list">
-                <ul >
-                    <li *ngFor="let item of collection | paginate: { itemsPerPage: 5, currentPage: p }"></li>
-                </ul>
-        
-                <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-            </div>
             </div>
 
 
@@ -305,24 +220,23 @@
 
             <form action="">
 
-
                     <div class="input-item">
 
-                        <label for="">Name</label>
+                        <label for="">Sender Email</label>
 
                         <input type="text">
                     </div>
 
                     <div class="input-item">
 
-                        <label for="">Email</label>
+                        <label for="">Receiver Email</label>
 
                         <input type="text">
                     </div>
 
                     <div class="input-item">
 
-                        <label for="">Parcel Name</label>
+                        <label for="">Track number</label>
 
                         <input type="text">
                     </div>
@@ -333,6 +247,14 @@
 
                         <input type="text">
                     </div>
+
+                    <div class="input-item">
+
+                        <label for="">Price</label>
+
+                        <input type="number">
+                    </div>
+
 
 
 

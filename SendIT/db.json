@@ -1,0 +1,129 @@
+{
+    "parcels": [
+      {
+        "id": 2,
+        "senderName": "Meeting at School",
+        "receiverName": "May 6th at 1:30pm",
+        "senderEmail": "jameskagunga15@gmail.com",
+
+        "receiverEmail":"collins@gmail.com",
+
+        "from":"Nakuru",
+
+        "to":"Njoro",
+
+        "dispatchedDate":"22-10-2021",
+
+        "deliveryDate":"2022-10-19",
+
+        "weight":20,
+
+        "price":20
+      },
+      {
+        "id": 2,
+        "senderName": "Meeting at School",
+        "receiverName": "May 6th at 1:30pm",
+        "senderEmail": "jameskagunga15@gmail.com",
+
+        "receiverEmail":"collins@gmail.com",
+
+        "from":"Nakuru",
+
+        "to":"Njoro",
+
+        "dispatchedDate":"22-10-2021",
+
+        "deliveryDate":"2022-10-19",
+
+        "weight":20,
+
+        "price":20
+      },
+      {
+        "id": 2,
+        "senderName": "Meeting at School",
+        "receiverName": "May 6th at 1:30pm",
+        "senderEmail": "jameskagunga15@gmail.com",
+
+        "receiverEmail":"collins@gmail.com",
+
+        "from":"Nakuru",
+
+        "to":"Njoro",
+
+        "dispatchedDate":"22-10-2021",
+
+        "deliveryDate":"2022-10-19",
+
+        "weight":20,
+
+        "price":20
+      },
+
+      {
+        "id": 2,
+        "senderName": "Meeting at School",
+        "receiverName": "May 6th at 1:30pm",
+        "senderEmail": "jameskagunga15@gmail.com",
+
+        "receiverEmail":"collins@gmail.com",
+
+        "from":"Nakuru",
+
+        "to":"Njoro",
+
+        "dispatchedDate":"22-10-2021",
+
+        "deliveryDate":"2022-10-19",
+
+        "weight":20,
+
+        "price":20
+      },
+
+      {
+        "id": 2,
+        "senderName": "Meeting at School",
+        "receiverName": "May 6th at 1:30pm",
+        "senderEmail": "jameskagunga15@gmail.com",
+
+        "receiverEmail":"collins@gmail.com",
+
+        "from":"Nakuru",
+
+        "to":"Njoro",
+
+        "dispatchedDate":"22-10-2021",
+
+        "deliveryDate":"2022-10-19",
+
+        "weight":20,
+
+        "price":20
+      },
+
+      {
+        "id": 2,
+        "senderName": "Meeting at School",
+        "receiverName": "May 6th at 1:30pm",
+        "senderEmail": "jameskagunga15@gmail.com",
+
+        "receiverEmail":"collins@gmail.com",
+
+        "from":"Nakuru",
+
+        "to":"Njoro",
+
+        "dispatchedDate":"22-10-2021",
+
+        "deliveryDate":"2022-10-19",
+
+        "weight":20,
+
+        "price":20
+      }
+    ]
+  }
+
+  

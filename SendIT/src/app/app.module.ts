@@ -11,10 +11,16 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
-import { FilterPipe } from './Pipes/filter.pipe';
-import { SearchPipe } from './Pipes/search.pipe';
+
 import { SharedModule } from './shared/shared.module';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { SearchPipe } from './pipes/search.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +28,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     FooterComponent,
     NavbarComponent,
     AboutComponent,
-    FilterPipe,
-    SearchPipe,
+    
+    
     
   ],
   imports: [
@@ -33,7 +39,16 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SharedModule,
     NgxSpinnerModule,
 
-    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+    HttpClientModule,
+
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+
+    StoreModule.forRoot({}, {}),
+
+    EffectsModule.forRoot([]),
+
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    
     
   ],
   providers: [],

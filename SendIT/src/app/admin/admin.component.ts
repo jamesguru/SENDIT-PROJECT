@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {faBell,faArrowRight,faCancel,faClose} from '@fortawesome/free-solid-svg-icons'
+import { Store } from '@ngrx/store';
 import {NgxPaginationModule} from 'ngx-pagination'; 
+import * as Actions from '../Reducer/actions/parcelsActions';
+import { getParcels } from '../Reducer/reducer/parcelsReducer';
 
 
 @Component({
@@ -13,19 +16,14 @@ export class AdminComponent implements OnInit {
 
   
   center: google.maps.LatLngLiteral = {lat: 1, lng: 38};
-  zoom = 8;
+  zoom = 6;
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: google.maps.LatLngLiteral[] = [
-    
-    
-    
-  
-  
-  
   
   ];
   
- 
+  parcels$ = this.store.select(getParcels);  
+  
   p: number = 1;
   collection: any[] = []; 
   
@@ -33,16 +31,18 @@ export class AdminComponent implements OnInit {
   faArrowRight=faArrowRight;
   faCancel=faClose;
   openAddModal:boolean = false;
+  filteredText:string ='';
 
-  constructor() {
-
+  constructor(private store:Store) {
 
     
-
-
+  
    }
 
   ngOnInit(): void {
+
+
+    this.loadParcels();
   }
 
 
@@ -68,7 +68,9 @@ export class AdminComponent implements OnInit {
   }
 
 
-
+  loadParcels() {
+    this.store.dispatch(Actions.LoadParcels());
+  }
   
 
 

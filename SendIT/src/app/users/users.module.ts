@@ -8,10 +8,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { StoreModule } from '@ngrx/store';
+import { ParcelReducer } from '../Reducer/reducer/parcelsReducer';
+import { EffectsFeatureModule, EffectsModule } from '@ngrx/effects';
+import { ParcelEffectsService } from '../Reducer/effects/parcelsEffects';
+import { FilterPipe } from '../pipes/filter.pipe';
 @NgModule({
   declarations: [
     
-    ParcelsComponent
+    ParcelsComponent,
+
+    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -19,7 +26,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FontAwesomeModule,
     FormsModule,
     GoogleMapsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+
+    StoreModule.forFeature('parcel',ParcelReducer),
+    EffectsModule.forFeature([ParcelEffectsService]),
+    
   ]
 })
 export class UsersModule { }

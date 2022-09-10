@@ -38,6 +38,8 @@
     font-size: 25px;
 
     cursor: pointer;
+
+    animation: progress 2s ease infinite alternate;
 }
 
 .image img{
@@ -108,5 +110,26 @@
     margin: 50px;
 
     cursor: pointer;
+
+    
+}
+
+
+@keyframes progress {
+
+
+    from{
+
+
+        opacity: 0;
+    }
+
+    to{
+
+
+        opacity: 1;
+
+    }
+    
 }
 

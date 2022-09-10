@@ -64,19 +64,19 @@
 
             <select name="" id="">
 
-                <option value="">select</option>
+                <option value="" selected disabled>select</option>
                 <option value="">From me</option>
                 <option value="">To me</option>
             </select>
         </div>
 
 
-        <div class="orders-body">
+        <div class="orders-body"  *ngIf="parcels$ | async as parcels">
 
-            <div class="orders-item">
+        <div class="orders-item" *ngFor="let parcel of parcels | paginate: { itemsPerPage: 4, currentPage: p }">
             <span>4571818181</span>
 
-            <span>Nairobi</span>
+            <span>{{parcel.id}}</span>
 
             <span>Kisumu</span>
 
@@ -87,70 +87,15 @@
            <button class="orders-item-btn">pending</button>
 
            <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
-            </div>
+        </div>
 
 
-            <div class="orders-item" >
-                <span>4571818181</span>
-    
-                <span>Nairobi</span>
-    
-                <span>Kisumu</span>
-    
-                <span>ksh 200</span>
-    
-                <span>2kg</span>
-    
-               <button  class="orders-item-delivered"> DELIVERED</button>
-
-
-               <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
-         </div>
-
-         <div class="orders-item" >
-            <span>4571818181</span>
-
-            <span>Nairobi</span>
-
-            <span>Kisumu</span>
-
-            <span>ksh 200</span>
-
-            <span>2kg</span>
-
-           <button  class="orders-item-delivered"> DELIVERED</button>
-
-
-           <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
-     </div>
-
-     <div class="orders-item" >
-        <span>4571818181</span>
-
-        <span>Nairobi</span>
-
-        <span>Kisumu</span>
-
-        <span>ksh 200</span>
-
-        <span>2kg</span>
-
-       <button  class="orders-item-delivered"> DELIVERED</button>
-
-
-       <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
- </div>
-
+           
+        <pagination-controls (pageChange)="p = $event" class="list"></pagination-controls>
  
         </div>
 
-        <div class="list">
-            <ul >
-                <li *ngFor="let item of collection | paginate: { itemsPerPage: 5, currentPage: p }"></li>
-            </ul>
-    
-            <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-        </div>
+        
         
 
 

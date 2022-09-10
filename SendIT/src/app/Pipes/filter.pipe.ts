@@ -1,22 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Parcel } from '../interfaces/Parcel';
 
 @Pipe({
-  name: 'searchfilter'
+  name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value:any, name:string): any{
-    if(value.length===0 || name===''){
-      name = name.toLowerCase();
+  transform(value:Parcel[], filterText:string): Parcel[]{
+    if(value.length=== 0 || filterText ===''){
       return value
     }
-    const parcels:any=[]
-    for (let parcel of value){
-   if (parcel.name.toLowerCase().indexOf(name)!=-1){
-    parcels.push(parcel)
-   }
+    const filtered:Parcel[]=[]
+    for(let item of value){
+      if(item.senderEmail.toLocaleLowerCase().indexOf(filterText.toLocaleLowerCase())!==-1){
+        filtered.push(item)
+      }
+    }
+    return filtered
   }
-  return parcels
-}
-
 }

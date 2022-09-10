@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {faPhone,faArrowRight, } from '@fortawesome/free-solid-svg-icons';
 
-import { NgxSpinnerService } from "ngx-spinner";
+
 import { Router } from '@angular/router';
 
 
@@ -17,19 +17,16 @@ export class HomeComponent implements OnInit {
 
 faPhone = faPhone;
 faRightArrow = faArrowRight;
+showNumber:boolean = false;
 
+phone:string = '0727632051'; 
 
-  constructor(private router:Router,private spinner: NgxSpinnerService) { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
 
 
-    this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 5000);
+    
   }
 
 
@@ -40,6 +37,12 @@ faRightArrow = faArrowRight;
 
     this.router.navigate(['about'])
 
+  }
+
+  showPhone(){
+
+
+    this.showNumber = !this.showNumber;
   }
 
 }
