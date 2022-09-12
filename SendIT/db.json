@@ -5,7 +5,7 @@
       "id": 12,
       "senderEmail": "collins@gmail.com",
       "receiverEmail": "jameskagunga15@gmail.com",
-      "trackNumber": "12345678",
+      "trackNumber": "87623",
       "weight": 12,
       "price": 24,
       "from": "Nakuru",
@@ -18,7 +18,7 @@
       "id": 12,
       "senderEmail": "collins@gmail.com",
       "receiverEmail": "jameskagunga15@gmail.com",
-      "trackNumber": "12345678",
+      "trackNumber": "678",
       "weight": 12,
       "price": 24,
       "from": "Nakuru",
@@ -38,13 +38,13 @@
       "to": "Mombasa",
       "dispatchedDate": "2022-09-28",
       "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
-      "status": 0
+      "status": 1
     },
     {
       "id": 12,
       "senderEmail": "jameskagunga15@gmail.com",
       "receiverEmail": "jameskagunga1@gmail.com",
-      "trackNumber": "12345678",
+      "trackNumber": "980724",
       "weight": 12,
       "price": 24,
       "from": "Nakuru",
@@ -57,7 +57,7 @@
     {
       "id": 12,
       "senderEmail": "jameskagunga15@gmail.com",
-      "receiverEmail": "jameskagunga1@gmail.com",
+      "receiverEmail": "jameskagunga15@gmail.com",
       "trackNumber": "12345678",
       "weight": 12,
       "price": 24,
@@ -65,13 +65,13 @@
       "to": "Mombasa",
       "dispatchedDate": "2022-09-28",
       "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
-      "status": 0
+      "status": 1
     },
 
     {
       "id": 12,
       "senderEmail": "collins@gmail.com",
-      "receiverEmail": "jameskagunga1@gmail.com",
+      "receiverEmail": "jameskagunga15@gmail.com",
       "trackNumber": "12345678",
       "weight": 12,
       "price": 24,

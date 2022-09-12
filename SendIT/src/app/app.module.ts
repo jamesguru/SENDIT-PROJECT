@@ -23,6 +23,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { StyleDirective } from './Directives/style.directive';
 import { NativeColorDirective } from './Directives/native-color.directive';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { NativeColorDirective } from './Directives/native-color.directive';
     AboutComponent,
     StyleDirective,
     NativeColorDirective,
+    NotfoundComponent,
   
     
     

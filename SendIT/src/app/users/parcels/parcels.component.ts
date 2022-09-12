@@ -1,22 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  faBarChart,
-  faBars,
-  faClose,
-  faUser,
-  faBell,
-  faLocationPin,
-} from '@fortawesome/free-solid-svg-icons';
+import {faBarChart,faBars,faClose,faUser,faBell,faLocationPin} from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
-
 import { Observable } from 'rxjs';
 import { Parcel } from 'src/app/interfaces/Parcel';
-import {
-  getParcels,
-  ParcelState,
-} from 'src/app/Reducer/reducer/parcelsReducer';
-
+import {getParcels,ParcelState} from 'src/app/Reducer/reducer/parcelsReducer';
 import * as Actions from '../../Reducer/actions/parcelsActions';
 
 @Component({
@@ -37,14 +25,14 @@ export class ParcelsComponent implements OnInit {
   faCancel = faClose;
 
   weight: number = 0;
-
+  quote: number = 200;
   cost: number = 0;
 
   faUser = faUser;
 
   openMap: boolean = false;
 
-  quote: number = 200;
+  
 
   faBell = faBell;
 
