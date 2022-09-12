@@ -28,3 +28,39 @@ margin-left: 30px;
 
 
 }
+
+@media screen and (max-width: 600px){
+
+    .social{
+
+
+        margin-left: 30px;
+    
+        cursor: pointer;
+    }
+
+    .footer{
+
+       font-size: 13px;
+    
+        color: #756464;
+    
+        display: flex;
+    
+        align-items: center;
+    
+        justify-content: center;
+    }
+
+    .social img{
+
+        height: 20px;
+        width: 20px;
+        
+        margin-left: 10px;
+        
+        
+        }
+    
+
+}

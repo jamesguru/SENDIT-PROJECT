@@ -130,15 +130,15 @@ justify-content: space-between;
 
 .stat-card{
 
-    height: 150px;
+    height: 160px;
 
     width: 300px;
 
     background-color: #82D78A;
 
-    border-radius: 10px;
+    border-radius: 5px;
 
-    margin: 10px;
+    margin: 5px 20px;
 
     color: #fff;
 }
@@ -167,21 +167,37 @@ justify-content: space-between;
 
     background-color: #D78287;
 
-    height: 150px;
+    height: 160px;
 
-    width: 250px;
+    width: 200px;
+}
+
+.delivered{
+
+    color: #82D78A;
+
+    background-color: #fff;
+
+    border: none;
+}
+
+.pending{
+
+    color: #D78287;
+
+    cursor: pointer;
 }
 
 .parcel-header{
 
 
-    height: 120px;
+    height: 150px;
 
     width: 85%;
 
     margin: 20px;
 
-    border-radius: 10px;
+    border-radius: 5px;
 
     background-color: #F9E57C;
 }
@@ -254,7 +270,7 @@ justify-content: space-between;
 
 .parcels{
 
-    margin-top: 50px;
+    margin-top: 70px;
 }
 
 .parcel-item{
@@ -277,6 +293,14 @@ justify-content: space-between;
 
     color: #fff;
 
+    cursor: pointer;
+
+}
+
+.delete{
+
+    cursor: pointer;
+    color: #ff2400;
 }
 
 .btn-delivered{
@@ -297,6 +321,7 @@ justify-content: space-between;
 
     height: 100%;
 
+    padding-top: 20px;
     width: 100%;
 }
 
@@ -304,9 +329,9 @@ justify-content: space-between;
 
     
 
-    height: 100%;
+    height: 90%;
 
-    width: 80%;
+    width: 70%;
 
     background-color: #fff;
 
@@ -329,9 +354,9 @@ justify-content: space-between;
 
     color: red;
 
-    font-size: 30px;
+    font-size: 25px;
 
-    margin: 20px;
+    cursor: pointer;
 
 }
 .space{
@@ -353,23 +378,25 @@ justify-content: space-between;
 .add-parcel-item{
 
 
-    height: 100%;
+    height: 80%;
 
     width: 60%;
 
     background-color: #82D78A;
 
-    border-radius: 10px;
+    font-size: 13px;
+
+    
+    padding: 5px;
 
     flex: 1;
 }
-
 
 .my-google-map{
 
     flex: 1.5;
 
-    margin: 10px;
+    margin-left: -5px;
 
 }
 
@@ -443,11 +470,11 @@ form button{
 
     background-color: #D78287;
 
-    margin: 20px;
+    margin: 10px;
 
     border: none;
 
-    padding: 10px;
+    padding: 5px;
 
     width: 250px;
 

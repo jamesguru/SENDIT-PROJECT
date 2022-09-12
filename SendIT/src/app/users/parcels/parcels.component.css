@@ -110,7 +110,10 @@
    
 
 }
+.logout{
 
+    cursor: pointer;
+}
 .orders-item-btn{
 
     background-color: #D78287;
@@ -303,7 +306,7 @@ img{
 
 .menu-bar{
 
-    width: 18%;
+    width: 22%;
 
     height: 100vh;
 
@@ -495,6 +498,93 @@ fa-icon{
   }
 
 
+  @media screen and (max-width: 600px){
 
+    .notification-map{
+
+       display: none;
+    
+    
+    
+    }
+
+
+    .track-map{
+
+        display: none;
+    }
+    .parcels{
+
+        font-size: 12px;
+        
+    }
+
+
+    .menu-bar{
+
+        width: 50%;
+    
+        height: 100vh;
+    
+        position: absolute;
+    
+        top: 0;
+    
+        background-color: #82D78A;
+    
+        z-index: 999;
+    
+        left: 0;
+    
+        transition: all 1s ease-in-out;
+    }
+
+    .parcels-quote-list{
+
+    
+        height: auto;
+    
+        background-color: #F9E57C;
+
+        font-size: 12px;
+    
+    
+    }
+    .orders-head{
+
+        display: flex;
+    
+        justify-content: space-evenly;
+    
+        align-items: center;
+    
+        margin: 0px;
+
+        width: 100%;
+    
+        background-color: #82D78A;
+    
+        height: 80px;
+    
+        color: #fff;
+    }
+
+    .convert{
+
+        margin-right: 0px;
+    
+        
+    }
+
+    .convert input{
+
+        width: 50px;
+    }
+
+    .btn-convert{
+
+        margin: 20px;
+    }
+  }
 
 

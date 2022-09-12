@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   @ViewChild('form') form!:NgForm; 
-  router!:Router;
+  
 
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -21,21 +21,8 @@ export class LoginComponent implements OnInit {
   onSubmit(){
 
 
-    console.log(this.form);
-
-
-    this.form.setValue({
-
-      email:"ndungu@gmail.com",
-
-      password:'1234567899'
-    })
-
-    // this.form.reset()
-
-
-    this.router.navigate(['reactiveforms'])
-    
+    this.router.navigate(['/parcels'])
+    this.form.reset()
 
   }
   

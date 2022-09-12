@@ -36,9 +36,9 @@
 
         <button class="orders" >Orders</button>
 
-        <button class="cancelled-orders">Cancelled orders <fa-icon [icon] ="faCancel" class="notify-icon" ></fa-icon></button>
+        
 
-        <button class="logout-btn">Logout</button>
+        <button class="logout-btn" (click)="Logout()">Logout</button>
 
 
 
@@ -150,10 +150,10 @@
         
                         <span>Kisumu</span>
 
-                        <span class="pending">pending</span>
+                        <span class='{{parcel.status === 0 ? "pending" : "delivered" }}'>{{parcel.status === 0 ? 'pending' : 'delivered'}}</span>
         
-                        <button class="btn-update">Update</button>
-        
+                        <button class="{{parcel.status === 0 ? 'btn-update' : 'delivered'}}"  (click)="updateStatus(parcel.id)"> {{parcel.status === 0 ? 'update' : 'delivered'}}</button>
+                        <fa-icon [icon] ="faTrash" class="delete" ></fa-icon>
                 </div>
         
                  <pagination-controls (pageChange)="p = $event" class="list"></pagination-controls>
@@ -183,7 +183,7 @@
 
         <div class="close">
 
-            <fa-icon [icon] ="faCancel" class="notify-icon" (click) = "showAddParcel('close')"></fa-icon>
+            <fa-icon [icon] ="faCancel" class="notify-icon" (click) = "showAddParcel('close')" class="close"></fa-icon>
         </div>
 
 
@@ -218,41 +218,41 @@
 
         </div>
 
-            <form action="">
+            <form action=""  [formGroup]="form" (ngSubmit)="onSubmit()">
 
                     <div class="input-item">
 
                         <label for="">Sender Email</label>
 
-                        <input type="text">
+                        <input type="text" formControlName="senderEmail">
                     </div>
 
                     <div class="input-item">
 
                         <label for="">Receiver Email</label>
 
-                        <input type="text">
+                        <input type="text" formControlName="receiverEmail">
                     </div>
 
                     <div class="input-item">
 
                         <label for="">Track number</label>
 
-                        <input type="text">
+                        <input type="text" formControlName="trackNumber">
                     </div>
 
                     <div class="input-item">
 
                         <label for="">Weight</label>
 
-                        <input type="text">
+                        <input type="number" formControlName="weight">
                     </div>
 
                     <div class="input-item">
 
                         <label for="">Price</label>
 
-                        <input type="number">
+                        <input type="number"  formControlName="price">
                     </div>
 
 
@@ -276,9 +276,9 @@
                             <div class="location-input">
     
     
-                                <input type="text">
+                                <input type="text" formControlName="from">
     
-                                <input type="text">
+                                <input type="text" formControlName="to">
     
                             </div>
                         </div>
@@ -289,13 +289,13 @@
 
                     <div class="input-item">
 
-                        <label for="">Date</label>
+                        <label for="">Dispatched Date</label>
 
-                        <input type="date" class="date">
+                        <input type="date" class="date" formControlName="dispatchedDate">
                     </div>
 
 
-                    <button class="add-btn">Submit</button>
+                    <button class="add-btn" [disabled]="!form.valid">Submit</button>
 
             </form>
 
@@ -310,7 +310,7 @@
             
 
 
-            <google-map  width="600px" height="450px"
+            <google-map  width="500px" height="470px"
             
             [center]="center"
             [zoom]="zoom"

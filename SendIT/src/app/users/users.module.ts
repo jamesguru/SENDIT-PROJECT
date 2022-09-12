@@ -27,6 +27,7 @@ import { FilterPipe } from '../pipes/filter.pipe';
     FormsModule,
     GoogleMapsModule,
     NgxPaginationModule,
+    FormsModule,
 
     StoreModule.forFeature('parcel',ParcelReducer),
     EffectsModule.forFeature([ParcelEffectsService]),

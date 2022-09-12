@@ -17,6 +17,7 @@ import {
     deleteMessage: string;
     parcelid: number;
     addMessage: string;
+    status:number
   }
   
   const initialState: ParcelState = {
@@ -26,6 +27,8 @@ import {
     deleteMessage: '',
     parcelid: 0,
     addMessage: '',
+
+    status:0
   };
   
   const getParcelFeatureState = createFeatureSelector<ParcelState>('parcel');
@@ -69,5 +72,8 @@ import {
   }),on(Actions.AddParcelFailure,(state,action):ParcelState=>{
       return{...state, error:action.error}
   
-  })
+  }),on(Actions.updateParcel,(state,action):ParcelState=>{
+    return{...state,  parcelid: action.id}
+
+})
   );

@@ -1,129 +1,118 @@
 {
-    "parcels": [
-      {
-        "id": 2,
-        "senderName": "Meeting at School",
-        "receiverName": "May 6th at 1:30pm",
-        "senderEmail": "jameskagunga15@gmail.com",
+  "parcels": [
+    
+    {
+      "id": 12,
+      "senderEmail": "collins@gmail.com",
+      "receiverEmail": "jameskagunga15@gmail.com",
+      "trackNumber": "12345678",
+      "weight": 12,
+      "price": 24,
+      "from": "Nakuru",
+      "to": "Mombasa",
+      "dispatchedDate": "2022-09-28",
+      "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
+      "status": 0
+    },
+    {
+      "id": 12,
+      "senderEmail": "collins@gmail.com",
+      "receiverEmail": "jameskagunga15@gmail.com",
+      "trackNumber": "12345678",
+      "weight": 12,
+      "price": 24,
+      "from": "Nakuru",
+      "to": "Mombasa",
+      "dispatchedDate": "2022-09-28",
+      "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
+      "status": 0
+    },
+    {
+      "id": 12,
+      "senderEmail": "jameskagunga15@gmail.com",
+      "receiverEmail": "jameskagunga1@gmail.com",
+      "trackNumber": "12345678",
+      "weight": 12,
+      "price": 24,
+      "from": "Nakuru",
+      "to": "Mombasa",
+      "dispatchedDate": "2022-09-28",
+      "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
+      "status": 0
+    },
+    {
+      "id": 12,
+      "senderEmail": "jameskagunga15@gmail.com",
+      "receiverEmail": "jameskagunga1@gmail.com",
+      "trackNumber": "12345678",
+      "weight": 12,
+      "price": 24,
+      "from": "Nakuru",
+      "to": "Mombasa",
+      "dispatchedDate": "2022-09-28",
+      "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
+      "status": 0
+    },
 
-        "receiverEmail":"collins@gmail.com",
+    {
+      "id": 12,
+      "senderEmail": "jameskagunga15@gmail.com",
+      "receiverEmail": "jameskagunga1@gmail.com",
+      "trackNumber": "12345678",
+      "weight": 12,
+      "price": 24,
+      "from": "Nakuru",
+      "to": "Mombasa",
+      "dispatchedDate": "2022-09-28",
+      "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
+      "status": 0
+    },
 
-        "from":"Nakuru",
-
-        "to":"Njoro",
-
-        "dispatchedDate":"22-10-2021",
-
-        "deliveryDate":"2022-10-19",
-
-        "weight":20,
-
-        "price":20
-      },
-      {
-        "id": 2,
-        "senderName": "Meeting at School",
-        "receiverName": "May 6th at 1:30pm",
-        "senderEmail": "jameskagunga15@gmail.com",
-
-        "receiverEmail":"collins@gmail.com",
-
-        "from":"Nakuru",
-
-        "to":"Njoro",
-
-        "dispatchedDate":"22-10-2021",
-
-        "deliveryDate":"2022-10-19",
-
-        "weight":20,
-
-        "price":20
-      },
-      {
-        "id": 2,
-        "senderName": "Meeting at School",
-        "receiverName": "May 6th at 1:30pm",
-        "senderEmail": "jameskagunga15@gmail.com",
-
-        "receiverEmail":"collins@gmail.com",
-
-        "from":"Nakuru",
-
-        "to":"Njoro",
-
-        "dispatchedDate":"22-10-2021",
-
-        "deliveryDate":"2022-10-19",
-
-        "weight":20,
-
-        "price":20
-      },
-
-      {
-        "id": 2,
-        "senderName": "Meeting at School",
-        "receiverName": "May 6th at 1:30pm",
-        "senderEmail": "jameskagunga15@gmail.com",
-
-        "receiverEmail":"collins@gmail.com",
-
-        "from":"Nakuru",
-
-        "to":"Njoro",
-
-        "dispatchedDate":"22-10-2021",
-
-        "deliveryDate":"2022-10-19",
-
-        "weight":20,
-
-        "price":20
-      },
-
-      {
-        "id": 2,
-        "senderName": "Meeting at School",
-        "receiverName": "May 6th at 1:30pm",
-        "senderEmail": "jameskagunga15@gmail.com",
-
-        "receiverEmail":"collins@gmail.com",
-
-        "from":"Nakuru",
-
-        "to":"Njoro",
-
-        "dispatchedDate":"22-10-2021",
-
-        "deliveryDate":"2022-10-19",
-
-        "weight":20,
-
-        "price":20
-      },
-
-      {
-        "id": 2,
-        "senderName": "Meeting at School",
-        "receiverName": "May 6th at 1:30pm",
-        "senderEmail": "jameskagunga15@gmail.com",
-
-        "receiverEmail":"collins@gmail.com",
-
-        "from":"Nakuru",
-
-        "to":"Njoro",
-
-        "dispatchedDate":"22-10-2021",
-
-        "deliveryDate":"2022-10-19",
-
-        "weight":20,
-
-        "price":20
-      }
-    ]
-  }
-
-  
+    {
+      "id": 12,
+      "senderEmail": "collins@gmail.com",
+      "receiverEmail": "jameskagunga1@gmail.com",
+      "trackNumber": "12345678",
+      "weight": 12,
+      "price": 24,
+      "from": "Nakuru",
+      "to": "Mombasa",
+      "dispatchedDate": "2022-09-28",
+      "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
+      "status": 0
+    },
+    {
+      "id": 12,
+      "senderEmail": "collins@gmail.com",
+      "receiverEmail": "jameskagunga1@gmail.com",
+      "trackNumber": "12345678",
+      "weight": 12,
+      "price": 24,
+      "from": "Nakuru",
+      "to": "Mombasa",
+      "dispatchedDate": "2022-09-28",
+      "locations": "[{\"lat\":-0.3688430627461049,\"lng\":36.159790039062486},{\"lat\":-4.0568578151472,\"lng\":39.763305664062486}]",
+      "status": 0
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "James",
+      "email": "jameskagunga16@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": 1,
+      "name": "James",
+      "email": "jameskagunga16@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": 1,
+      "name": "James",
+      "email": "jameskagunga16@gmail.com",
+      "role": "admin"
+    }
+  ]
+}

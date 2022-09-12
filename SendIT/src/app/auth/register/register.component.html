@@ -13,28 +13,64 @@
         </div>
 
 
-        <form action="">
+        <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
 
 
             <label for="">Name </label>
 
-            <input type="text">
+            <input type="text"  formControlName="name">
+
+            <div *ngIf="!form.get('name')?.valid && form.get('name')?.touched">
+                <p class="error" *ngIf="!(form.get('name')?.errors)!['required']">
+                  *Please enter a username
+                </p>
+              </div>
 
 
             <label for="">Email</label>
 
-            <input type="text">
+            <input type="text" formControlName="email">
+
+            <div *ngIf="!form.get('email')!.valid && form.get('email')!.touched">
+                <p class="error" *ngIf="!form.get('email')!.errors!['required']">
+                  *Please enter email
+                </p>
+                <p class="error" *ngIf="!form.get('email')!.errors!['email']">
+                  *Please enter a valid email
+                </p>
+              </div>
 
             <label for="">Password</label>
 
-            <input type="password">
+            <input type="password" formControlName="password">
+
+            <div
+          *ngIf="!form.get('password')!.valid && form.get('password')!.touched"
+        >
+          <p class="error" *ngIf="form.get('password')!.errors!['required']">
+            *Please enter password
+          </p>
+          <p class="error" *ngIf="form.get('password')!.errors!['special']">
+            *Please enter a special character
+          </p>
+          <p class="error" *ngIf="form.get('password')!.errors!['capital']">
+            *Password should have uppercase letter
+          </p>
+          <p class="error" *ngIf="form.get('password')!.errors!['number']">
+            *Password should have a number
+          </p>
+          <p *ngIf="checkMinimum()">*Password should 8 characters or more</p>
+        </div>
 
             <label>Confirm password</label>
 
-            <input type="password">
+            <input type="password" >
+
+           
+  
 
 
-            <button class="btn-register">
+            <button class="btn-register" [disabled]="!form.valid">
                 Register
             </button>
 

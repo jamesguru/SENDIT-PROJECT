@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {faBell,faArrowRight,faCancel,faClose} from '@fortawesome/free-solid-svg-icons'
+import {faBell,faArrowRight,faCancel,faClose,faTrash} from '@fortawesome/free-solid-svg-icons'
 import { Store } from '@ngrx/store';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import * as Actions from '../Reducer/actions/parcelsActions';
-import { getParcels } from '../Reducer/reducer/parcelsReducer';
+import { getParcels, ParcelState } from '../Reducer/reducer/parcelsReducer';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Parcel} from '../interfaces/Parcel'
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -26,23 +30,34 @@ export class AdminComponent implements OnInit {
   
   p: number = 1;
   collection: any[] = []; 
-  
+  form!:FormGroup
   faBell=faBell;
   faArrowRight=faArrowRight;
   faCancel=faClose;
+  faTrash=faTrash
   openAddModal:boolean = false;
   filteredText:string ='';
+  parcel!:Parcel;
 
-  constructor(private store:Store) {
+  constructor(private store:Store<ParcelState>, private router:Router) {
 
-    
-  
+
    }
 
   ngOnInit(): void {
 
 
     this.loadParcels();
+    this.form = new FormGroup({
+      senderEmail: new FormControl(null, [Validators.required,Validators.email]),
+      receiverEmail: new FormControl(null, [Validators.required, Validators.email]),
+      trackNumber: new FormControl(null, [Validators.required]),
+      weight: new FormControl(null, [Validators.required]),
+      price: new FormControl(null, [Validators.required]),
+     from: new FormControl(null, [Validators.required]),
+     to: new FormControl(null, [Validators.required]),
+     dispatchedDate: new FormControl(null, [Validators.required]),
+    });
   }
 
 
@@ -80,11 +95,63 @@ export class AdminComponent implements OnInit {
     this.markerPositions.push(event.latLng.toJSON());
 
 
-    for(let i=0; i<this.markerPositions.length;i++){
-
-      console.log( JSON.stringify(this.markerPositions))
-
-     
-    }
+    
   }
+
+  updateStatus(id:number){
+
+
+   this.store.dispatch(Actions.updateParcel({id}))
+
+  }
+
+
+
+  onSubmit(){
+
+      this.parcel ={
+
+        id:727,
+  
+        senderEmail:this.form.value.senderEmail,
+  
+        receiverEmail:this.form.value.receiverEmail,
+  
+        trackNumber:this.form.value.trackNumber,
+  
+        weight:this.form.value.weight,
+  
+        price:this.form.value.price,
+  
+        from:this.form.value.from,
+  
+        to:this.form.value.to,
+  
+        status:0,
+        dispatchedDate:this.form.value.dispatchedDate,
+        locations:JSON.stringify(this.markerPositions)
+      }
+     
+      this.store.dispatch(Actions.AddParcel({newParcel: this.parcel}))
+      this.store.dispatch(Actions.LoadParcels())
+
+      this.form.reset()
+
+      this.markerPositions = [];
+     
+
+
+
+
+    }
+
+
+    Logout(){
+
+      this.router.navigate([''])
+
+
+    }
+
+    
 }

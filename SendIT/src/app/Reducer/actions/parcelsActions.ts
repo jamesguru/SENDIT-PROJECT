@@ -19,6 +19,9 @@ props<{deletemessage:string}>())
 export const DeleteParcelFailure=createAction('DeleteParcelFailure',
 props<{error:string}>())
 
+export const updateParcel= createAction('updateParcel',
+props<{id:number}>()
+)
 
 export const AddParcel= createAction('AddParcel',
 props<{newParcel:Parcel}>()

@@ -2,6 +2,8 @@
 .register{
 
     display: flex;
+
+    height: auto;
 }
 
 
@@ -9,11 +11,23 @@
 
     background-color: #F9E57C;
 
-    height: 100vh;
+    height: auto;
 
     margin: 10px;
 
     width: 500px;
+}
+
+input.ng-touched.ng-invalid{
+
+    border-left: px solid red;
+}
+
+input.ng-valid.ng-touched{
+
+    border-left: 5px solid green;
+
+
 }
 
 .header{
@@ -98,3 +112,81 @@ a{
 
     text-decoration: none;
 }
+
+.error {
+    color: red;
+    font-size: 12px;
+  }
+  .brown-text {
+    color: #d08d57;
+  }
+
+  @media screen and (max-width: 600px){
+
+    .register{
+
+        display: flex;
+
+        flex-direction: column;
+    
+        height: auto;
+
+        margin: 20px;
+
+        width: 300px;
+    }
+
+    .header span{
+
+        display: flex;
+    
+        align-items: center;
+    
+        justify-content: center;
+    
+        padding: 20px;
+    
+        font-size: 13px;
+    
+        width: 70%;
+        color: #fff;
+    }
+
+    .already-have-account{
+
+        margin-left: 10px;
+    
+        color: #82D78A;
+    
+        cursor: pointer;
+    }
+
+
+    img{
+
+        display: none;
+    }
+
+    .register-form{
+
+        background-color: #F9E57C;
+    
+        height: auto;
+    
+        margin: 10px;
+    
+        width: 300px;
+    }
+
+    .header{
+
+        height: 130px;
+    
+        width: 250px;
+    
+        background-color:#82D78A ;
+    
+        margin: 30px;
+    }
+    
+  }

@@ -15,8 +15,6 @@ export class ParcelEffectsService {
 
   loadParcel= createEffect(()=>{
 
-
-    console.log('effects')
     return this.actions.pipe(
       ofType(ParcelsActions.LoadParcels),
       concatMap(()=> this.parcelService.getParcels().pipe(
@@ -45,5 +43,16 @@ export class ParcelEffectsService {
             catchError(error=>of(ParcelsActions.AddParcelFailure({error:error})))
         ))
     )
+})
+
+
+updateParcel=createEffect(()=>{
+  return this.actions.pipe(
+      ofType(ParcelsActions.updateParcel),
+      mergeMap(action=>this.parcelService.updateParcels(action.id).pipe(
+          map(res=>ParcelsActions.AddParcelSuccess({addMessage:res.message})),
+          catchError(error=>of(ParcelsActions.AddParcelFailure({error:error})))
+      ))
+  )
 })
 }

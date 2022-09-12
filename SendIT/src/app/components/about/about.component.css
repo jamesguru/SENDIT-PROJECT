@@ -106,3 +106,42 @@ a{
 
     width: 80%;
 }
+
+@media screen and (max-width: 600px){
+
+
+    .process{
+
+        margin: 20px;
+
+        font-size: 12px;
+    }
+
+    .about{
+
+        display: flex;
+
+        flex-direction: column;
+    
+        align-items: center;
+        
+    }
+
+    .benefits{
+
+        flex: 1;
+    
+        color: #6F6767;
+    
+        display: flex;
+    
+        flex-direction: column;
+
+        font-size: 12px;
+    
+        align-items: center;
+    
+        
+    }
+
+}

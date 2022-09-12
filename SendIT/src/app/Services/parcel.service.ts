@@ -27,7 +27,13 @@ export class ParcelService {
   deleteParcel(id:number): Observable <{message:string}>{
     return this.http.delete<{message:string}>(`${this.baseUrl}/parcels/${id}`)
   }
-  createParcel(order:Parcel):Observable<{message:string}>{
-    return this.http.post<{message:string}>(`${this.baseUrl}/parcels`, order)
+  createParcel(parcel:Parcel):Observable<{message:string}>{
+    return this.http.post<{message:string}>(`${this.baseUrl}/parcels`, parcel)
+  }
+
+  updateParcels(id:number){
+
+    console.log(id)
+      return this.http.put<{message:string}>(`${this.baseUrl}/parcels/${id}`,{status: 1})
   }
 }

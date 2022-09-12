@@ -10,7 +10,7 @@
         <img src="../../../assets/89626-order-delivery.gif" alt="">
 
 
-        <button>{{showNumber ? phone : 'CALL US'}} <fa-icon [icon]="faPhone" (click) ="showPhone()"></fa-icon></button>
+        <button class="{{showNumber ? 'noalternate' : 'alternate'}}"><fa-icon [icon]="faPhone" (click) ="showPhone()"></fa-icon> {{showNumber ? phone : 'CALL US'}} </button>
 
     </div>
 
@@ -27,6 +27,8 @@
     </div>
 </div>
 
+
+<app-footer></app-footer>
 
 
 

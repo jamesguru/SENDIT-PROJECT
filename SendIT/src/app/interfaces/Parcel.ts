@@ -1,14 +1,20 @@
 export interface Parcel{
 
-    id?:number,
-    senderName:string
-    receiverName:string
+    id:number,
     senderEmail:string
-    receiverEmail:string
+    receiverEmail:string,
+    trackNumber:string,
     from:string
     to:string
     dispatchedDate:string
-    deliveryDate:string
     weight:number
     price:number
+    locations:string,
+    status:number
 }
+
+
+     
+      
+     
+    

@@ -62,18 +62,18 @@
         <div class="select">
 
 
-            <select name="" id="">
+            <select name="from" id="" (change)="change($event)"  [(ngModel)] ="selectedOption">
 
-                <option value="" selected disabled>select</option>
-                <option value="">From me</option>
-                <option value="">To me</option>
+                <option value="" selected disabled >select</option>
+                <option value="from" name="from">From me</option>
+                <option value="to" name="to">To me</option>
             </select>
         </div>
 
 
         <div class="orders-body"  *ngIf="parcels$ | async as parcels">
 
-        <div class="orders-item" *ngFor="let parcel of parcels | paginate: { itemsPerPage: 4, currentPage: p }">
+        <div class="orders-item" *ngFor="let parcel of parcels | paginate: { itemsPerPage: 4, currentPage: p } | filter: selectedOption ">
             <span>4571818181</span>
 
             <span>{{parcel.id}}</span>
@@ -86,7 +86,7 @@
 
            <button class="orders-item-btn">pending</button>
 
-           <fa-icon [icon]="faMapLocation"   (click) = "showMap('open')" class="location"></fa-icon>
+           <fa-icon [icon]="faMapLocation"   (click) = "showMap(parcel.locations)" class="location"></fa-icon>
         </div>
 
 
@@ -178,8 +178,6 @@
         [center]="center"
         [zoom]="zoom"
     
-    
-        (mapClick)="addMarker($event)"
         
         >
     
@@ -218,7 +216,7 @@
         <span>My Parcels</span>
 
 
-        <span>Logout</span>
+        <span (click)="LogOut()" class="logout">Logout</span>
 
 
     </div>
@@ -238,7 +236,7 @@
 
         <div class="close-map">
 
-            <fa-icon [icon]="faCancel" (click) = "showMap('close')"></fa-icon>
+            <fa-icon [icon]="faCancel" (click) = "close()"></fa-icon>
 
         </div>
 
@@ -278,9 +276,6 @@
                     
                     [center]="center"
                     [zoom]="zoom"
-                
-                
-                    (mapClick)="addMarker($event)"
                     
                     >
                 

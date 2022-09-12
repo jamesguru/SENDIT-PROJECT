@@ -28,6 +28,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     FooterComponent,
     NavbarComponent,
     AboutComponent,
+  
     
     
     

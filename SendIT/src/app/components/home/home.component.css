@@ -23,24 +23,7 @@
     align-items: center;
 }
 
-.image button{
 
-    width: 300px;
-
-    padding: 10px;
-
-    border: none;
-
-    background-color: #82D78A;
-
-    color: #fff;
-
-    font-size: 25px;
-
-    cursor: pointer;
-
-    animation: progress 2s ease infinite alternate;
-}
 
 .image img{
 
@@ -65,7 +48,7 @@
 
 
 
-    height: 400px;
+    height: 450px;
     width: 300px;
 
     margin-top: 50px;
@@ -91,6 +74,8 @@
 
     font-size: 20px;
 
+    margin: 30px;
+
     width: 70%;
 }
 
@@ -111,9 +96,53 @@
 
     cursor: pointer;
 
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-evenly;
+
     
 }
 
+
+.noalternate{
+
+    width: 300px;
+
+    padding: 10px;
+
+    border: none;
+
+    background-color: #82D78A;
+
+    color: #fff;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+.alternate{
+
+    width: 300px;
+
+    padding: 10px;
+
+    border: none;
+
+    background-color: #82D78A;
+
+    color: #fff;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    animation: progress 2s ease infinite alternate;
+
+}
 
 @keyframes progress {
 
@@ -133,3 +162,89 @@
     
 }
 
+@media screen and (max-width: 600px){
+
+    .home{
+
+
+        display: flex;
+    
+        align-items: center;
+    
+        flex-direction: column;
+    
+    
+    }
+
+
+
+    .image img{
+
+        height: 200px;
+    
+        width: 300px;
+        
+        object-fit: contain;
+    }
+
+    .description{
+
+        flex: 1;
+    
+        display: flex;
+    
+        flex-direction: column;
+    
+        align-items: center;
+    
+        background-color: #82D78A;
+    
+    
+        margin: 20px;
+    
+        height: 300px;
+        width: 300px;
+    
+    
+    
+        border-radius: 10px;
+    }
+
+    .description span{
+
+        color: #fff;
+    
+        font-size: 13px;
+    
+        margin: 20px;
+    
+        width: 70%;
+    }
+    
+    .description button{
+    
+        width: 200px;
+    
+        
+        background-color: #F0D95D;
+    
+        color: #fff;
+        border: none;
+    
+        padding: 10px;
+    
+        font-size: 14px;
+    
+        margin: 20px;
+    
+        cursor: pointer;
+    
+        display: flex;
+    
+        align-items: center;
+    
+        justify-content: space-evenly;
+    
+        
+    }
+}

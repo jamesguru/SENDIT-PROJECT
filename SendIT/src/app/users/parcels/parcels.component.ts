@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   faBarChart,
   faBars,
@@ -8,13 +9,14 @@ import {
   faLocationPin,
 } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
+
 import { Observable } from 'rxjs';
 import { Parcel } from 'src/app/interfaces/Parcel';
 import {
   getParcels,
   ParcelState,
 } from 'src/app/Reducer/reducer/parcelsReducer';
-import { ParcelService } from 'src/app/Services/parcel.service';
+
 import * as Actions from '../../Reducer/actions/parcelsActions';
 
 @Component({
@@ -29,19 +31,7 @@ export class ParcelsComponent implements OnInit {
   };
   zoom = 4;
   markerOptions: google.maps.MarkerOptions = { draggable: false };
-  markerPositions: google.maps.LatLngLiteral[] = [
-    {
-      lat: -0.32984428475063204,
-
-      lng: 36.097950790026374,
-    },
-
-    {
-      lat: -0.3803804260223133,
-
-      lng: 35.945515487292,
-    },
-  ];
+  markerPositions: google.maps.LatLngLiteral[] = [];
 
   faHambuger = faBars;
   faCancel = faClose;
@@ -58,23 +48,25 @@ export class ParcelsComponent implements OnInit {
 
   faBell = faBell;
 
+  email = 'jameskagunga15@gmail.com';
+
   faMapLocation = faLocationPin;
 
   showMenuBar: boolean = false;
-
+  selectedOption: string = '';
   p: number = 1;
   collection: any[] = [];
 
   parcels$ = this.store.select(getParcels);
   constructor(
     private store: Store<ParcelState>,
-    private parcelService: ParcelService
+    private router:Router
   ) {}
 
   ngOnInit(): void {
     this.loadParcels();
 
-    console.log(this.parcels$);
+    console.log(this.selectedOption);
   }
 
   ShowMenuBar(condition: string) {
@@ -87,18 +79,35 @@ export class ParcelsComponent implements OnInit {
 
   convert() {
     this.cost = this.weight * this.quote;
+
+    
   }
 
+
+  change(event:any){
+
+    this.selectedOption = event.target.value;
+
+    
+  }
   loadParcels() {
     this.store.dispatch(Actions.LoadParcels());
   }
 
-  showMap(condition: string) {
-    if (condition === 'close') {
-      this.openMap = false;
-    } else {
-      this.openMap = true;
-    }
+  showMap(locations: string) {
+
+
+    this.markerPositions = JSON.parse(locations);
+
+    this.openMap= true;
+
+
+   
+  }
+
+  close(){
+
+    this.openMap = false;
   }
 
   addMarker(event: google.maps.MapMouseEvent | any) {
@@ -107,5 +116,12 @@ export class ParcelsComponent implements OnInit {
     for (let i = 0; i < this.markerPositions.length; i++) {
       console.log(JSON.stringify(this.markerPositions[i]));
     }
+  }
+
+
+
+  LogOut(){
+
+    this.router.navigate([''])
   }
 }
