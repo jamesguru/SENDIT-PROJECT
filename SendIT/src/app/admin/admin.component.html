@@ -1,344 +1,215 @@
 <div class="admin">
+  <div class="menubar">
+    <div class="notifications">
+      <div class="notify">
+        <fa-icon [icon]="faBell" class="notify-icon"></fa-icon>
 
+        <span>Notifications</span>
+      </div>
 
-    <div class="menubar">
-
-
-        <div class="notifications">
-
-
-
-            <div class="notify">
-
-
-                <fa-icon [icon] ="faBell" class="notify-icon" ></fa-icon>
-
-                <span>Notifications</span>
-
-                
-
-
-            </div>
-
-            <span>Daniel raised dispute the order 67862524256.</span>
-
-
-        </div>
-
-        <div class="menubar-btn">
-
-
-
-        <button class="create-orders" (click) = "showAddParcel('open')">Create orders  <fa-icon [icon] ="faArrowRight" class="notify-icon" ></fa-icon></button>
-
-
-        <button class="notify-btn"><fa-icon [icon] ="faBell" class="notify-icon" ></fa-icon> Notifications</button>
-
-        <button class="orders" >Orders</button>
-
-        
-
-        <button class="logout-btn" (click)="Logout()">Logout</button>
-
-
-
-
-
-        </div>
-
-        
-
-
-
+      <span>Daniel raised dispute the order 67862524256.</span>
     </div>
 
-    <div class="main-body">
+    <div class="menubar-btn">
+      <button class="create-orders" (click)="showAddParcel('open')">
+        Create orders
+        <fa-icon [icon]="faArrowRight" class="notify-icon"></fa-icon>
+      </button>
 
+      <button class="notify-btn">
+        <fa-icon [icon]="faBell" class="notify-icon"></fa-icon> Notifications
+      </button>
 
-        <div class="header">
+      <button class="orders">Orders</button>
 
-            <h2>ADMIN DASHBOARD</h2>
-        </div>
+      <button class="logout-btn" (click)="Logout()">Logout</button>
+    </div>
+  </div>
 
-
-        <div class="stat">
-
-
-
-            <div class="stat-card">
-
-                <div class="body">
-
-                    <span>DELIVERED PARCELS</span>
-
-                    <span>205</span>
-
-
-                </div>
-
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="body">
-
-                    <span>PENDING PARCELS</span>
-
-                    <span>100</span>
-
-
-                </div>
-
-
-            </div>
-
-
-            <div class="stat-users">
-
-                <div class="body">
-
-                    <span>USERS</span>
-
-                    <span>1500</span>
-
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-
-        <div class="parcel-header">
-
-
-            <div class="head">
-
-                <span>Name</span>
-
-                <span>Parcel ID</span>
-
-                <span>Location</span>
-
-                <span>Destination</span>
-
-                <span>Status</span>
-
-                <span>Update</span>
-            </div>
-
-
-            <div class="search">
-
-
-                <input type="text" placeholder="search" [(ngModel)] ="filteredText">
-            </div>
-
-            <div class="parcels" *ngIf="parcels$ | async as parcels ">
-
-
-                <div class="parcel-item" *ngFor="let parcel of parcels | paginate: { itemsPerPage: 4, currentPage: p } | search:filteredText ">
-        
-                     <span>James</span>
-        
-                        <span>56717178</span>
-        
-                        <span>Nairobi</span>
-        
-                        <span>Kisumu</span>
-
-                        <span class='{{parcel.status === 0 ? "pending" : "delivered" }}'>{{parcel.status === 0 ? 'pending' : 'delivered'}}</span>
-        
-                        <button class="{{parcel.status === 0 ? 'btn-update' : 'delivered'}}"  (click)="updateStatus(parcel.id)"> {{parcel.status === 0 ? 'update' : 'delivered'}}</button>
-                        <fa-icon [icon] ="faTrash" class="delete" ></fa-icon>
-                </div>
-        
-                 <pagination-controls (pageChange)="p = $event" class="list"></pagination-controls>
-            
-            
-            </div>
-
-
-
-        </div>
-
-        
-
+  <div class="main-body">
+    <div class="header">
+      <h2>ADMIN DASHBOARD</h2>
     </div>
 
-    
-    
+    <div class="stat">
+      <div class="stat-card">
+        <div class="body">
+          <span>DELIVERED PARCELS</span>
+
+          <span>205</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="body">
+          <span>PENDING PARCELS</span>
+
+          <span>100</span>
+        </div>
+      </div>
+
+      <div class="stat-users">
+        <div class="body">
+          <span>USERS</span>
+
+          <span>1500</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="parcel-header">
+      <div class="head">
+        <span>Name</span>
+
+        <span>Parcel ID</span>
+
+        <span>Location</span>
+
+        <span>Destination</span>
+
+        <span>Status</span>
+
+        <span>Update</span>
+      </div>
+
+      <div class="search">
+        <input type="text" placeholder="search" [(ngModel)]="filteredText" />
+      </div>
+
+      <div class="parcels" *ngIf="parcels$ | async as parcels">
+        <div
+          class="parcel-item"
+          *ngFor="
+            let parcel of parcels
+              | paginate: { itemsPerPage: 4, currentPage: p }
+              | search: filteredText
+          "
+        >
+          <span>James</span>
+
+          <span>56717178</span>
+
+          <span>Nairobi</span>
+
+          <span>Kisumu</span>
+
+          <span class="{{ parcel.status === 0 ? 'pending' : 'delivered' }}">{{
+            parcel.status === 0 ? "pending" : "delivered"
+          }}</span>
+
+          <button
+            class="{{ parcel.status === 0 ? 'btn-update' : 'delivered' }}"
+            (click)="updateStatus(parcel.id)"
+          >
+            {{ parcel.status === 0 ? "update" : "delivered" }}
+          </button>
+          <fa-icon [icon]="faTrash" class="delete"></fa-icon>
+        </div>
+
+        <pagination-controls
+          (pageChange)="p = $event"
+          class="list"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
 </div>
-
-
 
 <div class="add-parcel" *ngIf="openAddModal">
-
-
-    <div class="add-parcel-body">
-
-
-        <div class="close">
-
-            <fa-icon [icon] ="faCancel" class="notify-icon" (click) = "showAddParcel('close')" class="close"></fa-icon>
-        </div>
-
-
-        <div class="parcel-item">
-
-       
-        
-
-        <div class="add-parcel-item">
-
-
-            <div class="space">
-
-
-            </div>
-
-
-           
-
-
-            <div class="add-parcel-item-head">
-
-
-
-                <div class="add-parcel-item-head-title">
-
-                    <h3>Create Order</h3>
-                </div>
-
-           
-            
-
-        </div>
-
-            <form action=""  [formGroup]="form" (ngSubmit)="onSubmit()">
-
-                    <div class="input-item">
-
-                        <label for="">Sender Email</label>
-
-                        <input type="text" formControlName="senderEmail">
-                    </div>
-
-                    <div class="input-item">
-
-                        <label for="">Receiver Email</label>
-
-                        <input type="text" formControlName="receiverEmail">
-                    </div>
-
-                    <div class="input-item">
-
-                        <label for="">Track number</label>
-
-                        <input type="text" formControlName="trackNumber">
-                    </div>
-
-                    <div class="input-item">
-
-                        <label for="">Weight</label>
-
-                        <input type="number" formControlName="weight">
-                    </div>
-
-                    <div class="input-item">
-
-                        <label for="">Price</label>
-
-                        <input type="number"  formControlName="price">
-                    </div>
-
-
-
-
-
-                    <div class="input-item">
-
-
-                        <label for="">Location</label>
-
-                        <div class="location">
-
-                            <div class="location-head">
-                                <span>From</span>
-    
-                                <span>To</span>
-                            </div>
-    
-    
-                            <div class="location-input">
-    
-    
-                                <input type="text" formControlName="from">
-    
-                                <input type="text" formControlName="to">
-    
-                            </div>
-                        </div>
-
-
-                    </div>
-                    
-
-                    <div class="input-item">
-
-                        <label for="">Dispatched Date</label>
-
-                        <input type="date" class="date" formControlName="dispatchedDate">
-                    </div>
-
-
-                    <button class="add-btn" [disabled]="!form.valid">Submit</button>
-
-            </form>
-
-
-
-        </div>
-
-
-        <div class="my-google-map">
-
-
-            
-
-
-            <google-map  width="500px" height="470px"
-            
-            [center]="center"
-            [zoom]="zoom"
-        
-        
-            (mapClick)="addMarker($event)"
-            
-            >
-        
-            <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"[options]="markerOptions"></map-marker>
-        
-        
-        
-        </google-map>
-        </div>
-        
-     </div>
-
-        
-
+  <div class="add-parcel-body">
+    <div class="close">
+      <fa-icon
+        [icon]="faCancel"
+        class="notify-icon"
+        (click)="showAddParcel('close')"
+        class="close"
+      ></fa-icon>
     </div>
 
+    <div class="parcel-item">
+      <div class="add-parcel-item">
+        <div class="space"></div>
 
-    
+        <div class="add-parcel-item-head">
+          <div class="add-parcel-item-head-title">
+            <h3>Create Order</h3>
+          </div>
+        </div>
 
+        <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="input-item">
+            <label for="">Sender Email</label>
 
+            <input type="text" formControlName="senderEmail" />
+          </div>
+
+          <div class="input-item">
+            <label for="">Receiver Email</label>
+
+            <input type="text" formControlName="receiverEmail" />
+          </div>
+
+          <div class="input-item">
+            <label for="">Track number</label>
+
+            <input type="text" formControlName="trackNumber" />
+          </div>
+
+          <div class="input-item">
+            <label for="">Weight</label>
+
+            <input type="number" formControlName="weight" />
+          </div>
+
+          <div class="input-item">
+            <label for="">Price</label>
+
+            <input type="number" formControlName="price" />
+          </div>
+
+          <div class="input-item">
+            <label for="">Location</label>
+
+            <div class="location">
+              <div class="location-head">
+                <span>From</span>
+
+                <span>To</span>
+              </div>
+
+              <div class="location-input">
+                <input type="text" formControlName="from" />
+
+                <input type="text" formControlName="to" />
+              </div>
+            </div>
+          </div>
+
+          <div class="input-item">
+            <label for="">Dispatched Date</label>
+
+            <input type="date" class="date" formControlName="dispatchedDate" />
+          </div>
+
+          <button class="add-btn" [disabled]="!form.valid">Submit</button>
+        </form>
+      </div>
+
+      <div class="my-google-map">
+        <google-map
+          width="500px"
+          height="470px"
+          [center]="center"
+          [zoom]="zoom"
+          (mapClick)="addMarker($event)"
+        >
+          <map-marker
+            *ngFor="let markerPosition of markerPositions"
+            [position]="markerPosition"
+            [options]="markerOptions"
+          ></map-marker>
+        </google-map>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-

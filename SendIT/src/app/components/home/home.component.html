@@ -1,34 +1,24 @@
 <app-navbar></app-navbar>
 
-
 <div class="home">
+  <div class="image">
+    <img src="../../../assets/89626-order-delivery.gif" alt="" />
 
+    <button class="{{ showNumber ? 'noalternate' : 'alternate' }}">
+      <fa-icon [icon]="faPhone" (click)="showPhone()"></fa-icon>
+      {{ showNumber ? phone : "CALL US" }}
+    </button>
+  </div>
 
-    <div class="image">
+  <div class="description">
+    <h2>GET YOUR PARCEL DELIVERED BY EXPERTS</h2>
 
+    <span>WE DELIVER PARCELS ACROSS THE COUNTRY WITH LOW COST AS KSH 200</span>
 
-        <img src="../../../assets/89626-order-delivery.gif" alt="">
-
-
-        <button class="{{showNumber ? 'noalternate' : 'alternate'}}"><fa-icon [icon]="faPhone" (click) ="showPhone()"></fa-icon> {{showNumber ? phone : 'CALL US'}} </button>
-
-    </div>
-
-
-    <div class="description">
-
-       <h2>GET YOUR PARCEL DELIVERED BY EXPERTS</h2>
-
-       <span>WE DELIVER PARCELS ACROSS THE COUNTRY WITH LOW COST AS KSH 200</span>
-
-
-
-       <button (click)="navigateToAbout()">Get Started  <fa-icon [icon]="faRightArrow"></fa-icon></button>
-    </div>
+    <button (click)="navigateToAbout()">
+      Get Started <fa-icon [icon]="faRightArrow"></fa-icon>
+    </button>
+  </div>
 </div>
 
-
 <app-footer></app-footer>
-
-
-

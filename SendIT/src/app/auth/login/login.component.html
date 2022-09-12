@@ -1,44 +1,48 @@
 <div class="login">
+  <div class="image">
+    <img src="../../../assets/admin-login.jpg" alt="" />
+  </div>
 
+  <div class="login-form">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <label for="">Email</label>
 
-    <div class="image">
+      <input
+        type="text"
+        placeholder="Enter email"
+        ngModel
+        name="email"
+        email
+        required
+        #email="ngModel"
+      />
 
-        <img src="../../../assets/admin-login.jpg" alt="">
-    </div>
+      <div class="errors">
+        <span *ngIf="!email.valid && email.touched">Enter a valid email</span>
+      </div>
 
+      <label for="">Password</label>
 
-    <div class="login-form">
+      <input
+        type="password"
+        placeholder="Enter password"
+        ngModel
+        name="password"
+        required
+        #password="ngModel"
+      />
 
-    <form #form="ngForm"  (ngSubmit)="onSubmit()">
-        <label for="">Email</label>
+      <div class="errors">
+        <span *ngIf="!password.valid && password.touched"
+          >Enter a valid password</span
+        >
+      </div>
 
-        <input type="text" placeholder="Enter email" ngModel name="email" email required #email ="ngModel">
+      <button class="btn-login" [disabled]="!form.valid">Login</button>
 
-        <div class="errors">
-
-
-            <span *ngIf="!email.valid && email.touched">Enter a valid email</span>
-
-        </div>
-
-        <label for="">Password</label>
-
-        <input type="password" placeholder="Enter password" ngModel name="password" required #password ="ngModel">
-
-        <div class="errors">
-
-
-            <span *ngIf="!password.valid && password.touched">Enter a valid password</span>
-
-        </div>
-
-
-        <button class="btn-login" [disabled]="!form.valid" >Login</button>
-
-
-        <span class="already-have-account"> <a routerLink="/auth/register">You don't have an account?</a> </span>
-
-        
+      <span class="already-have-account">
+        <a routerLink="/auth/register">You don't have an account?</a>
+      </span>
     </form>
-    </div>
+  </div>
 </div>

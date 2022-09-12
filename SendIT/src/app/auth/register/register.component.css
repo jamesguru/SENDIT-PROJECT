@@ -1,192 +1,165 @@
+.register {
+  display: flex;
 
-.register{
+  height: auto;
+}
 
+.register-form {
+  background-color: #f9e57c;
+
+  height: auto;
+
+  margin: 10px;
+
+  width: 500px;
+}
+
+input.ng-touched.ng-invalid {
+  border-left: px solid red;
+}
+
+input.ng-valid.ng-touched {
+  border-left: 5px solid green;
+}
+
+.header {
+  height: 130px;
+
+  width: 400px;
+
+  background-color: #82d78a;
+
+  margin: 30px;
+}
+
+.header span {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px;
+
+  font-size: 18px;
+
+  width: 70%;
+  color: #fff;
+}
+
+form {
+  display: flex;
+
+  flex-direction: column;
+
+  margin: 0px 70px;
+}
+
+label {
+  margin: 10px;
+
+  color: #82d78a;
+}
+
+form input {
+  padding: 5px;
+
+  border: none;
+
+  border-radius: 5px;
+}
+
+.btn-register {
+  margin-top: 20px;
+
+  border: none;
+
+  padding: 10px;
+
+  background-color: #d78287;
+
+  color: #fff;
+}
+
+.already-have-account {
+  margin-left: 50px;
+
+  color: #82d78a;
+
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+.brown-text {
+  color: #d08d57;
+}
+
+@media screen and (max-width: 600px) {
+  .register {
     display: flex;
 
-    height: auto;
-}
-
-
-.register-form{
-
-    background-color: #F9E57C;
+    flex-direction: column;
 
     height: auto;
 
-    margin: 10px;
+    margin: 20px;
 
-    width: 500px;
-}
+    width: 300px;
+  }
 
-input.ng-touched.ng-invalid{
-
-    border-left: px solid red;
-}
-
-input.ng-valid.ng-touched{
-
-    border-left: 5px solid green;
-
-
-}
-
-.header{
-
-    height: 130px;
-
-    width: 400px;
-
-    background-color:#82D78A ;
-
-    margin: 30px;
-}
-
-.header span{
-
+  .header span {
     display: flex;
 
     align-items: center;
 
     justify-content: center;
 
-    padding: 30px;
+    padding: 20px;
 
-    font-size: 18px;
+    font-size: 13px;
 
     width: 70%;
     color: #fff;
-}
+  }
 
-form{
+  .already-have-account {
+    margin-left: 10px;
 
-    display: flex;
+    color: #82d78a;
 
-    flex-direction: column;
+    cursor: pointer;
+  }
 
-    margin:0px 70px;
+  img {
+    display: none;
+  }
 
-    
-}
+  .register-form {
+    background-color: #f9e57c;
 
-label{
+    height: auto;
 
     margin: 10px;
 
-    color: #82D78A;
-}
-
-form input{
-
-    padding: 5px;
-
-    border: none;
-
-    border-radius: 5px;
-}
-
-.btn-register{
-
-    margin-top: 20px;
-
-    border: none;
-
-    padding: 10px;
-
-    background-color: #D78287;
-
-    color: #fff;
-}
-
-.already-have-account{
-
-    margin-left: 50px;
-
-    color: #82D78A;
-
-    cursor: pointer;
-}
-
-a{
-
-    color: inherit;
-
-    text-decoration: none;
-}
-
-.error {
-    color: red;
-    font-size: 12px;
-  }
-  .brown-text {
-    color: #d08d57;
+    width: 300px;
   }
 
-  @media screen and (max-width: 600px){
+  .header {
+    height: 130px;
 
-    .register{
+    width: 250px;
 
-        display: flex;
+    background-color: #82d78a;
 
-        flex-direction: column;
-    
-        height: auto;
-
-        margin: 20px;
-
-        width: 300px;
-    }
-
-    .header span{
-
-        display: flex;
-    
-        align-items: center;
-    
-        justify-content: center;
-    
-        padding: 20px;
-    
-        font-size: 13px;
-    
-        width: 70%;
-        color: #fff;
-    }
-
-    .already-have-account{
-
-        margin-left: 10px;
-    
-        color: #82D78A;
-    
-        cursor: pointer;
-    }
-
-
-    img{
-
-        display: none;
-    }
-
-    .register-form{
-
-        background-color: #F9E57C;
-    
-        height: auto;
-    
-        margin: 10px;
-    
-        width: 300px;
-    }
-
-    .header{
-
-        height: 130px;
-    
-        width: 250px;
-    
-        background-color:#82D78A ;
-    
-        margin: 30px;
-    }
-    
+    margin: 30px;
   }
+}

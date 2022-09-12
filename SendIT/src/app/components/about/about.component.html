@@ -1,56 +1,40 @@
 <app-navbar></app-navbar>
 
-
 <div class="about">
+  <div class="process">
+    <div class="steps">
+      <h3>OUR PROCESS</h3>
 
-
-
-    <div class="process">
-
-
-        <div class="steps">
-
-            <h3>OUR PROCESS</h3>
-
-            <span>CREATE ORDER</span>
-            <fa-icon [icon]="faArrowDown"></fa-icon>
-            <span>SIGN UP WITH US</span>
-            <fa-icon [icon]="faArrowDown"></fa-icon>
-            <span>SIGN IN</span>
-            <fa-icon [icon]="faArrowDown"></fa-icon>
-            <span>TRACK ORDERS</span>
-            <fa-icon [icon]="faArrowDown"></fa-icon>
-            <span>SEE YOUR ORDER DELIVERED</span>
-        </div>
-
-        <div class="notifications">
-
-            <span>Notifaction along the way.</span>
-        </div>
-
-
-
+      <span>CREATE ORDER</span>
+      <fa-icon [icon]="faArrowDown"></fa-icon>
+      <span>SIGN UP WITH US</span>
+      <fa-icon [icon]="faArrowDown"></fa-icon>
+      <span>SIGN IN</span>
+      <fa-icon [icon]="faArrowDown"></fa-icon>
+      <span>TRACK ORDERS</span>
+      <fa-icon [icon]="faArrowDown"></fa-icon>
+      <span>SEE YOUR ORDER DELIVERED</span>
     </div>
 
-    <div class="benefits">
-
-        <h2>WHY US</h2>
-
-
-        <ol>
-
-            <li>Your parcel will be repackaged by us.</li>
-            <li>You will get notification when your order is fulfilled.</li>
-
-            <li>Your parcel is very safe with us.</li>
-            <li>We will give you discount on orders above 1kg</li>
-            <li>Parcel is handled with a lot of care.</li>
-        </ol>
-
-
-
-        <button class="ready"> <a routerLink="/auth/register">Ready?</a> </button>
+    <div class="notifications">
+      <span>Notifaction along the way.</span>
     </div>
+  </div>
+
+  <div class="benefits">
+    <h2>WHY US</h2>
+
+    <ol>
+      <li>Your parcel will be repackaged by us.</li>
+      <li>You will get notification when your order is fulfilled.</li>
+
+      <li>Your parcel is very safe with us.</li>
+      <li>We will give you discount on orders above 1kg</li>
+      <li>Parcel is handled with a lot of care.</li>
+    </ol>
+
+    <button class="ready"><a routerLink="/auth/register">Ready?</a></button>
+  </div>
 </div>
 
 <app-footer></app-footer>

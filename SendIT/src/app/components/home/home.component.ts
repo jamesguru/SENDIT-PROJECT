@@ -1,48 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 
-
-import {faPhone,faArrowRight, } from '@fortawesome/free-solid-svg-icons';
-
+import { faPhone, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  faPhone = faPhone;
+  faRightArrow = faArrowRight;
+  showNumber: boolean = false;
 
+  phone: string = '0727632051';
 
-faPhone = faPhone;
-faRightArrow = faArrowRight;
-showNumber:boolean = false;
+  constructor(private router: Router) {}
 
-phone:string = '0727632051'; 
+  ngOnInit(): void {}
 
-  constructor(private router:Router) { }
-
-  ngOnInit(): void {
-
-
-    
+  navigateToAbout() {
+    this.router.navigate(['about']);
   }
 
-
-
-
-  navigateToAbout(){
-
-
-    this.router.navigate(['about'])
-
-  }
-
-  showPhone(){
-
-
+  showPhone() {
     this.showNumber = !this.showNumber;
   }
-
 }

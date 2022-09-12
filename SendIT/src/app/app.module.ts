@@ -21,6 +21,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { SearchPipe } from './pipes/search.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { StyleDirective } from './Directives/style.directive';
+import { NativeColorDirective } from './Directives/native-color.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     FooterComponent,
     NavbarComponent,
     AboutComponent,
+    StyleDirective,
+    NativeColorDirective,
   
     
     

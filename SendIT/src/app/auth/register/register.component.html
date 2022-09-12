@@ -1,83 +1,68 @@
 <div class="register">
+  <div class="image">
+    <img src="../../../assets/admin-login.jpg" alt="" />
+  </div>
 
-    <div class="image">
-
-        <img src="../../../assets/admin-login.jpg" alt="">
+  <div class="register-form">
+    <div class="header">
+      <span>Register and get your order prepared faster and track them</span>
     </div>
 
+    <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="">Name </label>
 
-    <div class="register-form">
+      <input type="text" formControlName="name" />
 
-        <div class="header">
-            <span>Register and get your order prepared faster and track them</span>
-        </div>
+      <div *ngIf="!form.get('name')?.valid && form.get('name')?.touched">
+        <p class="error" *ngIf="!(form.get('name')?.errors)!['required']">
+          *Please enter a username
+        </p>
+      </div>
 
+      <label for="">Email</label>
 
-        <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input type="text" formControlName="email" />
 
+      <div *ngIf="!form.get('email')!.valid && form.get('email')!.touched">
+        <p class="error" *ngIf="!form.get('email')!.errors!['required']">
+          *Please enter email
+        </p>
+        <p class="error" *ngIf="!form.get('email')!.errors!['email']">
+          *Please enter a valid email
+        </p>
+      </div>
 
-            <label for="">Name </label>
+      <label for="">Password</label>
 
-            <input type="text"  formControlName="name">
+      <input type="password" formControlName="password" />
 
-            <div *ngIf="!form.get('name')?.valid && form.get('name')?.touched">
-                <p class="error" *ngIf="!(form.get('name')?.errors)!['required']">
-                  *Please enter a username
-                </p>
-              </div>
+      <div
+        *ngIf="!form.get('password')!.valid && form.get('password')!.touched"
+      >
+        <p class="error" *ngIf="form.get('password')!.errors!['required']">
+          *Please enter password
+        </p>
+        <p class="error" *ngIf="form.get('password')!.errors!['special']">
+          *Please enter a special character
+        </p>
+        <p class="error" *ngIf="form.get('password')!.errors!['capital']">
+          *Password should have uppercase letter
+        </p>
+        <p class="error" *ngIf="form.get('password')!.errors!['number']">
+          *Password should have a number
+        </p>
+        <p *ngIf="checkMinimum()">*Password should 8 characters or more</p>
+      </div>
 
+      <label>Confirm password</label>
 
-            <label for="">Email</label>
+      <input type="password" />
 
-            <input type="text" formControlName="email">
+      <button class="btn-register" [disabled]="!form.valid">Register</button>
 
-            <div *ngIf="!form.get('email')!.valid && form.get('email')!.touched">
-                <p class="error" *ngIf="!form.get('email')!.errors!['required']">
-                  *Please enter email
-                </p>
-                <p class="error" *ngIf="!form.get('email')!.errors!['email']">
-                  *Please enter a valid email
-                </p>
-              </div>
-
-            <label for="">Password</label>
-
-            <input type="password" formControlName="password">
-
-            <div
-          *ngIf="!form.get('password')!.valid && form.get('password')!.touched"
-        >
-          <p class="error" *ngIf="form.get('password')!.errors!['required']">
-            *Please enter password
-          </p>
-          <p class="error" *ngIf="form.get('password')!.errors!['special']">
-            *Please enter a special character
-          </p>
-          <p class="error" *ngIf="form.get('password')!.errors!['capital']">
-            *Password should have uppercase letter
-          </p>
-          <p class="error" *ngIf="form.get('password')!.errors!['number']">
-            *Password should have a number
-          </p>
-          <p *ngIf="checkMinimum()">*Password should 8 characters or more</p>
-        </div>
-
-            <label>Confirm password</label>
-
-            <input type="password" >
-
-           
-  
-
-
-            <button class="btn-register" [disabled]="!form.valid">
-                Register
-            </button>
-
-
-            <span class="already-have-account"> <a routerLink="/auth/login"> Already have an account?</a></span>
-        </form>
-
-
-    </div>
+      <span class="already-have-account">
+        <a routerLink="/auth/login"> Already have an account?</a></span
+      >
+    </form>
+  </div>
 </div>
