@@ -4,7 +4,7 @@ CREATE TABLE Users(
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
-    role VARCHAR(100) DEFAULT 'developer' NOT NULL
+    role VARCHAR(100) DEFAULT 'user' NOT NULL
 
 )
 

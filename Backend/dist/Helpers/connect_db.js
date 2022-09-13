@@ -16,9 +16,15 @@ exports.connectDB = void 0;
 const mssql_1 = __importDefault(require("mssql"));
 const config_1 = require("../config/config");
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const pool = yield mssql_1.default.connect(config_1.sqlconfig);
-    if ((yield pool).connected) {
-        return pool;
+    try {
+        const pool = yield mssql_1.default.connect(config_1.sqlconfig);
+        if ((yield pool).connected) {
+            console.log("DB connected");
+            return pool;
+        }
+    }
+    catch (error) {
+        console.log("pool was never created");
     }
 });
 exports.connectDB = connectDB;

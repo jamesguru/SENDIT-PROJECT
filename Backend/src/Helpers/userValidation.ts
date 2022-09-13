@@ -2,7 +2,7 @@ import joi from 'joi';
 
 export const registerSchema  = joi.object({
 
-    username:joi.string().required().min(5),
+    name:joi.string().required().min(5),
 
     email:joi.string().email().exist().required(),
 

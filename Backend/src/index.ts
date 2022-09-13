@@ -1,6 +1,7 @@
 import express, { json, NextFunction, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+
 import {userRoute,parcelRoute,notificationRoute} from "./routes";
 const app = express();
 
@@ -19,6 +20,11 @@ app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
 });
 
 const PORT = process.env.PORT;
+
+
+
+
+
 
 app.listen(PORT, () => {
     
