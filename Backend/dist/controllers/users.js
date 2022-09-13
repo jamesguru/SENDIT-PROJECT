@@ -6,6 +6,7 @@ const getusers = (req, res) => {
 };
 exports.getusers = getusers;
 const signUp = (req, res) => {
+    const { email } = req.body;
     res.status(200).json({ message: 'user is signup' });
 };
 exports.signUp = signUp;
