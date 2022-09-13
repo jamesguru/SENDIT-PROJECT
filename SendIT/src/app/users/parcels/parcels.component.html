@@ -43,7 +43,7 @@
 
         <div class="orders-head">
 
-            <span>PARCEL ID</span>
+            <span>Track ID</span>
 
             <span>LOCATION</span>
 
@@ -64,7 +64,7 @@
 
             <select name="from" id="" (change)="change($event)"  [(ngModel)] ="selectedOption">
 
-                <option value="" selected disabled >select</option>
+                <option value="" selected disabled >Filter</option>
                 <option value="from" name="from">From me</option>
                 <option value="to" name="to">To me</option>
             </select>
@@ -88,6 +88,12 @@
 
            <fa-icon [icon]="faMapLocation"   (click) = "showMap(parcel.locations)" class="location"></fa-icon>
         </div>
+
+        <ng-template #noParcels>
+
+
+
+        </ng-template>
 
 
            
