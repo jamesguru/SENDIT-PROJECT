@@ -25,3 +25,10 @@ CREATE TABLE Parcels(
     deleted int DEFAULT 0 NOT NULL
 
 )
+
+
+
+
+
+
+

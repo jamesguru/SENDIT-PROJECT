@@ -9,6 +9,7 @@ import sendWelcomeEmail from '../SendEmailService/welcomemail'
 export const getAllParcels = (req:Request, res:Response) => {
 
     
+    res.status(200).json({message:"parcels are here"})
     
 
 }

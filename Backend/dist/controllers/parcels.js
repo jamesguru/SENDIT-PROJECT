@@ -16,6 +16,7 @@ exports.updateParcelStatus = exports.getParcelsForUser = exports.softDelete = ex
 const deliveredParcelmail_1 = __importDefault(require("../SendEmailService/deliveredParcelmail"));
 const welcomemail_1 = __importDefault(require("../SendEmailService/welcomemail"));
 const getAllParcels = (req, res) => {
+    res.status(200).json({ message: "parcels are here" });
 };
 exports.getAllParcels = getAllParcels;
 const addParcel = (req, res) => {

@@ -20,3 +20,15 @@ AS
     VALUES(@name, @email,@password)
 
 GO
+
+-- CHECK USER IN DATABASE 
+
+CREATE PROCEDURE userLookUp @email NVARCHAR(100)
+
+AS
+
+SELECT * FROM Users WHERE email=@email
+
+GO
+
+
