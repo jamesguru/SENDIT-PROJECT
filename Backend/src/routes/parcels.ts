@@ -6,10 +6,10 @@ const router = Router();
 
 
 router.get('/',VerifyToken,getAllParcels);
-router.put('/:id',updateParcelStatus)
-router.put('/softdelete/:id',softDelete)
-router.get('/:id',getParcelsForUser);
-router.post('/',addParcel)
+router.put('/:id',VerifyToken,updateParcelStatus)
+router.put('/softdelete/:id',VerifyToken,softDelete)
+router.get('/:id',VerifyToken,getParcelsForUser);
+router.post('/',VerifyToken,addParcel)
 
 
 export default router

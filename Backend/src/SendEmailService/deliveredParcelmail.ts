@@ -3,17 +3,17 @@ import ejs from 'ejs';
 import sendMail from '../Helpers/send_mail';
 
 
-const sendDeliveredParcelEmail = async (email:string,name:string,trackId:string)=> {
+const sendDeliveredParcelEmail = async (email:string,trackId:string)=> {
 
 
-    ejs.renderFile('templates/deliveredparcel.ejs',{name,trackId}, async (err,data) =>{
+    ejs.renderFile('templates/deliveredparcel.ejs',{trackId}, async (err,data) =>{
 
 
         let messageoption = {
 
             from:process.env.EMAIL,
             to:email,
-            subject:`${name} your parcel has been delivered`,
+            subject:`Hello your parcel has been delivered`,
             html:data,
             attachments:[{
 
