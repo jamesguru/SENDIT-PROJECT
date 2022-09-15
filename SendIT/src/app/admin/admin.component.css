@@ -76,9 +76,7 @@
   justify-content: space-between;
 }
 
-.menubar-btn button:last-child {
-  background-color: #d78287;
-}
+
 
 .main-body {
   flex: 4;
@@ -129,7 +127,7 @@
 .stat-users {
   color: #fff;
 
-  background-color: #d78287;
+  background-color: #82d78a;
 
   height: 160px;
 
@@ -176,25 +174,7 @@
   color: #82d78a;
 }
 
-.head span:nth-child(1) {
-  color: #d78287;
-}
 
-.head span:nth-child(3) {
-  color: #d78287;
-}
-
-.head span:nth-child(5) {
-  color: #d78287;
-}
-
-.head span:last-child {
-  background-color: #d78287;
-
-  padding: 5px;
-
-  color: #fff;
-}
 
 .search {
   display: flex;
@@ -241,7 +221,7 @@
 
 .delete {
   cursor: pointer;
-  color: #ff2400;
+  color: #d78287;
 }
 
 .btn-delivered {
