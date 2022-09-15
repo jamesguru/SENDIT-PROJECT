@@ -7,7 +7,9 @@
         <span>Notifications</span>
       </div>
 
-      <span>Daniel raised dispute the order 67862524256.</span>
+      <fa-icon [icon]="faUser" class="user"></fa-icon>
+      <h4>John Mwangi</h4>
+      <h3>ADMIN</h3>
     </div>
 
     <div class="menubar-btn">
@@ -17,7 +19,7 @@
       </button>
 
       <button class="notify-btn">
-        <fa-icon [icon]="faBell" class="notify-icon"></fa-icon> Notifications
+        <fa-icon [icon]="faBell" class="notify-icon"></fa-icon>
       </button>
 
       <button class="orders">Orders</button>
@@ -50,6 +52,8 @@
 
       <div class="stat-users">
         <div class="body">
+
+          
           <span>USERS</span>
 
           <span>1500</span>
@@ -81,7 +85,7 @@
           class="parcel-item"
           *ngFor="
             let parcel of parcels
-              | paginate: { itemsPerPage: 6, currentPage: p }
+              | paginate: { itemsPerPage: 4, currentPage: p }
               | search: filteredText
           "
         >

@@ -5,6 +5,9 @@ import {
   faCancel,
   faClose,
   faTrash,
+  faUser,
+  faPeopleGroup
+  
 } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -31,6 +34,7 @@ export class AdminComponent implements OnInit {
   collection: any[] = [];
   form!: FormGroup;
   faBell = faBell;
+  faUser=faUser;
   faArrowRight = faArrowRight;
   faCancel = faClose;
   faTrash = faTrash;
@@ -38,6 +42,7 @@ export class AdminComponent implements OnInit {
   filteredText: string = '';
   parcel!: Parcel;
 
+  faUsers= faPeopleGroup;
   constructor(private store: Store<ParcelState>, private router: Router) {}
 
   ngOnInit(): void {

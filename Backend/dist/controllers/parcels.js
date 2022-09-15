@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateParcelStatus = exports.getParcelsForUser = exports.softDelete = exports.addParcel = exports.getAllParcels = void 0;
+const deliveredParcelmail_1 = __importDefault(require("../SendEmailService/deliveredParcelmail"));
 const database_1 = __importDefault(require("../Helpers/database"));
 const db = new database_1.default();
 const getAllParcels = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -62,7 +63,8 @@ const updateParcelStatus = (req, res) => __awaiter(void 0, void 0, void 0, funct
     const { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted } = req.body;
     try {
         yield db.exec('insertUpdateParcel', { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted });
-        //await sendDeliveredParcelEmail(email,name,trackId)
+        yield (0, deliveredParcelmail_1.default)(receiverEmail, trackId);
+        yield (0, deliveredParcelmail_1.default)(senderEmail, trackId);
         res.status(201).json('parcel updated successfully');
     }
     catch (error) {

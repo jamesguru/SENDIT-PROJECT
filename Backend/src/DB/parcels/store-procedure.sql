@@ -19,7 +19,7 @@ AS
 CREATE PROCEDURE getParcelsForUser @email VARCHAR(100)
 
 AS
-SELECT * FROM parcels WHERE senderEmail=@email OR receiverEmail=@email
+SELECT * FROM parcels WHERE (senderEmail=@email OR receiverEmail=@email) AND deleted=0
 
 -- DELETE PARCELS
 
@@ -61,3 +61,22 @@ status=@status
 WHERE @id=id
 END
 END
+
+
+
+{
+    
+"id":11,
+"senderEmail":"jameskagunga2022@gmail.com",
+"receiverEmail":"Mwathi@kagunga@gmail.com",
+"trackId":"collins@gmail.com",
+"location":"Nairobi",
+"destination":"Mombasa",
+"dispatchedDate":"2022-10-12",
+"weight":29,
+"price":200,
+"markers":"[longitude and latitude]",
+"status":0,
+"deleted":0
+
+}

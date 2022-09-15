@@ -14,12 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const ejs_1 = __importDefault(require("ejs"));
 const send_mail_1 = __importDefault(require("../Helpers/send_mail"));
-const sendDeliveredParcelEmail = (email, name, trackId) => __awaiter(void 0, void 0, void 0, function* () {
-    ejs_1.default.renderFile('templates/deliveredparcel.ejs', { name, trackId }, (err, data) => __awaiter(void 0, void 0, void 0, function* () {
+const sendDeliveredParcelEmail = (email, trackId) => __awaiter(void 0, void 0, void 0, function* () {
+    ejs_1.default.renderFile('templates/deliveredparcel.ejs', { trackId }, (err, data) => __awaiter(void 0, void 0, void 0, function* () {
         let messageoption = {
             from: process.env.EMAIL,
             to: email,
-            subject: `${name} your parcel has been delivered`,
+            subject: `Hello your parcel has been delivered`,
             html: data,
             attachments: [{
                     filename: 'parcel.txt',

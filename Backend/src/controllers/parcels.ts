@@ -1,5 +1,5 @@
 
-import {Response,Request} from 'express'
+import {Response,Request, RequestHandler} from 'express'
 import axios from 'axios'
 import sendDeliveredParcelEmail from '../SendEmailService/deliveredParcelmail'
 import Connection from "../Helpers/database";
@@ -99,9 +99,7 @@ export const getParcelsForUser = async (req:Request,res:Response) =>{
 }
 
 
-export const updateParcelStatus = async (req:Request, res:Response) => {
-
-    
+export const updateParcelStatus:RequestHandler<{id:string}> = async (req:Request, res:Response) => {
 
     const {id,senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted} =req.body
 
@@ -109,13 +107,14 @@ export const updateParcelStatus = async (req:Request, res:Response) => {
 
         await db.exec('insertUpdateParcel',{id,senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted})
 
-        //await sendDeliveredParcelEmail(email,name,trackId)
+        await sendDeliveredParcelEmail(receiverEmail,trackId)
+        await sendDeliveredParcelEmail(senderEmail,trackId)
         res.status(201).json('parcel updated successfully')
         
     } catch (error) {
         
 
-        res.status(404).json({message:'parcel was not found'})
+    res.status(404).json({message:'parcel was not found'})
     }
     
 

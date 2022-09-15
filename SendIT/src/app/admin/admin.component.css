@@ -7,25 +7,45 @@
 .menubar {
   flex: 1;
 
-  background-color: #f9e57c;
+  background-color: #fff;
 
   height: 100vh;
+
+  box-shadow: #aaaaaa;
 }
 
 .notifications {
-  background-color: #82d78a;
+
 
   margin: 10px;
 
-  height: 30%;
+  height: 40%;
 
-  width: 80%;
+  width: 95%;
 
-  color: #fff;
+  color: #4b4242;
 }
 
-.notifications span {
-  margin: 10px;
+.user{
+
+  font-size: 75px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #AAA;
+}
+
+.notifications h3,h4{
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
 }
 .notify {
   display: flex;
@@ -59,7 +79,7 @@
 .menubar-btn button {
   margin: 9%;
 
-  background-color: #82d78a;
+  background-color: #d78287;
 
   padding: 10px;
 
@@ -88,7 +108,7 @@
   align-items: center;
   justify-content: center;
 
-  color: #82d78a;
+  color: #4b4242;
 }
 
 .stat {
@@ -98,17 +118,19 @@
 }
 
 .stat-card {
-  height: 160px;
+  height:200px;
 
   width: 300px;
 
-  background-color: #82d78a;
+  background-color: #fff;
 
   border-radius: 5px;
 
   margin: 5px 20px;
 
-  color: #fff;
+  color: #4b4242;
+
+  box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 .body {
@@ -127,11 +149,13 @@
 .stat-users {
   color: #fff;
 
-  background-color: #82d78a;
+  color: #4b4242;
 
-  height: 160px;
+  box-shadow: 10px 10px 5px #aaaaaa;
 
-  width: 200px;
+  height: 200px;
+
+  width: 300px;
 }
 
 .delivered {
@@ -153,11 +177,11 @@
 
   width: 85%;
 
-  margin: 20px;
+  
 
   border-radius: 5px;
 
-  background-color: #f9e57c;
+  
 }
 
 .head {
@@ -168,10 +192,12 @@
   padding: 10px;
 
   font-size: 16px;
+
+  
 }
 
 .head span {
-  color: #82d78a;
+  color: #4b4242;
 }
 
 
@@ -187,7 +213,7 @@
 .search input {
   width: 60%;
 
-  border: none;
+
 
   padding: 10px;
 
