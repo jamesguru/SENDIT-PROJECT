@@ -32,6 +32,7 @@ AS
 -- UPDATE AND INSERT
 
  CREATE PROCEDURE insertUpdateParcel(
+@id INT ,
 @senderEmail VARCHAR(200),
 @receiverEmail VARCHAR(200),
 @trackId VARCHAR (200),
@@ -46,17 +47,17 @@ AS
 AS
 BEGIN
 DECLARE @variableId BIT
-SELECT @variableId = COUNT(trackId) FROM parcels WHERE trackId=@trackId
+SELECT @variableId = COUNT(id) FROM parcels WHERE id=@id
 IF @variableId=0
 BEGIN
-INSERT INTO parcels(senderEmail,receiverEmail,trackId,location,destination,weight,price,markers,status,deleted)
-VALUES(@senderEmail,@receiverEmail,@trackId,@location,@destination,@weight,@price,@markers,@status,@deleted)
+INSERT INTO parcels(id,senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted)
+VALUES(@id,@senderEmail,@receiverEmail,@trackId,@location,@destination,@dispatchedDate,@weight,@price,@markers,@status,@deleted)
 END
 ELSE 
 BEGIN
 UPDATE [parcels]
 SET
 status=@status
+WHERE @id=id
 END
-
 END

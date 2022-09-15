@@ -13,25 +13,60 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateParcelStatus = exports.getParcelsForUser = exports.softDelete = exports.addParcel = exports.getAllParcels = void 0;
-const deliveredParcelmail_1 = __importDefault(require("../SendEmailService/deliveredParcelmail"));
-const welcomemail_1 = __importDefault(require("../SendEmailService/welcomemail"));
-const getAllParcels = (req, res) => {
-    res.status(200).json({ message: "parcels are here" });
-};
+const database_1 = __importDefault(require("../Helpers/database"));
+const db = new database_1.default();
+const getAllParcels = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const parcel = yield db.exec('getAllParcels');
+        res.status(200).json(parcel.recordset);
+    }
+    catch (error) {
+        res.status(404).json({ message: 'parcel not found' });
+    }
+});
 exports.getAllParcels = getAllParcels;
-const addParcel = (req, res) => {
-};
+const addParcel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted } = req.body;
+    try {
+        yield db.exec('insertUpdateParcel', { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted });
+        res.status(200).json('parcel added successfully');
+    }
+    catch (error) {
+        res.status(400).json({ message: 'parcel upload failed' });
+    }
+});
 exports.addParcel = addParcel;
-const softDelete = (req, res) => {
-};
+const softDelete = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id, deleted } = req.body;
+    try {
+        yield db.exec('softDelete', { id, deleted });
+        res.status(201).json('data has been deleted successfully');
+    }
+    catch (error) {
+        res.status(400).json({ message: 'data has not been added' });
+    }
+});
 exports.softDelete = softDelete;
-const getParcelsForUser = (req, res) => {
-};
+const getParcelsForUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email } = req.body;
+    try {
+        const parcels = yield db.exec('getParcelsForUser', { email });
+        res.status(200).json(parcels.recordset);
+    }
+    catch (error) {
+        res.status(404).json({ message: 'Parcel was not found' });
+    }
+});
 exports.getParcelsForUser = getParcelsForUser;
 const updateParcelStatus = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { name, email, trackId } = req.body;
-    console.log('helooo', name, email, trackId);
-    yield (0, deliveredParcelmail_1.default)(email, name, trackId);
-    yield (0, welcomemail_1.default)(name, email);
+    const { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted } = req.body;
+    try {
+        yield db.exec('insertUpdateParcel', { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted });
+        //await sendDeliveredParcelEmail(email,name,trackId)
+        res.status(201).json('parcel updated successfully');
+    }
+    catch (error) {
+        res.status(404).json({ message: 'parcel was not found' });
+    }
 });
 exports.updateParcelStatus = updateParcelStatus;
