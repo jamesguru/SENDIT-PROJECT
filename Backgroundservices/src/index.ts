@@ -13,8 +13,7 @@ const run =()=>{
         await WelcomeEmail()
         await DeliveredEmail()
 
-        
-       
+     
     })
 }
 run()

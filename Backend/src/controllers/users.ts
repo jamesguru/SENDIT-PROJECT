@@ -3,7 +3,7 @@ import { User } from "../interfaces/Users";
 import bcrypt from "bcrypt";
 import { loginSchema, registerSchema } from "../Helpers/userValidation";
 import jwt from "jsonwebtoken";
-import sendWelcomeEmail from "../SendEmailService/welcomemail";
+
 import Connection from "../Helpers/database";
 
 const db = new Connection();
@@ -42,7 +42,7 @@ export const signUp = async (req: User, res: Response) => {
 
     res.status(201).json({ message:'you registared successfully'});
 
-    await sendWelcomeEmail(name, email);
+    
 
   }
   } catch (error) {

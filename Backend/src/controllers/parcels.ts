@@ -1,7 +1,6 @@
 
 import {Response,Request, RequestHandler} from 'express'
 import axios from 'axios'
-import sendDeliveredParcelEmail from '../SendEmailService/deliveredParcelmail'
 import Connection from "../Helpers/database";
 import { Extended } from '../interfaces/Parcels';
 
@@ -116,8 +115,7 @@ export const updateParcelStatus:RequestHandler<{id:string}> = async (req:Request
 
         await db.exec('insertUpdateParcel',{id,senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted})
 
-        await sendDeliveredParcelEmail(receiverEmail,trackId)
-        await sendDeliveredParcelEmail(senderEmail,trackId)
+       
 
         await axios.post('http://localhost:8000/api/notifications',{trackId,email:receiverEmail,message:`Your order ${trackId} has been delivered`} as any)
         res.status(201).json('parcel updated successfully')

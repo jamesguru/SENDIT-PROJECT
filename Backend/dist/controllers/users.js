@@ -27,7 +27,6 @@ exports.signIn = exports.signUp = exports.getusers = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const userValidation_1 = require("../Helpers/userValidation");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const welcomemail_1 = __importDefault(require("../SendEmailService/welcomemail"));
 const database_1 = __importDefault(require("../Helpers/database"));
 const db = new database_1.default();
 const getusers = (req, res) => {
@@ -53,7 +52,6 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 password: hashedPassword,
             });
             res.status(201).json({ message: 'you registared successfully' });
-            yield (0, welcomemail_1.default)(name, email);
         }
     }
     catch (error) {
