@@ -35,6 +35,8 @@ export const addParcel = async (req:Request,res:Response) =>{
     const {id,senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted} =req.body
 
 
+    
+
     try {
 
 
@@ -53,9 +55,12 @@ export const addParcel = async (req:Request,res:Response) =>{
 }
 
 
-export const softDelete = async(req:Request, res:Response) => {
+export const softDelete: RequestHandler<{id:string}>  = async(req:Request, res:Response) => {
 
-    const {id,deleted} =req.body;
+
+
+    const id = req.params.id;
+    const {deleted} =req.body;
 
 
     try {
@@ -101,7 +106,11 @@ export const getParcelsForUser = async (req:Request,res:Response) =>{
 
 export const updateParcelStatus:RequestHandler<{id:string}> = async (req:Request, res:Response) => {
 
-    const {id,senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted} =req.body
+
+
+    const id = req.params.id;
+
+    const {senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted} =req.body
 
     try {
 
@@ -109,6 +118,8 @@ export const updateParcelStatus:RequestHandler<{id:string}> = async (req:Request
 
         await sendDeliveredParcelEmail(receiverEmail,trackId)
         await sendDeliveredParcelEmail(senderEmail,trackId)
+
+        await axios.post('http://localhost:8000/api/notifications',{trackId,email:receiverEmail,message:`Your order ${trackId} has been delivered`} as any)
         res.status(201).json('parcel updated successfully')
         
     } catch (error) {

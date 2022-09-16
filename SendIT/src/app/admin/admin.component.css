@@ -7,11 +7,11 @@
 .menubar {
   flex: 1;
 
-  background-color: #fff;
+  background-color: #82d78a;
 
   height: 100vh;
+  color: #fff;
 
-  box-shadow: #aaaaaa;
 }
 
 .notifications {
@@ -23,12 +23,14 @@
 
   width: 95%;
 
-  color: #4b4242;
+  color: #fff;
 }
 
 .user{
 
-  font-size: 75px;
+  font-size: 100px;
+
+  margin: 10px;
 
   display: flex;
 
@@ -36,7 +38,7 @@
 
   justify-content: center;
 
-  color: #AAA;
+  color: #fff;
 }
 
 .notifications h3,h4{
@@ -79,9 +81,11 @@ justify-content: center;
 .menubar-btn button {
   margin: 9%;
 
-  background-color: #d78287;
+  background-color: #f9e57c;
 
   padding: 10px;
+
+  font-size: 14px;
 
   border: none;
 
@@ -108,7 +112,8 @@ justify-content: center;
   align-items: center;
   justify-content: center;
 
-  color: #4b4242;
+  color: #AAA;
+
 }
 
 .stat {
@@ -126,9 +131,10 @@ justify-content: center;
 
   border-radius: 5px;
 
+  font-weight:bold;
   margin: 5px 20px;
 
-  color: #4b4242;
+  color: #AAA;
 
   box-shadow: 10px 10px 5px #aaaaaa;
 }
@@ -147,9 +153,11 @@ justify-content: center;
 }
 
 .stat-users {
-  color: #fff;
+  
 
-  color: #4b4242;
+  color: #AAA;
+  
+  font-weight:bold;
 
   box-shadow: 10px 10px 5px #aaaaaa;
 
@@ -193,6 +201,7 @@ justify-content: center;
 
   font-size: 16px;
 
+  
   
 }
 

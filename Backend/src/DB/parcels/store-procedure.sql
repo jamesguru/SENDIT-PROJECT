@@ -80,3 +80,15 @@ END
 "deleted":0
 
 }
+
+-- Check user
+
+CREATE PROCEDURE checkParcel
+AS
+SELECT * FROM parcels WHERE status=1
+
+--Update status parcel and sent email
+
+CREATE PROCEDURE updateParcelStatus
+AS
+UPDATE parcels SET status=2 WHERE status=1 

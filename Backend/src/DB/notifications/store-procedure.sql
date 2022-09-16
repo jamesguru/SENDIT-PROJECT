@@ -1,6 +1,6 @@
 -- CREATE NOTIFICATIONS
 
-CREATE PROCEDURE addNotifications @trackId VARCHAR(200),@email VARCHAR(200),@message VARCHAR(500)
+CREATE PROCEDURE addNotifications @trackId VARCHAR(200),@email VARCHAR(2000),@message VARCHAR(2000)
     AS
     INSERT INTO Notifications(trackId,email,message)
     VALUES(@trackId,@email,@message)
@@ -17,3 +17,10 @@ CREATE PROCEDURE deleteNotifications @trackId VARCHAR(100)
 AS
 
 DELETE FROM Notifications WHERE trackId=@trackId
+
+-- GETNOTIFICATIONSFORUSER
+
+
+CREATE PROCEDURE getNotificationsForUser @email VARCHAR(100)
+AS 
+SELECT * FROM Notifications WHERE email=@email

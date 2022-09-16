@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {
   faBell,
   faArrowRight,
-  faCancel,
   faClose,
   faTrash,
   faUser,
-  faPeopleGroup
+  faPeopleGroup,
+  faInbox,
+  faArchive
   
 } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
@@ -38,10 +39,12 @@ export class AdminComponent implements OnInit {
   faArrowRight = faArrowRight;
   faCancel = faClose;
   faTrash = faTrash;
+  faInbox=faInbox;
   openAddModal: boolean = false;
   filteredText: string = '';
   parcel!: Parcel;
-
+  faArchive=faArchive;
+  
   faUsers= faPeopleGroup;
   constructor(private store: Store<ParcelState>, private router: Router) {}
 

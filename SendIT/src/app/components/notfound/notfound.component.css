@@ -1,0 +1,25 @@
+.notfound img{
+
+    height: 400px;
+
+    width: 400px;
+
+    margin:auto;
+
+    object-fit: contain;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.notfound span{
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+    
+}
