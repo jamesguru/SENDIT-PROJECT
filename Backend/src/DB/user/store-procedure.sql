@@ -32,3 +32,14 @@ SELECT * FROM Users WHERE email=@email
 GO
 
 
+-- CHECK USER IN DATABASE
+
+CREATE PROCEDURE userCheck
+AS 
+SELECT * FROM Users WHERE register=0
+
+--UPDATE USERS
+
+CREATE PROCEDURE updateUser @id INT
+AS 
+UPDATE Users SET register=1 WHERE id=@id
