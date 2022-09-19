@@ -10,6 +10,6 @@ const router = (0, express_1.default)();
 router.get('/', verifytoken_1.VerifyToken, parcels_1.getAllParcels);
 router.put('/:id', verifytoken_1.VerifyToken, parcels_1.updateParcelStatus);
 router.put('/softdelete/:id', verifytoken_1.VerifyToken, parcels_1.softDelete);
-router.get('/:id', verifytoken_1.VerifyToken, parcels_1.getParcelsForUser);
+router.get('/userparcels', verifytoken_1.VerifyToken, parcels_1.getParcelsForUser);
 router.post('/', verifytoken_1.VerifyToken, parcels_1.addParcel);
 exports.default = router;

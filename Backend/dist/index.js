@@ -34,12 +34,13 @@ const app = (0, express_1.default)();
 dotenv_1.default.config();
 app.use((0, express_1.json)());
 app.use((0, cors_1.default)());
-app.use('/api/users', routes_1.userRoute);
-app.use('/api/parcels', routes_1.parcelRoute);
-app.use('/api/notifications', routes_1.notificationRoute);
+app.use("/api/users", routes_1.userRoute);
+app.use("/api/parcels/", routes_1.parcelRoute);
+app.use("/api/notifications", routes_1.notificationRoute);
 app.use(function (err, req, res, next) {
-    if (err.message)
-        return res.status(500).send({ message: "Internal Server Error" });
+    if (err.message) {
+        return res.status(500).send({ message: err.message });
+    }
     res.status(404).send({ message: err });
 });
 const PORT = process.env.PORT;

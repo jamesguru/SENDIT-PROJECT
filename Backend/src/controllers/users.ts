@@ -28,7 +28,7 @@ export const signUp = async (req: User, res: Response) => {
 
     if(userIndatabase.recordset.length){
 
-      res.status(401).json({message:"user is already in database"})
+      res.status(200).json({message:"exist"})
     }else{
     
 
@@ -40,7 +40,7 @@ export const signUp = async (req: User, res: Response) => {
       password: hashedPassword,
     });
 
-    res.status(201).json({ message:'you registared successfully'});
+    res.status(201).json({ message:'success'});
 
     
 
@@ -82,7 +82,7 @@ export const signIn = async (req: User, res: Response) => {
 
         res.status(200).json({ user, token });
       } else {
-        res.status(401).json({ message: "wrong password" });
+        res.status(200).json({ message: "wrong password" });
       }
     });
 

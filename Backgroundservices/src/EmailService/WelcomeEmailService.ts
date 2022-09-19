@@ -21,12 +21,11 @@ interface User{
 
 const WelcomeEmail= async()=>{
 
-    console.log('Helooo')
+    
 
 const users:User[]=  await (await db.exec('userCheck')).recordset
 
 
-console.log(users)
 
 
  for(let user of users){

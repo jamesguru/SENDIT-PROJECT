@@ -24,7 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
     ErrorComponent,
 
-    SuccessComponent
+    SuccessComponent,
 
   ]
 })

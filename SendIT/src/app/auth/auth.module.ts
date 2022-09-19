@@ -6,19 +6,25 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorComponent } from '../shared/error/error.component';
+import { SuccessComponent } from '../shared/success/success.component';
+
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
   declarations: [
     
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+   
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 })
 export class AuthModule { }

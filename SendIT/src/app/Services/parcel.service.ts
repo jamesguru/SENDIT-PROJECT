@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Parcel} from '../interfaces/Parcel'
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -10,6 +11,7 @@ import {Parcel} from '../interfaces/Parcel'
 export class ParcelService {
   baseUrl: string = "http://localhost:5000"
   orders$!:Observable<Parcel[]>
+  // baseUrl = environment.baseUrl
   
   constructor(private http: HttpClient) { }
   

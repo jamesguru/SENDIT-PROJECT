@@ -8,7 +8,7 @@ const router = Router();
 router.get('/',VerifyToken,getAllParcels);
 router.put('/:id',VerifyToken,updateParcelStatus)
 router.put('/softdelete/:id',VerifyToken,softDelete)
-router.get('/:id',VerifyToken,getParcelsForUser);
+router.get('/userparcels',VerifyToken,getParcelsForUser);
 router.post('/',VerifyToken,addParcel)
 
 

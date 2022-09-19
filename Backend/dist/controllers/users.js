@@ -42,7 +42,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         const userIndatabase = yield db.exec('userLookUp', { email });
         if (userIndatabase.recordset.length) {
-            res.status(401).json({ message: "user is already in database" });
+            res.status(200).json({ message: "exist" });
         }
         else {
             const hashedPassword = yield bcrypt_1.default.hash(password, 10);
@@ -51,7 +51,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 email,
                 password: hashedPassword,
             });
-            res.status(201).json({ message: 'you registared successfully' });
+            res.status(201).json({ message: 'success' });
         }
     }
     catch (error) {
@@ -78,7 +78,7 @@ const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 res.status(200).json({ user, token });
             }
             else {
-                res.status(401).json({ message: "wrong password" });
+                res.status(200).json({ message: "wrong password" });
             }
         });
         if (error) {
