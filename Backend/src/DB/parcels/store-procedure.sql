@@ -81,7 +81,7 @@ END
 
 }
 
--- Check user
+-- Check parcel
 
 CREATE PROCEDURE checkParcel
 AS

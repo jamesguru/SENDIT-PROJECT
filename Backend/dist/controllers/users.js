@@ -27,7 +27,6 @@ exports.signIn = exports.signUp = exports.getusers = void 0;
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const userValidation_1 = require("../Helpers/userValidation");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const welcomemail_1 = __importDefault(require("../SendEmailService/welcomemail"));
 const database_1 = __importDefault(require("../Helpers/database"));
 const db = new database_1.default();
 const getusers = (req, res) => {
@@ -43,7 +42,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         const userIndatabase = yield db.exec('userLookUp', { email });
         if (userIndatabase.recordset.length) {
-            res.status(401).json({ message: "user is already in database" });
+            res.status(200).json({ message: "exist" });
         }
         else {
             const hashedPassword = yield bcrypt_1.default.hash(password, 10);
@@ -52,8 +51,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 email,
                 password: hashedPassword,
             });
-            res.status(201).json({ message: 'you registared successfully' });
-            yield (0, welcomemail_1.default)(name, email);
+            res.status(201).json({ message: 'success' });
         }
     }
     catch (error) {
@@ -80,7 +78,7 @@ const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 res.status(200).json({ user, token });
             }
             else {
-                res.status(401).json({ message: "wrong password" });
+                res.status(200).json({ message: "wrong password" });
             }
         });
         if (error) {

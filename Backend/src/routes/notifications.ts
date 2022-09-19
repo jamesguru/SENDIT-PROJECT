@@ -3,7 +3,8 @@ import { Router } from 'express';
 import {getNotifications,addNotifications,deleteNotifications} from '../controllers/notifications';
 
 
-const router =Router();
+
+const router = Router();
 
 
 router.get('/',getNotifications);

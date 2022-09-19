@@ -24,6 +24,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { StyleDirective } from './Directives/style.directive';
 import { NativeColorDirective } from './Directives/native-color.directive';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     EffectsModule.forRoot([]),
 
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+     BrowserAnimationsModule,
     
     
   ],

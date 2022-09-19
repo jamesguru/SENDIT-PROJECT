@@ -1,19 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit,OnDestroy {
   form!: FormGroup;
 
   name!: string;
   email!: string;
   password!: string;
 
-  constructor() {}
+  success!:boolean;
+
+
+  message!:string;
+
+  successMessage = 'You have registered successfully. Go a head and login.';
+
+  
+
+  existMessage = 'Email is already in use';
+
+  sub!:Subscription
+
+  constructor(private auth:AuthService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -57,7 +72,36 @@ export class RegisterComponent implements OnInit {
       return false;
     }
   }
+
+
+
   onSubmit() {
-    console.log(this.form.value);
+
+
+    this.sub = this.auth.signUp(this.form.value).subscribe(val => {
+
+
+      if(val.message === "success"){
+
+        this.success=true;
+
+        this.message=this.successMessage;
+      }else if(val.message === "exist"){
+
+
+        this.success= true
+
+        this.message=this.existMessage;
+        
+      }
+      
+    })
+    
   }
+
+ngOnDestroy(): void {
+  
+  this.sub.unsubscribe()
+}
+  
 }

@@ -110,6 +110,7 @@ export class ParcelsComponent implements OnInit {
 
   LogOut(){
 
-    this.router.navigate([''])
+    this.router.navigate(['/auth/login'])
+    localStorage.clear()
   }
 }

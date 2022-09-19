@@ -3,7 +3,7 @@ import { User } from "../interfaces/Users";
 import bcrypt from "bcrypt";
 import { loginSchema, registerSchema } from "../Helpers/userValidation";
 import jwt from "jsonwebtoken";
-import sendWelcomeEmail from "../SendEmailService/welcomemail";
+
 import Connection from "../Helpers/database";
 
 const db = new Connection();
@@ -28,7 +28,7 @@ export const signUp = async (req: User, res: Response) => {
 
     if(userIndatabase.recordset.length){
 
-      res.status(401).json({message:"user is already in database"})
+      res.status(200).json({message:"exist"})
     }else{
     
 
@@ -40,9 +40,9 @@ export const signUp = async (req: User, res: Response) => {
       password: hashedPassword,
     });
 
-    res.status(201).json({ message:'you registared successfully'});
+    res.status(201).json({ message:'success'});
 
-    await sendWelcomeEmail(name, email);
+    
 
   }
   } catch (error) {
@@ -82,7 +82,7 @@ export const signIn = async (req: User, res: Response) => {
 
         res.status(200).json({ user, token });
       } else {
-        res.status(401).json({ message: "wrong password" });
+        res.status(200).json({ message: "wrong password" });
       }
     });
 

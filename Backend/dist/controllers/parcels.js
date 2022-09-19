@@ -14,7 +14,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateParcelStatus = exports.getParcelsForUser = exports.softDelete = exports.addParcel = exports.getAllParcels = void 0;
 const axios_1 = __importDefault(require("axios"));
-const deliveredParcelmail_1 = __importDefault(require("../SendEmailService/deliveredParcelmail"));
 const database_1 = __importDefault(require("../Helpers/database"));
 const db = new database_1.default();
 const getAllParcels = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -31,7 +30,7 @@ const addParcel = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted } = req.body;
     try {
         yield db.exec('insertUpdateParcel', { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted });
-        res.status(200).json('parcel added successfully');
+        res.status(200).json({ message: 'parcel added successfully' });
     }
     catch (error) {
         res.status(400).json({ message: 'parcel upload failed' });
@@ -43,7 +42,7 @@ const softDelete = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const { deleted } = req.body;
     try {
         yield db.exec('softDelete', { id, deleted });
-        res.status(201).json('data has been deleted successfully');
+        res.status(201).json({ message: 'data has been deleted successfully' });
     }
     catch (error) {
         res.status(400).json({ message: 'data has not been added' });
@@ -66,10 +65,8 @@ const updateParcelStatus = (req, res) => __awaiter(void 0, void 0, void 0, funct
     const { senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted } = req.body;
     try {
         yield db.exec('insertUpdateParcel', { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted });
-        yield (0, deliveredParcelmail_1.default)(receiverEmail, trackId);
-        yield (0, deliveredParcelmail_1.default)(senderEmail, trackId);
         yield axios_1.default.post('http://localhost:8000/api/notifications', { trackId, email: receiverEmail, message: `Your order ${trackId} has been delivered` });
-        res.status(201).json('parcel updated successfully');
+        res.status(201).json({ message: 'parcel updated successfully' });
     }
     catch (error) {
         res.status(404).json({ message: 'parcel was not found' });
