@@ -6,7 +6,7 @@
       </div>
 
       <fa-icon [icon]="faUser" class="user"></fa-icon>
-      <h4>John Mwangi</h4>
+      <h4>{{user.name}}</h4>
       <h3>ADMIN</h3>
     </div>
 
@@ -70,7 +70,7 @@
 
     <div class="parcel-header">
       <div class="head">
-        <span>Name</span>
+        
 
         <span>Track ID</span>
 
@@ -81,6 +81,8 @@
         <span>Status</span>
 
         <span>Update</span>
+
+        <span>Delete</span>
       </div>
 
       <div class="search">
@@ -88,6 +90,9 @@
       </div>
 
       <div class="parcels" *ngIf="parcels$ | async as parcels">
+
+
+        <div *ngIf="parcels.length;else noParcels">
         <div
           class="parcel-item"
           *ngFor="
@@ -96,33 +101,66 @@
               | search: filteredText
           "
         >
-          <span>James</span>
+          
 
-          <span>{{parcel.trackNumber}}</span>
+          <span>{{parcel.trackId}}</span>
 
-          <span>Nairobi</span>
+          <span>{{parcel.location}}</span>
 
-          <span>Kisumu</span>
+          <span>{{parcel.destination}}</span>
 
-          <span class="{{ parcel.status === 0 ? 'pending' : 'delivered' }}">{{
+          <span 
+          
+          class="{{ parcel.status === 0 ? 'pending' : 'delivered' }}" >
+          
+          {{
             parcel.status === 0 ? "pending" : "delivered"
-          }}</span>
+          }}
+        
+        </span>
 
           <button
             class="{{ parcel.status === 0 ? 'btn-update' : 'delivered' }}"
-            (click)="updateStatus(parcel.id)"
+            (click)="updateStatus(parcel.id,
+            parcel.senderEmail,
+            parcel.receiverEmail,
+            parcel.trackId,
+            parcel.location,
+            parcel.destination,
+            parcel.dispatchedDate,
+            parcel.weight,
+            parcel.price,
+            parcel.markers,
+            parcel.status,
+            parcel.deleted
+  )"
           >
             {{ parcel.status === 0 ? "update" : "delivered" }}
           </button>
-          <fa-icon [icon]="faTrash" class="delete"></fa-icon>
+          <fa-icon [icon]="faTrash" class="delete"  (click)="deleteParcel(parcel.id)" ></fa-icon>
         </div>
-
+        </div>
         <pagination-controls
           (pageChange)="p = $event"
           class="list"
         ></pagination-controls>
       </div>
     </div>
+
+    <ng-template #noParcels>
+
+
+
+      <div class="none">
+
+
+          No Parcels
+
+      </div>
+      
+
+  </ng-template>
+
   </div>
 </div>
 

@@ -17,7 +17,9 @@ import {
     deleteMessage: string;
     parcelid: number;
     addMessage: string;
-    status:number
+    status:number;
+    updateMessage:string;
+    getUserParcelsMessage:string,
   }
   
   const initialState: ParcelState = {
@@ -28,6 +30,9 @@ import {
     parcelid: 0,
     addMessage: '',
 
+    updateMessage:'',
+
+    getUserParcelsMessage:'',
     status:0
   };
   
@@ -72,8 +77,14 @@ import {
   }),on(Actions.AddParcelFailure,(state,action):ParcelState=>{
       return{...state, error:action.error}
   
-  }),on(Actions.updateParcel,(state,action):ParcelState=>{
-    return{...state,  parcelid: action.id}
+  }),on(Actions.updateParcelSuccess,(state,action):ParcelState=>{
+    return{...state,  updateMessage: action.updateMessage}
+
+}),on(Actions.getUserParcelSuccess,(state,action):ParcelState=>{
+  return{...state,  parcels: action.parcels}
+
+}),on(Actions.getUserParcelFailure,(state,action):ParcelState=>{
+  return{...state,  getUserParcelsMessage: action.error}
 
 })
   );

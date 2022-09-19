@@ -5,11 +5,11 @@ import { VerifyToken } from '../middlewares/verifytoken';
 const router = Router();
 
 
-router.get('/',VerifyToken,getAllParcels);
-router.put('/:id',VerifyToken,updateParcelStatus)
-router.put('/softdelete/:id',VerifyToken,softDelete)
-router.get('/userparcels',VerifyToken,getParcelsForUser);
-router.post('/',VerifyToken,addParcel)
+router.get('/', getAllParcels);
+router.put('/:id',updateParcelStatus)
+router.put('/softdelete/:id',softDelete)
+router.post('/userparcels',getParcelsForUser);
+router.post('/',addParcel)
 
 
 export default router

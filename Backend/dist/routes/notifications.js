@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const notifications_1 = require("../controllers/notifications");
+const verifytoken_1 = require("../middlewares/verifytoken");
 const router = (0, express_1.Router)();
-router.get('/', notifications_1.getNotifications);
-router.post('/', notifications_1.addNotifications);
-router.delete('/', notifications_1.deleteNotifications);
+router.get('/', verifytoken_1.VerifyToken, notifications_1.getNotifications);
+router.post('/', verifytoken_1.VerifyToken, notifications_1.addNotifications);
+router.delete('/', verifytoken_1.VerifyToken, notifications_1.deleteNotifications);
 exports.default = router;

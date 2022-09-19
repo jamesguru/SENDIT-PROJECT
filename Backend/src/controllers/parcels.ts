@@ -107,9 +107,18 @@ export const updateParcelStatus:RequestHandler<{id:string}> = async (req:Request
 
 
 
+    console.log('updated successfully')
+
     const id = req.params.id;
 
+    console.log(id)
+
+    
+
     const {senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted} =req.body
+
+
+    console.log(senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted)
 
     try {
 

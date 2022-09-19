@@ -49,10 +49,24 @@ export class ParcelEffectsService {
 updateParcel=createEffect(()=>{
   return this.actions.pipe(
       ofType(ParcelsActions.updateParcel),
-      mergeMap(action=>this.parcelService.updateParcels(action.id).pipe(
+      mergeMap(action=>this.parcelService.updateParcels(action.updatedParcel).pipe(
           map(res=>ParcelsActions.AddParcelSuccess({addMessage:res.message})),
           catchError(error=>of(ParcelsActions.AddParcelFailure({error:error})))
       ))
   )
 })
+
+getUserParcels= createEffect(()=>{
+
+  return this.actions.pipe(
+    ofType(ParcelsActions.getUserParcels),
+    mergeMap(action => this.parcelService.getParcelsForUser(action.email).pipe(
+      map(parcels=>ParcelsActions.getUserParcelSuccess({parcels})),
+      catchError(error=>of(ParcelsActions.getUserParcelFailure({error:error.message})))
+    ))
+  )
+})
+
+
+
 }

@@ -28,7 +28,7 @@ export const signUp = async (req: User, res: Response) => {
 
     if(userIndatabase.recordset.length){
 
-      res.status(200).json({message:"exist"})
+      res.status(409).json({message:"exist"})
     }else{
     
 
@@ -46,7 +46,7 @@ export const signUp = async (req: User, res: Response) => {
 
   }
   } catch (error) {
-    res.status(500).json({ message: "something went wrong" });
+    res.status(500).json({ message: "server is unable to handle request" });
   }
 };
 
@@ -59,7 +59,7 @@ export const signIn = async (req: User, res: Response) => {
     const user = await db.exec("signin", { email });
 
     if (!user?.recordset[0]) {
-      return res.status(400).json({ message: "user is not defined" });
+      return res.status(404).json({ message: "user is not found" });
     }
 
     const userData = user?.recordset[0] as {
@@ -82,7 +82,7 @@ export const signIn = async (req: User, res: Response) => {
 
         res.status(200).json({ user, token });
       } else {
-        res.status(200).json({ message: "wrong password" });
+        res.status(401).json({ message: "wrong password" });
       }
     });
 

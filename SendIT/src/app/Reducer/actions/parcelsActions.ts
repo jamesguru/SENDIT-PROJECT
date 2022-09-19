@@ -20,7 +20,26 @@ export const DeleteParcelFailure=createAction('DeleteParcelFailure',
 props<{error:string}>())
 
 export const updateParcel= createAction('updateParcel',
-props<{id:number}>()
+props<{updatedParcel:Parcel}>()
+)
+
+
+export const updateParcelSuccess= createAction('AddParcelSuccess',
+props<{updateMessage:string}>()
+)
+export const updateParcelFailure= createAction('AddParcelFailure',
+props<{error:string}>()
+)
+
+export const getUserParcels= createAction('getUserParcels',
+props<{email:string}>()
+)
+export const getUserParcelSuccess= createAction('getUserParcelsSuccess',
+props<{parcels:Parcel[]}>()
+)
+
+export const getUserParcelFailure= createAction('getUserParcelsFailure',
+props<{error:string}>()
 )
 
 export const AddParcel= createAction('AddParcel',
