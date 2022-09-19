@@ -42,7 +42,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         const userIndatabase = yield db.exec('userLookUp', { email });
         if (userIndatabase.recordset.length) {
-            res.status(200).json({ message: "exist" });
+            res.status(409).json({ message: "exist" });
         }
         else {
             const hashedPassword = yield bcrypt_1.default.hash(password, 10);
@@ -55,7 +55,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
     }
     catch (error) {
-        res.status(500).json({ message: "something went wrong" });
+        res.status(500).json({ message: "server is unable to handle request" });
     }
 });
 exports.signUp = signUp;
@@ -65,7 +65,7 @@ const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { error, value } = userValidation_1.loginSchema.validate(req.body);
         const user = yield db.exec("signin", { email });
         if (!(user === null || user === void 0 ? void 0 : user.recordset[0])) {
-            return res.status(400).json({ message: "user is not defined" });
+            return res.status(404).json({ message: "user is not found" });
         }
         const userData = user === null || user === void 0 ? void 0 : user.recordset[0];
         bcrypt_1.default.compare(password, userData.password, (err, data) => {
@@ -78,7 +78,7 @@ const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 res.status(200).json({ user, token });
             }
             else {
-                res.status(200).json({ message: "wrong password" });
+                res.status(401).json({ message: "wrong password" });
             }
         });
         if (error) {

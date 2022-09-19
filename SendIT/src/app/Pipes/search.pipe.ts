@@ -12,7 +12,7 @@ export class SearchPipe implements PipeTransform {
     }
     const filtered:Parcel[]=[]
     for(let item of value){
-      if(item.trackNumber.toLocaleLowerCase().indexOf(filterText.toLocaleLowerCase())!==-1){
+      if(item.trackId.toLocaleLowerCase().indexOf(filterText.toLocaleLowerCase())!==-1){
         filtered.push(item)
       }
     }

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ParcelService {
-  baseUrl: string = "http://localhost:5000"
+  baseUrl: string = environment.baseUrl
   orders$!:Observable<Parcel[]>
   // baseUrl = environment.baseUrl
   
@@ -19,23 +19,40 @@ export class ParcelService {
   getParcels() : Observable <Parcel[]>{
 
 
-    console.log('you got here')
-    return this.http.get<Parcel[]>(`${this.baseUrl}/parcels`)
+    
+    return this.http.get<Parcel[]>("http://localhost:8000/api/parcels")
   }
   getParcelsDetails(id:number): Observable<Parcel[]>{
     return this.http.get<Parcel[]>(`${this.baseUrl}/parcels/${id}`)
   }
+
+  getParcelsForUser(email:string) : Observable <Parcel[]>{
+
+
+    
+    return this.http.post<Parcel[]>("http://localhost:8000/api/parcels/userparcels",{email})
+  }
   
   deleteParcel(id:number): Observable <{message:string}>{
-    return this.http.delete<{message:string}>(`${this.baseUrl}/parcels/${id}`)
+    return this.http.put<{message:string}>(`http://localhost:8000/api/parcels/softdelete/${id}`,{'deleted':1})
   }
   createParcel(parcel:Parcel):Observable<{message:string}>{
-    return this.http.post<{message:string}>(`${this.baseUrl}/parcels`, parcel)
+    return this.http.post<{message:string}>("http://localhost:8000/api/parcels", parcel)
   }
 
-  updateParcels(id:number){
+  updateParcels(parcel:Parcel){
 
-    console.log(id)
-      return this.http.put<{message:string}>(`${this.baseUrl}/parcels/${id}`,{status: 1})
+     return this.http.put<{message:string}>(`http://localhost:8000/api/parcels/${parcel.id}`,
+     {senderEmail:parcel.senderEmail,
+      receiverEmail:parcel.receiverEmail,
+      trackId:parcel.trackId,
+      location:parcel.location,
+     destination:parcel.destination,
+     dispatchedDate:parcel.dispatchedDate,
+     weight:parcel.weight,
+     price:parcel.price,
+     markers:parcel.markers,
+     status:parcel.status,
+     deleted:parcel.deleted})
   }
 }

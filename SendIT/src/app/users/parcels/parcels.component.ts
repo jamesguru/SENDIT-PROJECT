@@ -36,7 +36,7 @@ export class ParcelsComponent implements OnInit {
 
   faBell = faBell;
 
-  email = 'jameskagunga15@gmail.com';
+  user = JSON.parse(localStorage.getItem('user') as string);
 
   faMapLocation = faLocationPin;
 
@@ -79,7 +79,7 @@ export class ParcelsComponent implements OnInit {
     
   }
   loadParcels() {
-    this.store.dispatch(Actions.LoadParcels());
+    this.store.dispatch(Actions.getUserParcels({email:this.user.email}));
   }
 
   showMap(locations: string) {

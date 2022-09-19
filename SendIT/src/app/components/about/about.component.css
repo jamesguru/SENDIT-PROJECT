@@ -13,7 +13,7 @@ a {
 .process {
   flex: 1;
 
-  background-color: #f0d95d;
+  background-color: #82d78a;
 
   height: 450px;
   margin: 30px;
@@ -70,7 +70,7 @@ a {
 }
 
 .notifications {
-  background-color: #82d78a;
+  background-color: #f0d95d;
 
   display: flex;
 

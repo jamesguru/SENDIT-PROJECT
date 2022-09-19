@@ -60,14 +60,17 @@
 
       <button class="btn-register" [disabled]="!form.valid">Register</button>
 
-      <span class="already-have-account">
-        <a routerLink="/auth/login"> Already have an account?</a></span
+      <span class="already-have-account" (click) ="goToLogin()">
+         Already have an account?
+         
+         </span
       >
     </form>
   </div>
 
   
 </div>
+
 
 <div *ngIf="success">
 <h1>{{message}}</h1>

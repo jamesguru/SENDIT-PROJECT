@@ -73,25 +73,41 @@
 
         <div class="orders-body"  *ngIf="parcels$ | async as parcels">
 
-        <div class="orders-item" *ngFor="let parcel of parcels | paginate: { itemsPerPage: 4, currentPage: p } | filter: selectedOption ">
-            <span>4571818181</span>
 
-            <span>Nairobi</span>
 
-            <span>Kisumu</span>
+        <div *ngIf="parcels.length;else noParcels">
 
-            <span>ksh 200</span>
+            <div class="orders-item" *ngFor="let parcel of parcels | paginate: { itemsPerPage: 4, currentPage: p } | filter: selectedOption ">
+                <span>{{parcel.id}}</span>
+    
+                <span>{{parcel.location}}</span>
+    
+                <span>{{parcel.destination}}</span>
+    
+                <span>ksh {{parcel.price}}</span>
+    
+                <span>{{parcel.weight}}kg</span>
+    
+               <button class= "{{ parcel.status === 0 ? 'orders-item-btn' : 'delivered' }}"      >{{parcel.status === 0 ? "pending" : "delivered"}}</button>
+    
+               <fa-icon [icon]="faMapLocation"   (click) = "showMap(parcel.markers)" class="location"></fa-icon>
+            </div>
 
-            <span>2kg</span>
-
-           <button class="orders-item-btn">pending</button>
-
-           <fa-icon [icon]="faMapLocation"   (click) = "showMap(parcel.locations)" class="location"></fa-icon>
         </div>
+
+       
 
         <ng-template #noParcels>
 
 
+
+            <div class="none">
+
+
+                No Parcels
+
+            </div>
+            
 
         </ng-template>
 
@@ -211,7 +227,7 @@
 
         <fa-icon [icon]="faUser" class="user-icon" (click)="ShowMenuBar('close')"></fa-icon>
 
-        <span class="name">Name: James Kagunga</span>
+        <span class="name">Name: {{user.name}}</span>
 
         <span>Orders</span>
 

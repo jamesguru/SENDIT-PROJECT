@@ -15,7 +15,7 @@ export class FilterPipe implements PipeTransform {
     const otherParcel: Parcel[] = [];
 
 
-    const email = 'jameskagunga15@gmail.com';
+    const user= JSON.parse(localStorage.getItem('user') as string)
 
     if (selectedOption === 'to') {
   
@@ -23,7 +23,7 @@ export class FilterPipe implements PipeTransform {
         if (
           item.receiverEmail
             .toLocaleLowerCase()
-            .indexOf(email.toLocaleLowerCase()) !== -1
+            .indexOf(user.email.toLocaleLowerCase()) !== -1
         ) {
           myParcel.push(item);
         }
@@ -37,7 +37,7 @@ export class FilterPipe implements PipeTransform {
         if (
           item.senderEmail
             .toLocaleLowerCase()
-            .indexOf(email.toLocaleLowerCase()) !== -1
+            .indexOf(user.email.toLocaleLowerCase()) !== -1
         ) {
           otherParcel.push(item);
         }

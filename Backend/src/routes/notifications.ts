@@ -1,17 +1,18 @@
 
 import { Router } from 'express';
 import {getNotifications,addNotifications,deleteNotifications} from '../controllers/notifications';
+import { VerifyToken } from '../middlewares/verifytoken';
 
 
 
 const router = Router();
 
 
-router.get('/',getNotifications);
+router.get('/',VerifyToken,getNotifications);
 
-router.post('/',addNotifications);
+router.post('/',VerifyToken,addNotifications);
 
-router.delete('/',deleteNotifications)
+router.delete('/',VerifyToken,deleteNotifications)
 
 export default router;
 

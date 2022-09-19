@@ -29,6 +29,8 @@ export class AdminComponent implements OnInit {
   markerOptions: google.maps.MarkerOptions = { draggable: false };
   markerPositions: google.maps.LatLngLiteral[] = [];
 
+  user = JSON.parse(localStorage.getItem('user') as string)
+
   parcels$ = this.store.select(getParcels);
 
   p: number = 1;
@@ -86,31 +88,42 @@ export class AdminComponent implements OnInit {
     this.markerPositions.push(event.latLng.toJSON());
   }
 
-  updateStatus(id: number) {
-    this.store.dispatch(Actions.updateParcel({ id }));
+  updateStatus(
+    
+    id:number,senderEmail:string,receiverEmail:string,trackId:string,
+    location:string,destination:string,dispatchedDate:string,weight:number,
+    price:number,markers:string,
+    status:number,deleted:number) {
+
+  this.parcel={id,senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status:1,deleted}
+    
+  this.store.dispatch(Actions.updateParcel({updatedParcel:this.parcel}));
+  this.store.dispatch(Actions.LoadParcels());
+
+
   }
 
   onSubmit() {
     this.parcel = {
-      id: 727,
+      id: Math.floor(Math.random() * 10000000) + 1,
 
       senderEmail: this.form.value.senderEmail,
 
       receiverEmail: this.form.value.receiverEmail,
 
-      trackNumber: this.form.value.trackNumber,
+      trackId: this.form.value.trackNumber,
 
       weight: this.form.value.weight,
 
       price: this.form.value.price,
-
-      from: this.form.value.from,
-
-      to: this.form.value.to,
-
+      location: this.form.value.from,
+      destination: this.form.value.to,
       status: 0,
+      deleted:0,
       dispatchedDate: this.form.value.dispatchedDate,
-      locations: JSON.stringify(this.markerPositions),
+      markers: JSON.stringify(this.markerPositions),
+
+
     };
 
     this.store.dispatch(Actions.AddParcel({ newParcel: this.parcel }));
@@ -119,6 +132,15 @@ export class AdminComponent implements OnInit {
     this.form.reset();
 
     this.markerPositions = [];
+  }
+
+
+  deleteParcel(id:number){
+
+
+    this.store.dispatch(Actions.DeleteParcel({id}))
+
+    this.store.dispatch(Actions.LoadParcels());
   }
 
   Logout() {
