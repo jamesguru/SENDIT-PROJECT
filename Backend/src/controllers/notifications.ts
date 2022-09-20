@@ -26,6 +26,10 @@ export const addNotifications = async(req:Request, res:Response) => {
 
     const {trackId,email,message} = req.body
 
+
+    console.log('helooo')
+    console.log(message)
+
     try {
 
 
@@ -42,9 +46,11 @@ export const addNotifications = async(req:Request, res:Response) => {
 }
 
 
-export const deleteNotifications:RequestHandler<{trackId:string}> = async(req:Request, res:Response) =>{
+export const deleteNotifications:RequestHandler<{id:string}> = async(req:Request, res:Response) =>{
 
-    const trackId =req.params.trackId
+    const trackId =req.params.id
+
+    console.log(trackId)
 
     try {
 

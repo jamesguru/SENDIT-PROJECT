@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ParcelEffectsService } from '../Reducer/effects/parcelsEffects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from '../pipes/search.pipe';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SearchPipe } from '../pipes/search.pipe';
     FontAwesomeModule,
     GoogleMapsModule,
     NgxPaginationModule,
+    GooglePlaceModule,
 
     FormsModule,
 

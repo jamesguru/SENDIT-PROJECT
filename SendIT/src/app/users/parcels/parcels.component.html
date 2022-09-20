@@ -135,11 +135,11 @@
            
 
 
-            <div class="notify">
+            <div class="notify"   *ngIf="notifications$ | async as notifications" >
 
                 <fa-icon [icon]="faBell"  ></fa-icon>
 
-                <span class="notify-number">3</span>
+                <span class="notify-number"   *ngIf="notifications.length">{{notifications.length}}</span>
 
 
             </div>
@@ -159,36 +159,49 @@
         <div class="notifications">
 
 
-            <div class="notifications-body">
-            <div class="notifications-card">
-                    <span>Your order 34526227772 has been delivered.</span>
+            <div class="notifications-body" *ngIf="notifications$ | async as notifications">
+
+
+            <div *ngIf="notifications.length; else noNotification">
+
+
+            <div class="notifications-card" *ngFor="let notification of notifications" >
+
+
+                    <span>{{notification.message}}</span>
                 
 
-                <fa-icon [icon]="faCancel" class="delete-notification"></fa-icon>
+                    <fa-icon [icon]="faCancel" class="delete-notification" (click)="deleteNotification(notification.trackId)" ></fa-icon>
             </div>
 
-            <div class="notifications-card">
+            
+           
 
-                <span>Your order 34526227772 has been delivered.</span>
-
-                <fa-icon [icon]="faCancel"  class="delete-notification" ></fa-icon>
+            
             </div>
 
-            <div class="notifications-card">
+            
+            </div>
 
-                <span>Your order 34526227772 has been delivered.</span>
-
-                <fa-icon [icon]="faCancel"  class="delete-notification"></fa-icon>
-            </div>    
-
-
-        </div>
-
-
-
-
+        
 
     </div>
+
+
+    <ng-template #noNotification>
+
+
+
+        <div class="none-notification">
+
+
+            No Notifications
+
+        </div>
+        
+
+    </ng-template>
+
     <div class="my-google-map">
 
 

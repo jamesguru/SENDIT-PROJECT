@@ -8,11 +8,11 @@ import { VerifyToken } from '../middlewares/verifytoken';
 const router = Router();
 
 
-router.get('/',VerifyToken,getNotifications);
+router.get('/',getNotifications);
 
-router.post('/',VerifyToken,addNotifications);
+router.post('/',addNotifications);
 
-router.delete('/:id',VerifyToken,deleteNotifications)
+router.delete('/:id',deleteNotifications)
 
 export default router;
 

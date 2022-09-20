@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   faBell,
   faArrowRight,
@@ -17,6 +17,8 @@ import { getParcels, ParcelState } from '../Reducer/reducer/parcelsReducer';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Parcel } from '../interfaces/Parcel';
 import { Router } from '@angular/router';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-admin',
@@ -47,8 +49,12 @@ export class AdminComponent implements OnInit {
   parcel!: Parcel;
   faArchive=faArchive;
   
+  
   faUsers= faPeopleGroup;
   constructor(private store: Store<ParcelState>, private router: Router) {}
+
+  
+  
 
   ngOnInit(): void {
     this.loadParcels();
@@ -77,6 +83,13 @@ export class AdminComponent implements OnInit {
       this.openAddModal = true;
     }
   }
+
+
+  public handleAddressChange(address: Address) {
+
+    console.log(address)
+    // Do some stuff
+}
 
   loadParcels() {
     this.store.dispatch(Actions.LoadParcels());
@@ -145,5 +158,7 @@ export class AdminComponent implements OnInit {
 
   Logout() {
     this.router.navigate(['']);
+
+    localStorage.clear()
   }
 }
