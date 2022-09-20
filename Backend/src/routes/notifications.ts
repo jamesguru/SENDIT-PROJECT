@@ -12,7 +12,7 @@ router.get('/',VerifyToken,getNotifications);
 
 router.post('/',VerifyToken,addNotifications);
 
-router.delete('/',VerifyToken,deleteNotifications)
+router.delete('/:id',VerifyToken,deleteNotifications)
 
 export default router;
 

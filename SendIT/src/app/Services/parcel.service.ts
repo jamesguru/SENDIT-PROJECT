@@ -22,6 +22,8 @@ export class ParcelService {
     
     return this.http.get<Parcel[]>("http://localhost:8000/api/parcels")
   }
+
+  
   getParcelsDetails(id:number): Observable<Parcel[]>{
     return this.http.get<Parcel[]>(`${this.baseUrl}/parcels/${id}`)
   }

@@ -6,5 +6,5 @@ const verifytoken_1 = require("../middlewares/verifytoken");
 const router = (0, express_1.Router)();
 router.get('/', verifytoken_1.VerifyToken, notifications_1.getNotifications);
 router.post('/', verifytoken_1.VerifyToken, notifications_1.addNotifications);
-router.delete('/', verifytoken_1.VerifyToken, notifications_1.deleteNotifications);
+router.delete('/:id', verifytoken_1.VerifyToken, notifications_1.deleteNotifications);
 exports.default = router;
