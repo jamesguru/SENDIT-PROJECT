@@ -49,7 +49,7 @@
 
     justify-content: center;
 
-    font-size: 25px;
+    font-size: 20px;
 
     font-weight: bold;
 }
@@ -254,6 +254,8 @@ color: #82D78A;
     background-color: #D78287;
 
     margin: 10px;
+
+    overflow-y: scroll;
     
 
     
@@ -262,9 +264,23 @@ color: #82D78A;
 .notifications-body{
 
     padding: 20px;
+
+    
+}
+
+
+.none-notification{
+
+    color: #fff;
+
+    font-size: 20px;
+
+    font-weight: bold;
 }
 
 .notifications-card{
+
+    overflow: hidden;
 
     display: flex;
 
@@ -282,6 +298,23 @@ color: #82D78A;
 
     
     width: 100%;
+
+    animation: progress 1s ease alternate infinite;
+}
+
+
+@keyframes progress {
+
+
+
+    from{
+
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
 }
 
 .delete-notification{
@@ -319,9 +352,10 @@ img{
 
     font-size: 25px;
 
-    margin-top: 150px;
 
     margin-left: 30px;
+
+   
 
     color: #444;
 

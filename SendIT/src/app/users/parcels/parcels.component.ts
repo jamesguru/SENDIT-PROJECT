@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {faBarChart,faBars,faClose,faUser,faBell,faLocationPin} from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Parcel } from 'src/app/interfaces/Parcel';
+import {Notification} from 'src/app/interfaces/Notification'
 import {getParcels,ParcelState} from 'src/app/Reducer/reducer/parcelsReducer';
+import { NotificationService } from 'src/app/Services/notification.service';
 import * as Actions from '../../Reducer/actions/parcelsActions';
+
 
 @Component({
   selector: 'app-parcels',
   templateUrl: './parcels.component.html',
   styleUrls: ['./parcels.component.css'],
 })
-export class ParcelsComponent implements OnInit {
+export class ParcelsComponent implements OnInit,OnDestroy {
   center: google.maps.LatLngLiteral = {
     lat: -0.32984428475063204,
     lng: 36.097950790026374,
@@ -32,13 +35,15 @@ export class ParcelsComponent implements OnInit {
 
   openMap: boolean = false;
 
-  
+  notifications$!:Observable<Notification[]>;
 
   faBell = faBell;
 
   user = JSON.parse(localStorage.getItem('user') as string);
 
   faMapLocation = faLocationPin;
+
+  sub!:Subscription;
 
   showMenuBar: boolean = false;
   selectedOption: string = '';
@@ -48,13 +53,14 @@ export class ParcelsComponent implements OnInit {
   parcels$ = this.store.select(getParcels);
   constructor(
     private store: Store<ParcelState>,
-    private router:Router
+    private router:Router,
+    private notificationService:NotificationService
   ) {}
 
   ngOnInit(): void {
     this.loadParcels();
 
-    console.log(this.selectedOption);
+    this.loadNotifications();
   }
 
   ShowMenuBar(condition: string) {
@@ -71,6 +77,29 @@ export class ParcelsComponent implements OnInit {
     
   }
 
+
+  loadNotifications(){
+
+
+
+    this.notifications$ = this.notificationService.getParcels();
+
+
+  }
+
+
+  deleteNotification(trackId:string){
+
+
+   this.sub=this.notificationService.delete(trackId).subscribe(val=>{
+
+      console.log(val)
+
+
+      this.loadNotifications()
+    })
+
+  }
 
   change(event:any){
 
@@ -93,6 +122,9 @@ export class ParcelsComponent implements OnInit {
    
   }
 
+
+
+
   close(){
 
     this.openMap = false;
@@ -110,7 +142,13 @@ export class ParcelsComponent implements OnInit {
 
   LogOut(){
 
-    this.router.navigate(['/auth/login'])
+    this.router.navigate(['']);
+
     localStorage.clear()
+  }
+
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe()
   }
 }

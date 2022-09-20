@@ -13,13 +13,14 @@ token = localStorage.getItem('token') as string
   constructor( private router: Router){}
  
   canActivate(){
-    if(this.user.role === 'admin' && !!this.token){
+    if(this.user.role === 'admin' && this.token){
       return true
     }
-    else{
+    else if(!!this.user && !this.token){
       this.router.navigate(['/auth/login'])
       return false
     }
+    return false
   }
   
 }

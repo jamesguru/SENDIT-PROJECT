@@ -227,9 +227,9 @@
               </div>
 
               <div class="location-input">
-                <input type="text" formControlName="from" />
+                <input type="text" formControlName="from"  ngx-google-places-autocomplete  (onAddressChange)="handleAddressChange($event)"/>
 
-                <input type="text" formControlName="to" />
+                <input type="text" formControlName="to" ngx-google-places-autocomplete  (onAddressChange)="handleAddressChange($event)"/>
               </div>
             </div>
           </div>

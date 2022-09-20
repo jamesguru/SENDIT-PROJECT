@@ -125,8 +125,8 @@ export const updateParcelStatus:RequestHandler<{id:string}> = async (req:Request
 
        
 
-        await axios.post('http://localhost:8000/api/notifications',{trackId,email:receiverEmail,message:`Your order ${trackId} has been delivered`})
-        await axios.post('http://localhost:8000/api/notifications',{trackId,email:senderEmail,message:`The order ${trackId} has been delivered`})
+        await axios.post('http://localhost:8000/api/notifications',{trackId,email:receiverEmail,message:`The parcel ${trackId} has been delivered`})
+        await axios.post('http://localhost:8000/api/notifications',{trackId,email:senderEmail,message:`Your order ${trackId} has been delivered`})
 
 
 

@@ -7,7 +7,7 @@ CREATE PROCEDURE addNotifications @trackId VARCHAR(200),@email VARCHAR(2000),@me
 
 -- GET NOTIFICATIONS
 
-CREATE PROCEDURE getNotifications
+CREATE PROCEDURE getNotifications 
 AS
 SELECT * FROM Notifications
 
