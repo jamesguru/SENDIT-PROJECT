@@ -37,7 +37,7 @@ const addNotifications = (req, res) => __awaiter(void 0, void 0, void 0, functio
 });
 exports.addNotifications = addNotifications;
 const deleteNotifications = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { trackId } = req.body;
+    const trackId = req.params.trackId;
     try {
         yield db.exec('deleteNotifications', { trackId });
         res.status(201).json({ message: 'notifications were deleted successfully' });

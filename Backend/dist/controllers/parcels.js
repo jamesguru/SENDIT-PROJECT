@@ -65,10 +65,10 @@ const updateParcelStatus = (req, res) => __awaiter(void 0, void 0, void 0, funct
     const id = req.params.id;
     console.log(id);
     const { senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted } = req.body;
-    console.log(senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted);
     try {
         yield db.exec('insertUpdateParcel', { id, senderEmail, receiverEmail, trackId, location, destination, dispatchedDate, weight, price, markers, status, deleted });
         yield axios_1.default.post('http://localhost:8000/api/notifications', { trackId, email: receiverEmail, message: `Your order ${trackId} has been delivered` });
+        yield axios_1.default.post('http://localhost:8000/api/notifications', { trackId, email: senderEmail, message: `The order ${trackId} has been delivered` });
         res.status(201).json({ message: 'parcel updated successfully' });
     }
     catch (error) {

@@ -118,15 +118,18 @@ export const updateParcelStatus:RequestHandler<{id:string}> = async (req:Request
     const {senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted} =req.body
 
 
-    console.log(senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted)
-
+    
     try {
 
         await db.exec('insertUpdateParcel',{id,senderEmail,receiverEmail,trackId,location,destination,dispatchedDate,weight,price,markers,status,deleted})
 
        
 
-        await axios.post('http://localhost:8000/api/notifications',{trackId,email:receiverEmail,message:`Your order ${trackId} has been delivered`} as any)
+        await axios.post('http://localhost:8000/api/notifications',{trackId,email:receiverEmail,message:`Your order ${trackId} has been delivered`})
+        await axios.post('http://localhost:8000/api/notifications',{trackId,email:senderEmail,message:`The order ${trackId} has been delivered`})
+
+
+
         res.status(201).json({message:'parcel updated successfully'})
         
     } catch (error) {

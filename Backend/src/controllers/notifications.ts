@@ -1,4 +1,4 @@
-import {Request,Response} from 'express';
+import {Request,RequestHandler,Response} from 'express';
 import Connection from "../Helpers/database";
 const db = new Connection();
 
@@ -42,9 +42,9 @@ export const addNotifications = async(req:Request, res:Response) => {
 }
 
 
-export const deleteNotifications = async(req:Request, res:Response) =>{
+export const deleteNotifications:RequestHandler<{trackId:string}> = async(req:Request, res:Response) =>{
 
-    const {trackId} =req.body
+    const trackId =req.params.trackId
 
     try {
 
