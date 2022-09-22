@@ -6,23 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserGuard implements CanActivate {
-
-  user = JSON.parse(localStorage.getItem('user') as string)
-
-  token = localStorage.getItem('token') as string
-
-  
-  constructor(private router:Router) {
-    
-  }
-  canActivate(){
-    if(this.user.role === 'user' && !!this.token){
-      return true
-    }
-    else{
-      this.router.navigate(['/auth/login'])
-      return false
-    }
+  constructor(private router: Router){}
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+     const  user = JSON.parse(localStorage.getItem('user') as string)
+      const token = localStorage.getItem('token') as string;
+      if(user.role === 'admin' && token){
+        this.router.navigate(['/admin']);
+      }
+      else if (!user.role && !token){
+        this.router.navigate(['/auth/login']);
+      }
+    return true;
   }
   
 }

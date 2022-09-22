@@ -27,6 +27,16 @@ import {MatNativeDateModule} from '@angular/material/core';
     ReactiveFormsModule,
     SharedModule
     
+  ],
+
+
+  exports:[
+
+    LoginComponent,
+    RegisterComponent
   ]
+
+
+  
 })
 export class AuthModule { }

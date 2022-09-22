@@ -79,6 +79,8 @@ form input {
   background-color: #d78287;
 
   color: #fff;
+
+  cursor: pointer;
 }
 
 .already-have-account {

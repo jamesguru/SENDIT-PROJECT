@@ -11,7 +11,7 @@ import {
   
 } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
-import { NgxPaginationModule } from 'ngx-pagination';
+
 import * as Actions from '../Reducer/actions/parcelsActions';
 import { getParcels, ParcelState } from '../Reducer/reducer/parcelsReducer';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -19,6 +19,7 @@ import { Parcel } from '../interfaces/Parcel';
 import { Router } from '@angular/router';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { Marker } from '../interfaces/Marker';
 
 @Component({
   selector: 'app-admin',
@@ -30,6 +31,8 @@ export class AdminComponent implements OnInit {
   zoom = 6;
   markerOptions: google.maps.MarkerOptions = { draggable: false };
   markerPositions: google.maps.LatLngLiteral[] = [];
+
+  
 
   user = JSON.parse(localStorage.getItem('user') as string)
 
@@ -48,6 +51,8 @@ export class AdminComponent implements OnInit {
   filteredText: string = '';
   parcel!: Parcel;
   faArchive=faArchive;
+
+  marker!: Marker;
   
   
   faUsers= faPeopleGroup;
@@ -85,10 +90,36 @@ export class AdminComponent implements OnInit {
   }
 
 
-  public handleAddressChange(address: Address) {
+  public handleSenderAddressChange(address: Address) {
 
-    console.log(address)
+
+    this.marker ={
+
+
+      lat:address.geometry.location.lat(),
+
+      lng:address.geometry.location.lng()
+    }
+
+    this.markerPositions.push(this.marker)
     // Do some stuff
+   
+}
+
+
+public handleReceiverAddressChange(address: Address) {
+
+  this.marker ={
+
+
+    lat:address.geometry.location.lat(),
+
+    lng:address.geometry.location.lng()
+  }
+
+  this.markerPositions.push(this.marker)
+
+  console.log(this.markerPositions)
 }
 
   loadParcels() {
@@ -157,7 +188,7 @@ export class AdminComponent implements OnInit {
   }
 
   Logout() {
-    this.router.navigate(['']);
+    this.router.navigate(['/auth/login']);
 
     localStorage.clear()
   }

@@ -10,6 +10,7 @@ import { Notification } from '../interfaces/Notification';
 })
 export class NotificationService {
 
+  token = localStorage.getItem('token') as string;
   constructor(private http:HttpClient) { }
 
   
@@ -17,15 +18,19 @@ export class NotificationService {
 
 
     
-    return this.http.get<Notification[]>("http://localhost:8000/api/notifications")
+    return this.http.get<Notification[]>("http://localhost:8000/api/notifications",{
+      headers: new HttpHeaders({ token: this.token }),
+    })
   }
 
 
-  delete(id:string):Observable<{message:string}>{
+  delete(id:number):Observable<{message:string}>{
 
 
 
-    return this.http.delete<{message:string}>(`http://localhost:8000/api/notifications/${id}`)
+  return this.http.delete<{message:string}>(`http://localhost:8000/api/notifications/${id}`,{
+    headers: new HttpHeaders({ token: this.token }),
+  })
   }
   
 }

@@ -4,6 +4,8 @@
   </div>
 
   <div class="login-form">
+
+    <app-error [message] = "message"  *ngIf="error" ></app-error>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
 
 

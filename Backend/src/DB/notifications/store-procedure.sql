@@ -13,10 +13,10 @@ SELECT * FROM Notifications
 
 -- DELETE NOTIFICATIONS
 
-CREATE PROCEDURE deleteNotifications @trackId VARCHAR(100)
+CREATE PROCEDURE deleteNotifications @id VARCHAR(100)
 AS
 
-DELETE FROM Notifications WHERE trackId=@trackId
+DELETE FROM Notifications WHERE id=@id
 
 -- GETNOTIFICATIONSFORUSER
 

@@ -8,6 +8,7 @@ import {Notification} from 'src/app/interfaces/Notification'
 import {getParcels,ParcelState} from 'src/app/Reducer/reducer/parcelsReducer';
 import { NotificationService } from 'src/app/Services/notification.service';
 import * as Actions from '../../Reducer/actions/parcelsActions';
+import { EmailValidator } from '@angular/forms';
 
 
 @Component({
@@ -20,12 +21,15 @@ export class ParcelsComponent implements OnInit,OnDestroy {
     lat: -0.32984428475063204,
     lng: 36.097950790026374,
   };
-  zoom = 4;
+  zoom = 6;
   markerOptions: google.maps.MarkerOptions = { draggable: false };
   markerPositions: google.maps.LatLngLiteral[] = [];
 
   faHambuger = faBars;
   faCancel = faClose;
+
+
+  read:boolean =true;
 
   weight: number = 0;
   quote: number = 200;
@@ -49,6 +53,14 @@ export class ParcelsComponent implements OnInit,OnDestroy {
   selectedOption: string = '';
   p: number = 1;
   collection: any[] = [];
+
+  location!:string;
+  destination!:string;
+  price!:number;
+  parcelweight!:number;
+  receiver!:string;
+  sender!:string;
+  status!:number;
 
   parcels$ = this.store.select(getParcels);
   constructor(
@@ -77,7 +89,10 @@ export class ParcelsComponent implements OnInit,OnDestroy {
     
   }
 
+  markRead(){
 
+    this.read = false;
+  }
   loadNotifications(){
 
 
@@ -88,10 +103,10 @@ export class ParcelsComponent implements OnInit,OnDestroy {
   }
 
 
-  deleteNotification(trackId:string){
+  deleteNotification(id:number){
 
 
-   this.sub=this.notificationService.delete(trackId).subscribe(val=>{
+   this.sub=this.notificationService.delete(id).subscribe(val=>{
 
       console.log(val)
 
@@ -111,12 +126,21 @@ export class ParcelsComponent implements OnInit,OnDestroy {
     this.store.dispatch(Actions.getUserParcels({email:this.user.email}));
   }
 
-  showMap(locations: string) {
+  
+  showMap(locations:string,location:string,destination:string,price:number,weight:number,receiver:string,sender:string,status:number) {
 
 
     this.markerPositions = JSON.parse(locations);
 
     this.openMap= true;
+
+  this.location=location;
+  this.destination=destination;
+  this.price=price;
+  this.parcelweight=weight;
+  this.receiver=receiver;
+  this.sender=sender;
+  this.status=status;
 
 
    
@@ -142,7 +166,7 @@ export class ParcelsComponent implements OnInit,OnDestroy {
 
   LogOut(){
 
-    this.router.navigate(['']);
+    this.router.navigate(['/auth/login']);
 
     localStorage.clear()
   }
