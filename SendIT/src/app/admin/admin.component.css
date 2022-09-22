@@ -179,9 +179,14 @@ justify-content: center;
 }
 
 .delivered {
+
+
+  
   color: #82d78a;
 
   background-color: #fff;
+
+  
 
   border: none;
 }
@@ -287,13 +292,13 @@ justify-content: center;
   height: 100%;
 
   padding-top: 20px;
-  width: 100%;
+width: 100%;
 }
 
 .add-parcel-body {
   height: 90%;
 
-  width: 70%;
+  width: 80%;
 
   background-color: #fff;
 
@@ -329,7 +334,7 @@ justify-content: center;
 .add-parcel-item {
   height: 80%;
 
-  width: 60%;
+  width: 80%;
 
   background-color: #82d78a;
 
@@ -337,14 +342,10 @@ justify-content: center;
 
   padding: 5px;
 
-  flex: 1;
+  
 }
 
-.my-google-map {
-  flex: 1.5;
 
-  margin-left: -5px;
-}
 
 .add-parcel-item-head {
   width: 80%;
@@ -387,7 +388,7 @@ form {
 }
 
 .input-item {
-  width: 60%;
+  width: 50%;
 
   display: flex;
 
@@ -400,6 +401,10 @@ form {
 
 .input-item input {
   border: none;
+
+  padding: 5px;
+
+  width: 200px;
 }
 
 form button {
@@ -435,7 +440,7 @@ form button {
 }
 
 .location-input input {
-  width: 100px;
+  width: 200px;
 
   margin: 5px;
 

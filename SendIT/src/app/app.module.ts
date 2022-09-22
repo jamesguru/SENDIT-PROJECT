@@ -25,6 +25,8 @@ import { StyleDirective } from './Directives/style.directive';
 import { NativeColorDirective } from './Directives/native-color.directive';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +37,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StyleDirective,
     NativeColorDirective,
     NotfoundComponent,
-  
-    
     
     
   ],
@@ -57,6 +57,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
      BrowserAnimationsModule,
+
+     ReactiveFormsModule,
+     FormsModule
+     
+    
     
     
   ],

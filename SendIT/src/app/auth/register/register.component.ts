@@ -16,13 +16,15 @@ export class RegisterComponent implements OnInit,OnDestroy {
   email!: string;
   password!: string;
 
-  success!:boolean;
+ error = false;
+ 
 
 
   message!:string;
 
   successMessage = 'You have registered successfully. Go a head and login.';
 
+  passwordMatch = "passwords do not match";
   
 
   existMessage = 'Email is already in use';
@@ -42,6 +44,8 @@ export class RegisterComponent implements OnInit,OnDestroy {
         this.checkNumber,
         this.checkCapital,
       ]),
+
+      confirmPassword: new FormControl(null, [Validators.required]),
     });
   }
 
@@ -79,22 +83,35 @@ export class RegisterComponent implements OnInit,OnDestroy {
   onSubmit() {
 
 
-    this.sub = this.auth.signUp(this.form.value).subscribe(val => {
+    if(this.form.value.password !== this.form.value.confirmPassword){
+
+
+      this.error = true;
+
+      this.message = this.passwordMatch;
+
+    }
+
+
+    this.sub = this.auth.signUp({name:this.form.value.name, email:this.form.value.email, password:this.form.value.password}).subscribe(val => {
 
 
       if(val.message === "success"){
 
-        this.success=true;
 
-        this.message=this.successMessage;
+        this.router.navigate(['/auth/login']);
+        
       }else if(val.message === "exist"){
 
 
-        this.success= true
+        this.error= true
 
-        this.message=this.existMessage;
-        
+        this.message = this.existMessage;
+        console.log(this.message)
       }
+
+
+     
       
     })
     
@@ -103,7 +120,7 @@ export class RegisterComponent implements OnInit,OnDestroy {
 
   goToLogin(){
 
-    this.router.navigate(['/auth/login'])
+    this.router.navigate(['/auth/login']);
     
   }
 

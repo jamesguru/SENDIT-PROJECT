@@ -18,6 +18,10 @@ export class LoginComponent implements OnInit,OnDestroy {
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'determinate';
   value = 50;
+  error = false;
+  message!:string;
+
+  wrongPassword = 'You entered wrong password';
 
   constructor(private router:Router,private authService:AuthService) { }
 
@@ -31,7 +35,14 @@ export class LoginComponent implements OnInit,OnDestroy {
 
 
 
-      
+      if(res.message === "wrong password"){
+
+
+
+        this.error = true;
+
+        this.message = this.wrongPassword
+      }
       
 
      if(res.user.role === "user"){
@@ -50,6 +61,14 @@ export class LoginComponent implements OnInit,OnDestroy {
       localStorage.setItem('user',JSON.stringify(res.user))
 
       this.router.navigate(['/admin'])
+     }else if(res.message === "wrong password"){
+
+
+      console.log(res.message)
+
+      this.error = true;
+
+      this.message = this.wrongPassword
      }else{
 
 

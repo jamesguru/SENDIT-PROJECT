@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {Parcel} from '../interfaces/Parcel'
@@ -11,7 +11,8 @@ import { environment } from 'src/environments/environment';
 export class ParcelService {
   baseUrl: string = environment.baseUrl
   orders$!:Observable<Parcel[]>
-  // baseUrl = environment.baseUrl
+  // baseUrl = environment.
+  token = localStorage.getItem('token') as string;
   
   constructor(private http: HttpClient) { }
   
@@ -20,7 +21,10 @@ export class ParcelService {
 
 
     
-    return this.http.get<Parcel[]>("http://localhost:8000/api/parcels")
+    return this.http.get<Parcel[]>("http://localhost:8000/api/parcels",{
+
+      headers: new HttpHeaders({token: this.token})
+    })
   }
 
   
@@ -32,14 +36,30 @@ export class ParcelService {
 
 
     
-    return this.http.post<Parcel[]>("http://localhost:8000/api/parcels/userparcels",{email})
+    return this.http.post<Parcel[]>("http://localhost:8000/api/parcels/userparcels",{email},
+    
+    {
+      headers: new HttpHeaders({ token: this.token }),
+    })
   }
   
   deleteParcel(id:number): Observable <{message:string}>{
-    return this.http.put<{message:string}>(`http://localhost:8000/api/parcels/softdelete/${id}`,{'deleted':1})
+    return this.http.put<{message:string}>(`http://localhost:8000/api/parcels/softdelete/${id}`,{'deleted':1},
+    {
+      headers: new HttpHeaders({ token: this.token }),
+    }
+    
+    
+    )
   }
   createParcel(parcel:Parcel):Observable<{message:string}>{
-    return this.http.post<{message:string}>("http://localhost:8000/api/parcels", parcel)
+    return this.http.post<{message:string}>("http://localhost:8000/api/parcels", parcel,
+
+    {
+      headers: new HttpHeaders({ token: this.token }),
+    }
+    
+    )
   }
 
   updateParcels(parcel:Parcel){
@@ -55,6 +75,14 @@ export class ParcelService {
      price:parcel.price,
      markers:parcel.markers,
      status:parcel.status,
-     deleted:parcel.deleted})
+     deleted:parcel.deleted},
+
+     {
+      headers: new HttpHeaders({ token: this.token }),
+    }
+     
+     
+     
+     )
   }
 }

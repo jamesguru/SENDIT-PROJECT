@@ -90,7 +90,7 @@
     
                <button class= "{{ parcel.status === 0 ? 'orders-item-btn' : 'delivered' }}"      >{{parcel.status === 0 ? "pending" : "delivered"}}</button>
     
-               <fa-icon [icon]="faMapLocation"   (click) = "showMap(parcel.markers)" class="location"></fa-icon>
+               <fa-icon [icon]="faMapLocation"   (click) = "showMap(parcel.markers,parcel.location,parcel.destination,parcel.price,parcel.weight,parcel.senderEmail,parcel.receiverEmail,parcel.status)" class="location"></fa-icon>
             </div>
 
         </div>
@@ -162,26 +162,37 @@
             <div class="notifications-body" *ngIf="notifications$ | async as notifications">
 
 
+           
+
+
             <div *ngIf="notifications.length; else noNotification">
 
 
             <div class="notifications-card" *ngFor="let notification of notifications" >
 
 
+                    <div class="read" *ngIf="read"></div>
+
                     <span>{{notification.message}}</span>
                 
 
-                    <fa-icon [icon]="faCancel" class="delete-notification" (click)="deleteNotification(notification.trackId)" ></fa-icon>
+                    <fa-icon [icon]="faCancel" class="delete-notification" (click)="deleteNotification(notification.id)" ></fa-icon>
             </div>
 
             
            
 
+            <button class="mark-as-read-btn" (click)="markRead()" >Mark all as read</button>
             
             </div>
 
+
+           
             
             </div>
+
+
+
 
         
 
@@ -282,13 +293,18 @@
 
                 <ul>
 
-                    <li>Location :Nakuru</li>
+                    <li>Location :{{location}}</li>
 
-                    <li>Destination:Mombasa</li>
+                    <li>Destination:{{destination}}</li>
 
-                    <li>Track ID :67272728282</li>
+                    <li>Sender Email :{{sender}}</li>
 
-                    <li>Status:pending</li>
+                    <li>Receiver Email :{{sender}}</li>
+
+                    <li>Weight :{{weight}}</li>
+                    <li>Price :{{price}}</li>
+
+                    <li>Status:{{status === 0 ? 'pending' : 'delivered'}}</li>
 
                     <li>Dispute :None</li>
 

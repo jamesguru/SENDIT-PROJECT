@@ -48,13 +48,13 @@ export const addNotifications = async(req:Request, res:Response) => {
 
 export const deleteNotifications:RequestHandler<{id:string}> = async(req:Request, res:Response) =>{
 
-    const trackId =req.params.id
+    const id =req.params.id
 
-    console.log(trackId)
+    
 
     try {
 
-        await db.exec('deleteNotifications',{trackId})
+        await db.exec('deleteNotifications',{id})
 
         res.status(201).json({message:'notifications were deleted successfully'})
         

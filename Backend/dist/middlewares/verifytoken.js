@@ -4,15 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VerifyToken = void 0;
+const dotenv_1 = __importDefault(require("dotenv"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+dotenv_1.default.config();
 const VerifyToken = (req, res, next) => {
     try {
-        // const token = req.headers['token'] as string
-        const bearerHeader = req.headers['authorization'];
-        const bearer = bearerHeader.split(' ');
-        const token = bearer[1];
+        const token = req.headers["token"];
         if (!token) {
-            return res.status(403).json({ message: "You are not authenticated" });
+            return res.json({ message: "You are Not authenticated" });
         }
         const data = jsonwebtoken_1.default.verify(token, process.env.KEY);
         req.info = data;

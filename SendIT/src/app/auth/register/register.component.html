@@ -8,6 +8,9 @@
       <span>Register and get your order prepared faster and track them</span>
     </div>
 
+
+    <app-error [message] = "message"  *ngIf="error" ></app-error>
+
     <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
       <label for="">Name </label>
 
@@ -36,6 +39,7 @@
 
       <input type="password" formControlName="password" />
 
+     
       <div
         *ngIf="!form.get('password')!.valid && form.get('password')!.touched"
       >
@@ -56,7 +60,7 @@
 
       <label>Confirm password</label>
 
-      <input type="password" />
+      <input type="password" formControlName="confirmPassword" />
 
       <button class="btn-register" [disabled]="!form.valid">Register</button>
 
@@ -72,7 +76,4 @@
 </div>
 
 
-<div *ngIf="success">
-<h1>{{message}}</h1>
-</div>
 

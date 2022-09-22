@@ -120,8 +120,15 @@
         </span>
 
           <button
+
+          
+
             class="{{ parcel.status === 0 ? 'btn-update' : 'delivered' }}"
-            (click)="updateStatus(parcel.id,
+
+            [disabled]="parcel.status > 0  "
+
+            (click)="updateStatus(
+            parcel.id,
             parcel.senderEmail,
             parcel.receiverEmail,
             parcel.trackId,
@@ -132,8 +139,10 @@
             parcel.price,
             parcel.markers,
             parcel.status,
-            parcel.deleted
-  )"
+            parcel.deleted)"
+
+
+  
           >
             {{ parcel.status === 0 ? "update" : "delivered" }}
           </button>
@@ -227,9 +236,9 @@
               </div>
 
               <div class="location-input">
-                <input type="text" formControlName="from"  ngx-google-places-autocomplete  (onAddressChange)="handleAddressChange($event)"/>
+                <input type="text" formControlName="from"  ngx-google-places-autocomplete  (onAddressChange)="handleSenderAddressChange($event)"/>
 
-                <input type="text" formControlName="to" ngx-google-places-autocomplete  (onAddressChange)="handleAddressChange($event)"/>
+                <input type="text" formControlName="to" ngx-google-places-autocomplete  (onAddressChange)="handleReceiverAddressChange($event)"/>
               </div>
             </div>
           </div>
@@ -244,21 +253,7 @@
         </form>
       </div>
 
-      <div class="my-google-map">
-        <google-map
-          width="500px"
-          height="470px"
-          [center]="center"
-          [zoom]="zoom"
-          (mapClick)="addMarker($event)"
-        >
-          <map-marker
-            *ngFor="let markerPosition of markerPositions"
-            [position]="markerPosition"
-            [options]="markerOptions"
-          ></map-marker>
-        </google-map>
-      </div>
+      
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { AuthGuardGuard } from './Guards/admin.guard';
+import { AdminGuard } from './Guards/admin.guard';
 import { UserGuard } from './Guards/user.guard';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
 
 { path: 'parcels',canActivate:[UserGuard], loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
 
-{ path: 'admin',canActivate:[AuthGuardGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+{ path: 'admin',canActivate:[AdminGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 
 { path: 'shared', loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule) },
 
