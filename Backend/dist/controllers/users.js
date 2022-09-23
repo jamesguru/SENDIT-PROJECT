@@ -40,7 +40,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (error) {
             res.status(500).json(error.details[0].message);
         }
-        const userIndatabase = yield db.exec('userLookUp', { email });
+        const userIndatabase = yield db.exec("userLookUp", { email });
         if (userIndatabase.recordset.length) {
             res.status(200).json({ message: "exist" });
         }
@@ -51,7 +51,7 @@ const signUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 email,
                 password: hashedPassword,
             });
-            res.status(201).json({ message: 'success' });
+            res.status(201).json({ message: "success" });
         }
     }
     catch (error) {
@@ -65,7 +65,7 @@ const signIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { error, value } = userValidation_1.loginSchema.validate(req.body);
         const user = yield db.exec("signin", { email });
         if (!(user === null || user === void 0 ? void 0 : user.recordset[0])) {
-            return res.status(404).json({ message: "user is not found" });
+            return res.status(200).json({ message: "not found" });
         }
         const userData = user === null || user === void 0 ? void 0 : user.recordset[0];
         bcrypt_1.default.compare(password, userData.password, (err, data) => {

@@ -22,29 +22,21 @@ export const signUp = async (req: User, res: Response) => {
       res.status(500).json(error.details[0].message);
     }
 
+    const userIndatabase = await db.exec("userLookUp", { email });
 
+    if (userIndatabase.recordset.length) {
+      res.status(200).json({ message: "exist" });
+    } else {
+      const hashedPassword = await bcrypt.hash(password, 10);
 
-    const userIndatabase = await db.exec('userLookUp',{email})
+      await db.exec("signup", {
+        name,
+        email,
+        password: hashedPassword,
+      });
 
-    if(userIndatabase.recordset.length){
-
-      res.status(200).json({message:"exist"})
-    }else{
-    
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    await db.exec("signup", {
-      name,
-      email,
-      password: hashedPassword,
-    });
-
-    res.status(201).json({ message:'success'});
-
-    
-
-  }
+      res.status(201).json({ message: "success" });
+    }
   } catch (error) {
     res.status(500).json({ message: "server is unable to handle request" });
   }
@@ -59,7 +51,7 @@ export const signIn = async (req: User, res: Response) => {
     const user = await db.exec("signin", { email });
 
     if (!user?.recordset[0]) {
-      return res.status(404).json({ message: "user is not found" });
+      return res.status(200).json({ message: "not found" });
     }
 
     const userData = user?.recordset[0] as {
