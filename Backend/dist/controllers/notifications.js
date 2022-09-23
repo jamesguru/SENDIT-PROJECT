@@ -17,32 +17,34 @@ const database_1 = __importDefault(require("../Helpers/database"));
 const db = new database_1.default();
 const getNotifications = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const notification = yield db.exec('getNotifications');
+        const notification = yield db.exec("getNotifications");
         res.status(200).json(notification.recordset);
     }
     catch (error) {
-        res.status(404).json({ message: 'no notifications' });
+        res.status(404).json({ message: "no notifications" });
     }
 });
 exports.getNotifications = getNotifications;
 const addNotifications = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { trackId, email, message } = req.body;
-    console.log('helooo');
+    console.log("helooo");
     console.log(message);
     try {
-        yield db.exec('addNotifications', { trackId, email, message });
-        res.status(200).json('notification emitted');
+        yield db.exec("addNotifications", { trackId, email, message });
+        res.status(200).json("notification emitted");
     }
     catch (error) {
-        res.status(500).json('something went wrong');
+        res.status(500).json("something went wrong");
     }
 });
 exports.addNotifications = addNotifications;
 const deleteNotifications = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.id;
     try {
-        yield db.exec('deleteNotifications', { id });
-        res.status(201).json({ message: 'notifications were deleted successfully' });
+        yield db.exec("deleteNotifications", { id });
+        res
+            .status(201)
+            .json({ message: "notifications were deleted successfully" });
     }
     catch (error) {
         res.status(403).json({ message: "notifications was not deleted" });

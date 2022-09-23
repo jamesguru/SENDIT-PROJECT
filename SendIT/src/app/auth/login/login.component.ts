@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit,OnDestroy {
   message!:string;
 
   wrongPassword = 'You entered wrong password';
+  notFound='User is not found'
 
   constructor(private router:Router,private authService:AuthService) { }
 
@@ -42,6 +43,12 @@ export class LoginComponent implements OnInit,OnDestroy {
         this.error = true;
 
         this.message = this.wrongPassword
+      }else if(res.message ="not found"){
+
+        this.error = true;
+
+        this.message = this.notFound
+
       }
       
 

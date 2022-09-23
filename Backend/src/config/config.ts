@@ -1,33 +1,27 @@
-import dotenv from 'dotenv';
-
+import dotenv from "dotenv";
 
 dotenv.config();
 
 export const sqlconfig = {
+  user: process.env.DB_USER as string,
 
+  password: process.env.DB_PWD as string,
 
-    user:process.env.DB_USER as string,
+  database: process.env.DB_NAME as string,
 
-    password: process.env.DB_PWD as string,
+  server: "localhost",
 
-    database:process.env.DB_NAME as string,
+  pool: {
+    max: 10,
 
-    server:'localhost',
+    min: 0,
 
-    pool:{
+    idleTimeoutMillis: 30000,
+  },
 
-        max:10,
+  options: {
+    encrypt: true,
 
-        min:0,
-
-        idleTimeoutMillis:30000,
-
-    },
-
-    options:{
-
-        encrypt:true,
-
-        trustServerCertificate:true,
-    }
-}
+    trustServerCertificate: true,
+  },
+};

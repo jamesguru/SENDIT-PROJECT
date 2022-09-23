@@ -7,7 +7,8 @@ import {
   faUser,
   faPeopleGroup,
   faInbox,
-  faArchive
+  faArchive,
+  faBars
   
 } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
@@ -33,7 +34,7 @@ export class AdminComponent implements OnInit {
   markerPositions: google.maps.LatLngLiteral[] = [];
 
   
-
+  faHambuger = faBars;
   user = JSON.parse(localStorage.getItem('user') as string)
 
   parcels$ = this.store.select(getParcels);
@@ -51,6 +52,8 @@ export class AdminComponent implements OnInit {
   filteredText: string = '';
   parcel!: Parcel;
   faArchive=faArchive;
+
+  showMenuBar = false;
 
   marker!: Marker;
   
@@ -119,13 +122,20 @@ public handleReceiverAddressChange(address: Address) {
 
   this.markerPositions.push(this.marker)
 
-  console.log(this.markerPositions)
+  
 }
 
   loadParcels() {
     this.store.dispatch(Actions.LoadParcels());
   }
 
+  ShowMenuBar(condition: string) {
+    if (condition === 'open') {
+      this.showMenuBar = true;
+    } else {
+      this.showMenuBar = false;
+    }
+  }
   //-0.31693553704056177 36.097950790026374
 
   addMarker(event: google.maps.MapMouseEvent | any) {
